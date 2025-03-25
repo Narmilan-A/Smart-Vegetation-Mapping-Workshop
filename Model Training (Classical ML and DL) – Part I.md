@@ -1,60 +1,62 @@
-# Day 3: Model Training (Classical ML and DL) – Part I
+# Model Training (Classical ML and DL) – Part I
 
 ## Topics Covered
 
 ### **Working with Local Computer**
 - **Requirements**: 
-  - Local machine setup (recommended: at least 8 GB RAM, 4 core CPU, 64-bit OS)
-  - Python 3.x and required libraries (NumPy, pandas, scikit-learn, TensorFlow, Keras, etc.)
+  - Anaconda Distribution or Miniconda
+  - Visual Studio Code
+  - Python Standard Library
 - **Tips / Links**:
-  - [Installing Python and Libraries](https://www.python.org/)
-  - [Machine Learning with Scikit-learn](https://scikit-learn.org/stable/)
-  - [TensorFlow Installation](https://www.tensorflow.org/install)
+  - [Download Anaconda Distribution or Miniconda](https://www.anaconda.com/download/success)
+  - [Download Visual Studio Code](https://code.visualstudio.com/download)
+  - [Python Standard Library Documentation](https://docs.python.org/3/library/index.html)
 
 ---
 
 ### **Working with Google Colab**
 - **Requirements**: 
-  - Google account for accessing Google Colab
-  - Pre-uploaded datasets for training
+  - A Google Account
+  - Web Browser (Chrome, Firefox, Edge, Safari, etc.)
+  - Stable Internet Connection
+  - Python & Libraries
+  - Google Drive Integration
+  - GPU/TPU Access
 - **Tips / Links**:
-  - [Google Colab Getting Started](https://colab.research.google.com/)
-  - [How to Use Google Colab for Machine Learning](https://www.analyticsvidhya.com/blog/2020/09/a-complete-guide-to-google-colab-for-machine-learning/)
-  
+  - [Google Colab Homepage](https://colab.research.google.com/)
+  - [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
+
 ---
 
 ### **Working with QUT HPC (High-Performance Computing)**
 - **Requirements**:
-  - Access to QUT HPC resources
-  - SSH access and familiarity with cluster environments
+  - QUT HPC account
+  - Network drive
+  - Conda environment
+  - Required Python & Libraries
 - **Tips / Links**:
-  - [QUT HPC Access Information](https://www.qut.edu.au/research)
-  - [Introduction to High-Performance Computing](https://www.hpc.ox.ac.uk/)
-  
+  - [Request an HPC Account at QUT](https://heat2.qut.edu.au/HEAT/Login.aspx?ProviderName=QUT%2BSAML&Role=SelfService&Scope=SelfServiceMobile&CommandId=NewServiceRequestByOfferingId&Tab=ServiceCatalog&Template=F86AFEC39A8C454A890E989D24914A8E)
+  - [Mapping Your HPC Home Folder in Windows](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems#h2-0)
+  - [Using HPC Filesystems](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems)
+  - [Getting Started with HPC](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/getting-started-with-hpc)
+
 ---
 
-### **Introduction about GitHub Repository and Folder Structure**
+### **Introduction to GitHub Repository**
 - **Requirements**:
-  - GitHub account
-  - Basic understanding of version control systems (Git)
+  - GitHub Account
+  - Git Installed
+  - Code Editor (Optional) – Use VS Code, PyCharm, Atom, etc.
+  - Internet Connection (Required for pushing and pulling changes)
 - **Tips / Links**:
-  - [Creating a GitHub Repository](https://docs.github.com/en/github/getting-started-with-github/create-a-repository)
-  - [Git and GitHub Guide](https://guides.github.com/introduction/git-handbook/)
-  
----
-
-### **Folder Structure for Machine Learning Projects**
-- **Requirements**:
-  - A well-organized directory structure for machine learning projects
-- **Tips / Links**:
-  - [Best Practices for Organizing Machine Learning Projects](https://towardsdatascience.com/best-practices-for-organizing-your-machine-learning-project-2020-edition-2141f8f4f1fd)
-  - [Project Folder Structure Example](https://github.com/microsoft/ML-For-Beginners/tree/main/2.0)
+  - [Sign up at GitHub](https://github.com/)
+  - [Install Git on Your System](https://git-scm.com/downloads)
 
 ---
 
 ### **Useful Resources**
 - [GitHub Documentation](https://docs.github.com/en/github)
 - [Google Colab Documentation](https://colab.research.google.com/notebooks/welcome.ipynb)
-- [QUT HPC Documentation](https://www.qut.edu.au/research)
+- [QUT HPC Documentation](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems)
 
 ---
