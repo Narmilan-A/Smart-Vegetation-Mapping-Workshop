@@ -3,61 +3,63 @@
 ## Topics Covered
 
 ### **Introduction about Agisoft Metashape Pro, Installation, Licensing, Folder Structure**
-- **Requirements**: 
+- **Requirements**:
   - Agisoft Metashape 2.1.3 (Professional Edition)
-  - Basic System Configuration:
+  - Basic Configuration:
     - Up to 32 GB RAM (Laptop or Desktop)
     - CPU: 4 - 12 core Intel, AMD, or Apple M1/M2 processor, 2.0+ GHz
     - RAM: 16 - 32 GB
     - GPU: NVIDIA or AMD GPU with 1024+ unified shaders (For example: GeForce RTX 2060 or Radeon RX 5600M)
 - **Tips / Links**:
-  - [Download Agisoft Metashape](https://www.agisoft.com/downloads/)
-  
+  - [Download Agisoft Metashape](https://www.agisoft.com/downloads/installer/)
+  - [User Manual for Agisoft Metashape](https://www.agisoft.com/downloads/user-manuals/)
+
 ---
 
 ### **Explanation of Features in Agisoft Metashape Pro**
-- **Requirements**: 
-  - [User Manual for Agisoft Metashape Pro](https://www.agisoft.com/support/)
-  
+- **Requirements**:
+  - Agisoft Metashape Pro (installed)
+- **Tips / Links**:
+  - [Agisoft Metashape User Manual](https://www.agisoft.com/downloads/user-manuals/)
+
 ---
 
 ### **Quick Orthomosaicing of RGB Imagery**
-- **Requirements**: UAV RGB raw data
+- **Requirements**:
+  - UAV RGB raw data
 - **Tips / Links**:
-  - [Agisoft Tutorials](https://www.agisoft.com/learning/tutorials/)
-  - [MicaSense Altum Processing Workflow](https://micasense.com/)
-  - [Aerial Data Processing with GCPs](https://www.agisoft.com)
-  - Radiometric Calibration Model
-  - GeoTIFF Output
-  - Orthomosaic Export with Digital Numbers
-  - [Micasense Video](https://micasense.com/videos/)
-  - [Agisoft Tutorial on Georeferencing](https://www.agisoft.com/support/tutorials/)
+  - [All Tutorials for Agisoft Metashape](https://www.agisoft.com/learn/)
+  - [MicaSense Altum Processing Workflow](https://agisoft.freshdesk.com/support/solutions/articles/31000148381-micasense-altum-processing-workflow-including-reflectance-calibration-in-agisoft-metashape-professi#Appendix-A.-Manual-masking-of-the-calibration-images-with-the-radiometric-panel)
+  - [Aerial Data Processing with GCPs](https://agisoft.freshdesk.com/support/solutions/articles/31000153696-aerial-data-processing-with-gcps-orthomosaic-dem-generation)
+  - [Radiometric Calibration Model](https://support.micasense.com/hc/en-us/articles/115000351194-Radiometric-Calibration-Model-for-MicaSense-Sensors)
+  - [GeoTIFF Output](https://support.micasense.com/hc/en-us/articles/215460518-What-are-the-units-of-the-Atlas-GeoTIFF-output)
+  - [Orthomosaic Export with Digital Numbers](https://www.agisoft.com/forum/index.php?topic=12566.0)
+  - [Agisoft Tutorial - How to Georeference](https://www.youtube.com/watch?v=ywu7yzj19I4)
 
 ---
 
-### **Orthomosaicing of Multispectral Imagery**
+### **Orthomosaicing of MS Imagery**
 - **Requirements**:
   - UAV MS raw data
-  - Reflectance values of the panel
+  - Reflectance values of panel
   - GCP points
 - **Tips / Links**:
-  - [Agisoft Tutorial on Georeferencing](https://www.agisoft.com/support/tutorials/)
+  - [Radiometric Calibration for Multispectral Imagery](https://support.micasense.com/hc/en-us/articles/115000351194-Radiometric-Calibration-Model-for-MicaSense-Sensors)
 
 ---
 
 ### **Georeferencing**
-- **Requirements**: QGIS
-  - Current Version: 3.40.1
-  - Long Term Version: 3.34 LTR
+- **Requirements**:
+  - QGIS (Current version: 3.40.1)
 - **Tips / Links**:
-  - [Download QGIS](https://qgis.org/en/site/)
-  - [QGIS Georeferencing Tutorial](https://www.qgis.org/en/docs/)
+  - [QGIS Documentation](https://www.qgis.org/download/)
+  - [Georeferencing Tutorial in QGIS](https://docs.qgis.org/3.34/en/docs/user_manual/working_with_raster/georeferencer.html)
 
 ---
 
 ### **Orthomosaics (RGB and MS)**
 - **Requirements**:
-  - Download link for orthomosaics (RGB and MS)
-  - [Georeferencer](https://www.qgis.org/en/docs/)
-  
----
+  - Download link for orthomosaics
+- **Tips / Links**:
+  - [Download Georeferencer Plugin for QGIS](https://plugins.qgis.org/plugins/Georeferencer/)
+  - [Agisoft Tutorial Video on Georeferencing](https://www.youtube.com/watch?v=EmIDiqDiKSg)
