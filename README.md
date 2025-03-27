@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the Smart Vegetation Mapping Workshop repository. This workshop covers essential techniques in vegetation mapping using UAV-based multispectral and RGB data, machine learning (ML), and deep learning (DL). Participants will gain hands-on experience in data preprocessing, labeling, model training, and visualization.
+Welcome to the Smart Vegetation Mapping Workshop repository. This workshop covers essential techniques in vegetation mapping using UAV-based multispectral and RGB data, machine learning (ML), and deep learning (DL). Participants will gain hands-on experience in data preprocessing, labeling, model training, and visualisation.
 
 ## Workshop Overview
 
@@ -33,7 +33,6 @@ Generate predictions and visualise results using geospatial tools.
 ## Repository Contents
 
 ```
-/notebooks/  - Jupyter notebooks for preprocessing, training, and visualisation.
 /scripts/    - Python scripts for automation and data processing.
 /links/       - Workshop materials and guides.
 ```
@@ -68,14 +67,6 @@ Install dependencies:
 ```sh
 pip install -r requirements.txt
 ```
-
-## Contributing
-
-We welcome contributions! Feel free to submit issues, fork the repository, and create pull requests to improve the workshop materials.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
 
