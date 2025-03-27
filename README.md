@@ -11,7 +11,7 @@ This repository provides:
 - Guides and scripts for preprocessing UAV multispectral and RGB data.
 - Techniques for manual and semi-automatic labeling.
 - Model training workflows using classical ML and DL approaches.
-- Mapping and visualization methods for vegetation analysis.
+- Mapping and visualisation methods for vegetation analysis.
 
 ## Key Topics
 
