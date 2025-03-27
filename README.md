@@ -48,26 +48,6 @@ Ensure the following tools are installed before starting:
 - Python (with necessary libraries: NumPy, OpenCV, TensorFlow, PyTorch, etc.)
 - Google Colab (for cloud-based training)
 
-### Installation
-
-Clone the repository:
-
-```sh
-git clone https://github.com/your-repository/smart-vegetation-mapping.git
-```
-
-Navigate to the repository:
-
-```sh
-cd smart-vegetation-mapping
-```
-
-Install dependencies:
-
-```sh
-pip install -r requirements.txt
-```
-
 ## Contact
 
 For questions or support, please reach out to [narmi.narmilan@gmail.com](mailto:narmi.narmilan@gmail.com).
