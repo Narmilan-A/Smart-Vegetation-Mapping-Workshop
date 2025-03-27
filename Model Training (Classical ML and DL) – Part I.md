@@ -1,4 +1,4 @@
-# Model Training (Classical ML and DL) – Part I
+# Model Training (Classical ML and DL)
 
 ## Topics Covered
 
