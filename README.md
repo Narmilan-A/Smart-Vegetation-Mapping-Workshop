@@ -27,7 +27,7 @@ Implement classical ML and DL models on different platforms, including local mac
 ### Working with Own Data
 Apply learned techniques on personal datasets for customized vegetation mapping.
 
-### Mapping and Visualization
+### Mapping and Visualisation
 Generate predictions and visualize results using geospatial tools.
 
 ## Repository Contents
