@@ -56,10 +56,3 @@
   - [Georeferencing Tutorial in QGIS](https://docs.qgis.org/3.34/en/docs/user_manual/working_with_raster/georeferencer.html)
 
 ---
-
-### **Orthomosaics (RGB and MS)**
-- **Requirements**:
-  - Download link for orthomosaics
-- **Tips / Links**:
-  - [Download Georeferencer Plugin for QGIS](https://plugins.qgis.org/plugins/Georeferencer/)
-  - [Agisoft Tutorial Video on Georeferencing](https://www.youtube.com/watch?v=EmIDiqDiKSg)
