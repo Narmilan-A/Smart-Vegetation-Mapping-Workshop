@@ -35,7 +35,7 @@
   - Conda environment
   - Required Python & Libraries
 - **Tips / Links**:
-  - [Request an HPC Account at QUT](https://heat2.qut.edu.au/HEAT/Login.aspx?ProviderName=QUT%2BSAML&Role=SelfService&Scope=SelfServiceMobile&CommandId=NewServiceRequestByOfferingId&Tab=ServiceCatalog&Template=F86AFEC39A8C454A890E989D24914A8E)
+  - [Request an HPC Account at QUT](https://heat2.qut.edu.au/HEAT/Login.aspx?ProviderName=QUT+SAML&Role=SelfService&Scope=SelfServiceMobile&CommandId=NewServiceRequestByOfferingId&Tab=ServiceCatalog&Template=F86AFEC39A8C454A890E989D24914A8E)
   - [Mapping Your HPC Home Folder in Windows](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems#h2-0)
   - [Using HPC Filesystems](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems)
   - [Getting Started with HPC](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/getting-started-with-hpc)
