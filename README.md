@@ -28,15 +28,14 @@ Implement classical ML and DL models on different platforms, including local mac
 Apply learned techniques on personal datasets for customized vegetation mapping.
 
 ### Mapping and Visualisation
-Generate predictions and visualize results using geospatial tools.
+Generate predictions and visualise results using geospatial tools.
 
 ## Repository Contents
 
 ```
-/data/       - Sample UAV datasets and processed imagery.
-/notebooks/  - Jupyter notebooks for preprocessing, training, and visualization.
+/notebooks/  - Jupyter notebooks for preprocessing, training, and visualisation.
 /scripts/    - Python scripts for automation and data processing.
-/docs/       - Workshop materials and guides.
+/links/       - Workshop materials and guides.
 ```
 
 ## Getting Started
