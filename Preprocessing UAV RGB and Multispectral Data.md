@@ -28,13 +28,13 @@
 - **Requirements**:
   - UAV RGB raw data
 - **Tips / Links**:
-  - [All Tutorials for Agisoft Metashape](https://www.agisoft.com/learn/)
+  - [All Tutorials for Agisoft Metashape](https://agisoft.freshdesk.com/support/solutions/31000076245)
   - [MicaSense Altum Processing Workflow](https://agisoft.freshdesk.com/support/solutions/articles/31000148381-micasense-altum-processing-workflow-including-reflectance-calibration-in-agisoft-metashape-professi#Appendix-A.-Manual-masking-of-the-calibration-images-with-the-radiometric-panel)
   - [Aerial Data Processing with GCPs](https://agisoft.freshdesk.com/support/solutions/articles/31000153696-aerial-data-processing-with-gcps-orthomosaic-dem-generation)
   - [Radiometric Calibration Model](https://support.micasense.com/hc/en-us/articles/115000351194-Radiometric-Calibration-Model-for-MicaSense-Sensors)
   - [GeoTIFF Output](https://support.micasense.com/hc/en-us/articles/215460518-What-are-the-units-of-the-Atlas-GeoTIFF-output)
   - [Orthomosaic Export with Digital Numbers](https://www.agisoft.com/forum/index.php?topic=12566.0)
-  - [Agisoft Tutorial - How to Georeference](https://www.youtube.com/watch?v=ywu7yzj19I4)
+  - [Agisoft Tutorial - How to Georeference](https://www.youtube.com/watch?v=EmIDiqDiKSg)
 
 ---
 
