@@ -40,7 +40,5 @@
 ---
 
 ### **Useful QGIS Resources**
-- [QGIS Documentation](https://www.qgis.org/en/docs/)
 - [QGIS Tutorials](https://www.qgistutorials.com/)
-- [QGIS Community Support](https://gis.stackexchange.com/questions/tagged/qgis)
 ---
