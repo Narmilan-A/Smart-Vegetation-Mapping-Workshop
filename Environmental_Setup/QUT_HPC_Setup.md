@@ -197,8 +197,129 @@ print(f"Number of CPUs: {num_cpus}")
 ```python
 client.close()
 ```
+# Linux Terminal Commands
 
-### Find the Current Directory (Your Folder Path)
+## Basic Linux Commands
+This document provides a curated list of essential Linux commands for navigating the High-Performance Computing (HPC) environment. These commands will help you manage files, directories, and perform basic system operations.
+
+## Get Info About Commands
+Most Linux commands have manual pages with detailed instructions. Use the following command to access them:
+
+```sh
+man <command_name>
 ```
+
+## Navigating the Directory Structure
+### Current Directory
+Get the present working directory:
+```sh
 pwd
+```
+
+### List Files
+List files in the current directory:
+```sh
+ls
+```
+List a specific file within a directory:
+```sh
+ls a.out
+```
+List files with details (permissions, ownership, etc.):
+```sh
+ls -l
+```
+
+### Change Directory
+Change into a directory:
+```sh
+cd public_html
+```
+Move one level up:
+```sh
+cd ..
+```
+Navigate using absolute path:
+```sh
+cd ~/public_html/
+```
+Return to home directory:
+```sh
+cd ~
+```
+
+## Managing Directories and Files
+### Create a Directory
+Create a new directory:
+```sh
+mkdir testdir
+```
+Create nested directories:
+```sh
+mkdir -p testdir/test
+```
+
+### Remove Files and Directories
+Remove a file:
+```sh
+rm testfile
+```
+Remove a directory and its contents (with prompt):
+```sh
+rm -ri testdir
+```
+Forcefully remove a directory and its contents:
+```sh
+rm -rf testdir
+```
+Remove an empty directory:
+```sh
+rmdir NextDirectoryDown/
+```
+
+## Copy and Move Files
+### Copy Files
+Copy a file:
+```sh
+cp <sourcefile> <destinationfile>
+```
+Copy a directory recursively:
+```sh
+cp -r <sourcedir> <destinationdir>
+```
+
+### Move and Rename Files
+Move a file to a new directory:
+```sh
+mv file1 ./destinationdir/
+```
+Rename a file:
+```sh
+mv file1 file2
+```
+
+## Viewing File Contents
+### Display Full File Content
+```sh
+cat daysofweek.txt
+```
+
+### View File End (Tail)
+```sh
+tail -n 3 animals
+```
+Monitor file updates interactively:
+```sh
+tail -f logfile.log
+```
+
+### View File Start (Head)
+```sh
+head -n 2 animals
+```
+
+### Paginated File Viewing
+View file page by page:
+```sh
+more filename.txt
 ```
