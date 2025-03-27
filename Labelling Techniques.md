@@ -2,7 +2,7 @@
 
 ## Topics Covered
 
-### **Ground Truth Information and Visualization**
+### **Ground Truth Information and Visualisation**
 - **Requirements**: 
   - Ground truth data (e.g., GPS coordinates, field survey data)
   - Visualization tools for map and data display
