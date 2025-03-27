@@ -1,4 +1,4 @@
-# Day 2: Labelling Techniques
+# Labelling Techniques
 
 ## Topics Covered
 
