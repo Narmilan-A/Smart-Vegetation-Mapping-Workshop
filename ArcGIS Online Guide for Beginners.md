@@ -128,10 +128,16 @@ Once your map is created and data has been added, you may want to share it with 
 
 ## Additional Resources
 
-- [ArcGIS Online Help Documentation](https://doc.arcgis.com/en/arcgis-online/)
-- [ArcGIS Online Video Tutorials](https://www.esri.com/training/)
-- [ArcGIS Online Learning Path](https://learn.arcgis.com/en/paths/arcgis-online/)
-- [Esri Community Forum](https://community.esri.com/)
+For further learning and getting hands-on with ArcGIS Online, here are some useful resources:
+
+- **[Try ArcGIS Online](https://learn.arcgis.com/en/paths/try-arcgis-online/)** – A beginner's guide to exploring ArcGIS Online.
+- **[Get Started with ArcGIS Online](https://learn.arcgis.com/en/projects/get-started-with-arcgis-online/)** – A step-by-step guide to creating your first map and using ArcGIS Online.
+- **[ArcGIS Online: Data Basics](https://mediaspace.esri.com/media/t/1_1nytwqse)** – A video tutorial introducing you to the basics of working with data in ArcGIS Online.
+- **[Share a Map](https://learn.arcgis.com/en/projects/share-a-map/)** – A project guide on how to share a map with others, including settings for public or private sharing.
+- **[Create Maps in Map Viewer](https://learn.arcgis.com/en/paths/mapping-and-visualization/)** – Learn how to create and visualize your maps using the Map Viewer.
+- **[Share and Collaborate Using ArcGIS Online](https://learn.arcgis.com/en/paths/sharing-and-collaboration/)** – Learn how to collaborate and share content in ArcGIS Online.
+- **[Perform Analysis in Map Viewer](https://learn.arcgis.com/en/paths/data-analysis/)** – Learn how to perform spatial data analysis in the Map Viewer.
+- **[ArcGIS Online News](https://www.esri.com/en-us/arcgis/products/arcgis-online/news)** – Stay updated with the latest news and updates about ArcGIS Online.
 
 ---
 
