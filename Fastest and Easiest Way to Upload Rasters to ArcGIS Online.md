@@ -53,5 +53,4 @@ This guide outlines the steps to efficiently upload raster datasets to ArcGIS On
 
 By following these steps, you can effectively upload and visualize raster datasets in ArcGIS Online.
 
-For a visual demonstration, refer to the video by Esri Canada: [:contentReference[oaicite:1]{index=1}](https://www.youtube.com/watch?v=bQmOpcJrf0c&ab_channel=EsriCanada)
-
+[![Fastest and Easiest Way to Upload Rasters to ArcGIS Online](https://img.youtube.com/vi/bQmOpcJrf0c/0.jpg)](https://www.youtube.com/watch?v=bQmOpcJrf0c&ab_channel=EsriCanada)
