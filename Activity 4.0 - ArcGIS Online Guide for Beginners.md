@@ -142,3 +142,6 @@ For further learning and getting hands-on with ArcGIS Online, here are some usef
 ---
 
 By following these steps, you’ll be able to create, analyse, and share maps using ArcGIS Online. Experiment with the various tools and features to deepen your understanding and get the most out of your GIS projects.
+
+![image](https://github.com/user-attachments/assets/27d5b621-36c4-4f74-a528-7405ed104bb6)
+
