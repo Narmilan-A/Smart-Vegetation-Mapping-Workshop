@@ -1,53 +1,49 @@
 # Image Labelling Using ArcGIS Pro
 
-## 2.5.2 Image Labelling
+In the image labelling workflow, we applied a systematic approach to label target features in a high-resolution RGB orthomosaic. Two commonly used labelling methods are demonstrated here, aiming to distinguish between two general classes: the object of interest (e.g., a particular vegetation type or man-made feature) and the background (including all other elements). Label accuracy was ensured through a combination of ground truth information and expert input.
 
-In the methodology of the image labelling process, we employed a rigorous approach to accurately label the target species within a high-resolution RGB orthomosaic. Two different approaches were utilised for labelling. For our specific task, we focused on identifying two distinct classes:
+## Method: ArcGIS Pro Image Analyst Extension
 
-- **Target species**: Identified as *Broad-Leaved Pepper (BLP)* or *Pandanus*.
-- **Background**: Other vegetation and non-vegetation features.
+The first method utilises the advanced capabilities of ArcGIS Pro (v3.1 or higher), specifically the **Image Analyst** extension. This extension allows for a streamlined, semi-automated image labelling process via tools such as the **Training Samples Manager**, which is optimised for supervised classification workflows.
 
-To ensure labelling accuracy, we combined ground truth information with expert support throughout the process.
+- This method is efficient and significantly reduces labelling time.
+- Requires the **Image Analyst** license (sold separately).
+- Ideal for users with access to licensed advanced GIS tools.
 
----
+![Figure 1: Screenshot of Licensing details and Training Samples Manager](![image](https://github.com/user-attachments/assets/a52ce1d2-57f8-40c1-af19-5018d7aeba29)
 
-## 2.5.2.1 Method 1: Use of ArcGIS Pro Image Analyst Extension
+## Method: ArcGIS Pro Feature Class Tool
 
-We used the advanced capabilities of **ArcGIS Pro 3.1** with the **Image Analyst** extension (available through a separate license). This extension enabled efficient and detailed image labelling through tools such as the **Training Samples Manager**.
+The second approach uses the **Create Feature Class** tool available in ArcGIS Pro. This method is more manual but does not require any additional licensing beyond a standard ArcGIS Pro installation.
 
-- This method **required less time** for labelling.
-- A **separate license** for the Image Analyst extension is needed.
+- Suitable for those without access to the Image Analyst extension.
+- Requires more time for manual labelling and polygon digitisation.
+- Produces labelled vector files (e.g., shapefiles or feature classes) suitable for downstream machine learning model development or analysis.
 
-> 📌 See *Appendix-D* for detailed processing steps.
+### Steps (Part 1)
 
-### Figure 1: Licensing details and Training Samples Manager  
-![image](https://github.com/user-attachments/assets/33c281f9-1928-49a7-8382-b649d730ccfc)
+1. Open ArcGIS Pro and start a new project.
+2. Load the high-resolution orthomosaic image into the map window.
+3. Navigate to the **Catalog** panel > Right-click on your geodatabase > Choose **New > Feature Class**.
+4. Define the new feature class name and geometry type (e.g., polygon).
+5. Add a field to store label categories (e.g., “Class”: Object / Background).
 
+![Figure 2: Processing steps for labelling using feature class tool (Part-1)](![image](https://github.com/user-attachments/assets/7abdf953-2c1c-4b25-b7e5-bbbf12cfc41f)
 
----
+### Steps (Part 2)
 
-## 2.5.2.2 Method 2: Use of ArcGIS Pro Feature Class Tool
+6. Use the **Edit** tab > **Create Features** to begin digitising labelled regions.
+7. Assign appropriate label values to each polygon using the attribute table.
+8. Once labelling is complete, export the labelled features as a shapefile or maintain it as a geodatabase feature class.
 
-The second method used the **“Create Feature Class”** tool in ArcGIS Pro to label the target species manually.
+![Figure 3: Processing steps for labelling using feature class tool (Part-2)](![image](https://github.com/user-attachments/assets/05114264-c6d8-471f-b929-4bdc40f19fc9)
 
-- This approach **does not require an additional license**.
-- However, it **requires more time** due to manual labelling and attribute population steps.
+## Summary
 
-Figures below show the processing workflow for creating and exporting the labelled vector file, which is used in the model development pipeline.
+Both methods provide viable approaches to image labelling within ArcGIS Pro, depending on the tools and licensing available:
 
-### Figure 2: Processing steps for labelling using feature class tool (Part-1)  
-![image](https://github.com/user-attachments/assets/7d7a9732-cbc5-4fe6-a723-ebfa8361640a)
+- **Image Analyst Extension**: Efficient, advanced functionality; ideal for users with access to licensed tools.
+- **Feature Class Tool**: Manual but accessible; suitable for broader use cases with no additional licensing cost.
 
-### Figure 3: Processing steps for labelling using feature class tool (Part-2)  
-![image](https://github.com/user-attachments/assets/0cf017e2-6533-4c3c-a360-867f8d241bda)
+These labelled datasets can then be exported and used in machine learning workflows, classification models, or other GIS-based analyses.
 
----
-
-### Summary
-
-| Method | Tool Used | License Required | Labelling Time | Notes |
-|--------|-----------|------------------|----------------|-------|
-| **1** | Image Analyst Extension | Yes | Less | Efficient, good for batch tasks |
-| **2** | Create Feature Class | No | More | Manual but cost-effective |
-
-Both methods contributed to the accurate creation of training datasets for the image classification and machine learning modelling tasks.
