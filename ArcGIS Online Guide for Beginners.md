@@ -105,7 +105,7 @@ Adding data to your map can help you visualise geographic features, such as road
    - Click **Add** > **Search for Layers** to search for layers in ArcGIS Online or your own content.
 
 2. **Add Data from Your Computer**:
-   - If you have data stored on your computer (e.g., CSV, shapefile, GeoJSON), click **Add** > **Add Layer from File** and upload the data.
+   - If you have data stored on your computer (e.g., Supported file types are CSV, GeoJSON, KML, GeoPackage), click **Add** > **Add Layer from File** and upload the data.
 
 3. **Add Web Layers**:
    - You can also add web layers (e.g., WMS, KML, or Feature Services) by selecting **Add** > **Add Layer from Web**.
