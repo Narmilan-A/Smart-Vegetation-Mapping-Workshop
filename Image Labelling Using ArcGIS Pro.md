@@ -21,7 +21,8 @@ We used the advanced capabilities of **ArcGIS Pro 3.1** with the **Image Analyst
 > 📌 See *Appendix-D* for detailed processing steps.
 
 ### Figure 1: Licensing details and Training Samples Manager  
-![Figure 1: Licensing details and Training Samples Manager](path_to_image_figure1)
+![image](https://github.com/user-attachments/assets/33c281f9-1928-49a7-8382-b649d730ccfc)
+
 
 ---
 
@@ -35,10 +36,10 @@ The second method used the **“Create Feature Class”** tool in ArcGIS Pro to 
 Figures below show the processing workflow for creating and exporting the labelled vector file, which is used in the model development pipeline.
 
 ### Figure 2: Processing steps for labelling using feature class tool (Part-1)  
-![Figure 2: Processing steps for labelling using feature class tool (Part-1)](path_to_image_figure2)
+![image](https://github.com/user-attachments/assets/7d7a9732-cbc5-4fe6-a723-ebfa8361640a)
 
 ### Figure 3: Processing steps for labelling using feature class tool (Part-2)  
-![Figure 3: Processing steps for labelling using feature class tool (Part-2)](path_to_image_figure3)
+![image](https://github.com/user-attachments/assets/0cf017e2-6533-4c3c-a360-867f8d241bda)
 
 ---
 
