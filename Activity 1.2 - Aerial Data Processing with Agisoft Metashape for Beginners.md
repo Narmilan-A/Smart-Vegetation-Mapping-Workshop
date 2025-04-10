@@ -416,8 +416,8 @@ By adjusting these hyperparameters appropriately, you can optimise your **Agisof
 
 For further learning, refer to these helpful resources:
 
-- [Agisoft Metashape Documentation](https://www.agisoft.com/support/documentation/)
-- [Metashape User Forum](https://www.agisoft.com/forum/)
+- [Agisoft Metashape Documentation](https://www.agisoft.com/downloads/user-manuals/)
+- [Metashape User Forum](https://www.agisoft.com/forum/index.php)
 - [Agisoft Metashape Tutorials on YouTube](https://www.youtube.com/results?search_query=agisoft+metashape+tutorial)
 
 ---
