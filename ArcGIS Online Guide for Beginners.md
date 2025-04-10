@@ -9,9 +9,9 @@ ArcGIS Online is a powerful web-based GIS (Geographic Information System) tool t
 3. [Navigating the ArcGIS Online Interface](#navigating-the-arcgis-online-interface)
 4. [Creating a Map](#creating-a-map)
 5. [Adding Data to Your Map](#adding-data-to-your-map)
-6. [Analyzing Your Data](#analyzing-your-data)
-7. [Saving and Sharing Your Map](#saving-and-sharing-your-map)
-8. [Additional Resources](#additional-resources)
+6. [Saving Your Map](#saving-your-map)
+7. [Additional Resources](#additional-resources)
+
 
 ## Introduction
 
