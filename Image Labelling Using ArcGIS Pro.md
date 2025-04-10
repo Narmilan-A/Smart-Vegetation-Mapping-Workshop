@@ -10,7 +10,7 @@ The first method utilises the advanced capabilities of ArcGIS Pro (v3.1 or highe
 - Requires the **Image Analyst** license (sold separately).
 - Ideal for users with access to licensed advanced GIS tools.
 
-![Figure 1: Screenshot of Licensing details and Training Samples Manager](![image](https://github.com/user-attachments/assets/a52ce1d2-57f8-40c1-af19-5018d7aeba29)
+####[Figure 1: Screenshot of Licensing details and Training Samples Manager](![image](https://github.com/user-attachments/assets/a52ce1d2-57f8-40c1-af19-5018d7aeba29)
 
 ## Method: ArcGIS Pro Feature Class Tool
 
@@ -28,7 +28,7 @@ The second approach uses the **Create Feature Class** tool available in ArcGIS P
 4. Define the new feature class name and geometry type (e.g., polygon).
 5. Add a field to store label categories (e.g., “Class”: Object / Background).
 
-![Figure 2: Processing steps for labelling using feature class tool (Part-1)](![image](https://github.com/user-attachments/assets/7abdf953-2c1c-4b25-b7e5-bbbf12cfc41f)
+####[Figure 2: Processing steps for labelling using feature class tool (Part-1)](![image](https://github.com/user-attachments/assets/7abdf953-2c1c-4b25-b7e5-bbbf12cfc41f)
 
 ### Steps (Part 2)
 
@@ -36,7 +36,7 @@ The second approach uses the **Create Feature Class** tool available in ArcGIS P
 7. Assign appropriate label values to each polygon using the attribute table.
 8. Once labelling is complete, export the labelled features as a shapefile or maintain it as a geodatabase feature class.
 
-![Figure 3: Processing steps for labelling using feature class tool (Part-2)](![image](https://github.com/user-attachments/assets/05114264-c6d8-471f-b929-4bdc40f19fc9)
+####[Figure 3: Processing steps for labelling using feature class tool (Part-2)](![image](https://github.com/user-attachments/assets/05114264-c6d8-471f-b929-4bdc40f19fc9)
 
 ## Summary
 
