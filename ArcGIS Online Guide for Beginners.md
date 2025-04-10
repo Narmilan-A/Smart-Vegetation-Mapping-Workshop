@@ -5,6 +5,7 @@ ArcGIS Online is a powerful web-based GIS (Geographic Information System) tool t
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Signing In to ArcGIS Online](#signing-in-to-arcgis-online)
+   - [Sign In Using Organizational URL](#sign-in-using-organizational-url)
 3. [Navigating the ArcGIS Online Interface](#navigating-the-arcgis-online-interface)
 4. [Creating a Map](#creating-a-map)
 5. [Adding Data to Your Map](#adding-data-to-your-map)
@@ -30,12 +31,25 @@ Before you can use ArcGIS Online, you'll need to sign in. If you don’t have an
 2. **Click "Sign In"**:
    - On the top-right corner of the website, click on the **Sign In** button.
 
-3. **Enter Your Credentials**:
+3. **Sign In Options**:
    - If you have an ArcGIS account, enter your **username** and **password**.
    - If you don’t have an account, click **Create an account** to set one up.
 
+### Sign In Using Organizational URL
+
+If your organisation has a subscription to ArcGIS Online, you can sign in using your organisation's URL. This will give you access to organisation-specific content, tools, and shared resources.
+
+1. **Choose "Sign in with your ArcGIS organization"**:
+   - After clicking **Sign In**, you will be prompted to either sign in with your Esri account or your organization's account. Choose the **Sign in with your ArcGIS organization** option.
+
+2. **Enter Your Organization's URL**:
+   - You will be asked to enter your organisation’s ArcGIS Online URL. This typically looks like: `https://<your_organisation_name>.arcgis.com`.
+
+3. **Enter Your Credentials**:
+   - After entering your organisation's URL, you will be prompted to enter your organisation's **username** and **password**.
+
 4. **Access Your Dashboard**:
-   - Once logged in, you’ll be taken to your **Content** page, which acts as a dashboard for managing your maps, data, and other resources.
+   - Once logged in, you’ll be taken to your **Content** page, which acts as a dashboard for managing your maps, data, and other resources within your organisation.
 
 ---
 
