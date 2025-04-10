@@ -332,6 +332,84 @@ The **point confidence** setting adjusts how much confidence Metashape has in th
 
 This detailed explanation of hyperparameters with real-world examples will help you make more informed decisions about your Agisoft Metashape project settings, allowing you to balance processing time, memory usage, and accuracy according to your specific needs.
 
+## Agriculture and Vegetation Mapping Studies
+
+When conducting agricultural or vegetation mapping studies, the primary goal is to capture detailed and accurate representations of plant life, land cover, and environmental features. The following hyperparameters from **Agisoft Metashape** are particularly suited for these types of studies:
+
+---
+
+### 1. **Accuracy (Alignment Stage)**
+
+For vegetation mapping, **accuracy** is crucial, especially when working with detailed imagery of vegetation structure, plant types, or soil conditions. A higher accuracy setting will ensure that the model aligns properly with the ground features.
+
+- **High**:
+  - **When to use**: Ideal for smaller agricultural fields or vegetation surveys where precision in capturing plant details and land features is necessary.
+  - **Real-world Example**: Mapping a specific plant species in a controlled environment, like a farm or botanical garden, where the exact positioning of plants relative to one another is important for analysis.
+
+- **Highest**:
+  - **When to use**: If vegetation health or small-scale changes (e.g., drought stress, growth patterns) need to be assessed with high precision.
+  - **Real-world Example**: Vegetation stress analysis for agricultural crops, where precise camera alignment ensures that subtle variations in plant health are captured.
+
+---
+
+### 2. **Key Point Limit (Alignment Stage)**
+
+In agricultural and vegetation mapping, the number of key points detected in each image directly affects the accuracy of identifying plants, soil types, and terrain features.
+
+- **High Limit (e.g., 40,000-50,000)**:
+  - **When to use**: For detailed vegetation mapping where higher-resolution imagery is available, ensuring that enough points are captured for accurate model alignment.
+  - **Real-world Example**: Mapping the canopy of trees in a forest or plantation, where the terrain is complex and many features need to be identified.
+
+- **Very High Limit (e.g., 100,000 or more)**:
+  - **When to use**: For high-resolution imagery of small-scale vegetation (e.g., crops or individual trees), ensuring the best accuracy for detailed mapping.
+  - **Real-world Example**: High-resolution mapping of a vineyard or orchard where the accuracy of individual plant positions is crucial for managing the crop.
+
+---
+
+### 3. **Depth Filtering (Dense Cloud Generation)**
+
+In agriculture and vegetation mapping, **depth filtering** helps to remove noisy points that might be caused by dynamic elements like wind or changes in light, as well as irrelevant features such as cloud shadows.
+
+- **Moderate**:
+  - **When to use**: Suitable for large areas of agricultural land where some noise is present but not excessive.
+  - **Real-world Example**: Aerial mapping of a large farming area where the soil or crop health needs to be assessed but the model must retain most features for analysis.
+
+- **Aggressive**:
+  - **When to use**: For dense vegetation or areas with lots of texture, like forests, where noise can obscure finer details.
+  - **Real-world Example**: A dense forest mapping project, where the model needs to focus on the canopy structure, removing unnecessary noise that might come from other vegetation types.
+
+---
+
+### 4. **Resolution (Orthomosaic Generation)**
+
+In agriculture and vegetation mapping, the **resolution** of the final orthomosaic determines how much detail you can extract from the images. Higher resolutions will capture more detail, which is essential for assessing plant health, species types, or crop conditions.
+
+- **Medium (e.g., 2 cm/pixel)**:
+  - **When to use**: For general vegetation surveys or crop monitoring, where moderate detail is enough to assess plant health and coverage.
+  - **Real-world Example**: Mapping the distribution of crops across a farm, where the individual plants are not as important as the overall distribution.
+
+- **High (e.g., 0.5 cm/pixel or finer)**:
+  - **When to use**: For detailed vegetation studies where precise plant measurements or individual tree/crop assessments are required.
+  - **Real-world Example**: High-resolution analysis of a garden, vineyard, or a small crop field where the goal is to study individual plants and their health status.
+
+---
+
+### 5. **Point Confidence (Dense Cloud Generation)**
+
+In vegetation studies, **point confidence** helps ensure that only the most reliable points are used in the dense cloud generation. This is especially important when assessing the structure of vegetation, as any inaccurate points can lead to incorrect conclusions.
+
+- **Medium Confidence**:
+  - **When to use**: A balanced approach for standard vegetation mapping projects where a good level of point confidence is needed without overly slowing down processing.
+  - **Real-world Example**: Mapping a forest or agricultural field where enough detail is needed for analysis, but the priority is on moderate accuracy.
+
+- **High Confidence**:
+  - **When to use**: For precise measurements of vegetation, such as studying tree height, canopy structure, or crop health, where the data quality is essential for accurate results.
+  - **Real-world Example**: Assessing the health of individual trees or crops in a plantation where minor errors could impact the analysis of vegetation stress or growth.
+
+---
+
+By adjusting these hyperparameters appropriately, you can optimise your **Agisoft Metashape** workflow to suit the specific needs of agricultural and vegetation mapping studies. Whether you’re mapping large fields, individual crops, or dense forests, these settings will help balance processing time with the level of detail required for accurate analysis.
+
 ---
 
 ## Additional Resources
