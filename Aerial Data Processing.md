@@ -1,4 +1,4 @@
-# Aerial Data Processing Guide for Beginners
+# Aerial Data Processing Guide
 
 ## Table of Contents
 
