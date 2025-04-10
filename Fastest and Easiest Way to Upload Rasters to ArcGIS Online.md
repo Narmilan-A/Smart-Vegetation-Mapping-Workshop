@@ -1,6 +1,6 @@
 # Fastest and Easiest Way to Upload Rasters to ArcGIS Online
 
-This guide outlines the steps to efficiently upload raster datasets to ArcGIS Online as tile layers for web visualization. :contentReference[oaicite:0]{index=0}
+This guide outlines the steps to efficiently upload raster datasets to ArcGIS Online as tile layers for web visualization.
 
 ## Prerequisites
 
@@ -53,5 +53,5 @@ This guide outlines the steps to efficiently upload raster datasets to ArcGIS On
 
 By following these steps, you can effectively upload and visualize raster datasets in ArcGIS Online.
 
-For a visual demonstration, refer to the video by Esri Canada: :contentReference[oaicite:1]{index=1}
+For a visual demonstration, refer to the video by Esri Canada: [:contentReference[oaicite:1]{index=1}](https://www.youtube.com/watch?v=bQmOpcJrf0c&ab_channel=EsriCanada)
 
