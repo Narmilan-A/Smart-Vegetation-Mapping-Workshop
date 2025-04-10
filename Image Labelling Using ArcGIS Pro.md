@@ -29,9 +29,8 @@ The second approach uses the **Create Feature Class** tool available in ArcGIS P
 4. Define the new feature class name and geometry type (e.g., polygon).
 5. Add a field to store label categories (e.g., “Class”: Object / Background).
 
-![image](https://github.com/user-attachments/assets/1678f752-872a-4408-b59f-376a6f9fe37e)
-
-Figure 2: Processing steps for labelling using feature class tool (Part-1)
+![Processing steps for labelling using feature class tool - Part 1](https://github.com/user-attachments/assets/1678f752-872a-4408-b59f-376a6f9fe37e)  
+*Figure 2: Processing steps for labelling using feature class tool (Part-1)*
 
 ### Steps (Part 2)
 
@@ -39,9 +38,9 @@ Figure 2: Processing steps for labelling using feature class tool (Part-1)
 7. Assign appropriate label values to each polygon using the attribute table.
 8. Once labelling is complete, export the labelled features as a shapefile or maintain it as a geodatabase feature class.
 
-![image](https://github.com/user-attachments/assets/e680df51-8ffb-48a7-8edd-42b228008b97)
+![Processing steps for labelling using feature class tool - Part 2](https://github.com/user-attachments/assets/e680df51-8ffb-48a7-8edd-42b228008b97)  
+*Figure 3: Processing steps for labelling using feature class tool (Part-2)*
 
-Figure 3: Processing steps for labelling using feature class tool (Part-2)
 
 ## Summary
 
