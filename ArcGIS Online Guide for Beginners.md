@@ -115,48 +115,15 @@ Adding data to your map can help you visualise geographic features, such as road
 
 ---
 
-## Analyzing Your Data
-
-ArcGIS Online has a variety of tools for spatial analysis to help you gain insights from your data. Some common analysis tasks include buffering, intersecting, and calculating distances.
-
-### Step-by-Step Guide
-
-1. **Open Analysis Tools**:
-   - Click the **Analysis** button from the top menu of the Map Viewer.
-
-2. **Choose an Analysis Tool**:
-   - You can perform various analyses such as **Summarize Data**, **Find Hot Spots**, **Perform Overlay** (intersections), and more.
-
-3. **Select Input Layers**:
-   - Select the layer(s) you want to analyse and choose the parameters for your analysis.
-
-4. **Run the Analysis**:
-   - After configuring your analysis, click **Run Analysis** and wait for the results to be generated.
-
-5. **Review Results**:
-   - Once the analysis is complete, the results will be displayed on the map and in the contents pane. You can further interact with the results or export them for reporting.
-
----
-
-## Saving and Sharing Your Map
+## Saving Your Map
 
 Once your map is created and data has been added, you may want to share it with others or save it for future use.
 
 ### Step-by-Step Guide
 
-1. **Save Your Map**:
+**Save Your Map**:
    - Click the **Save** button in the top-left corner.
    - Add a title, description, and tags to your map, then click **Save**.
-
-2. **Share Your Map**:
-   - To share your map, click **Share** in the top-right corner.
-   - You can choose to share your map with specific people, groups, or make it **public** for anyone to view.
-   - If you want to share a web map in your organisation, select the appropriate sharing option.
-
-3. **Embed Map or Create Web App**:
-   - You can also embed your map in a website by selecting **Embed** under the Share menu.
-   - Alternatively, you can create a **Web App** (a customizable interface for your map) to share it in different formats.
-
 ---
 
 ## Additional Resources
