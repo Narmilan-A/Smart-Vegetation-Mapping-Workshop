@@ -2,7 +2,7 @@
 
 In the image labelling workflow, we applied a systematic approach to label target features in a high-resolution RGB orthomosaic. Two commonly used labelling methods are demonstrated here, aiming to distinguish between two general classes: the object of interest (e.g., a particular vegetation type or man-made feature) and the background (including all other elements). Label accuracy was ensured through a combination of ground truth information and expert input.
 
-## Method: ArcGIS Pro Image Analyst Extension
+## Method 1: ArcGIS Pro Image Analyst Extension
 
 The first method utilises the advanced capabilities of ArcGIS Pro (v3.1 or higher), specifically the **Image Analyst** extension. This extension allows for a streamlined, semi-automated image labelling process via tools such as the **Training Samples Manager**, which is optimised for supervised classification workflows.
 
@@ -13,7 +13,7 @@ The first method utilises the advanced capabilities of ArcGIS Pro (v3.1 or highe
 ![Screenshot of Licensing details and Training Samples Manager](https://github.com/user-attachments/assets/ca29eba1-62c0-4fe0-bc14-ea90f9e996b5)  
 *Figure 1: Screenshot of Licensing details and Training Samples Manager*
 
-## Method: ArcGIS Pro Feature Class Tool
+## Method 2: ArcGIS Pro Feature Class Tool
 
 The second approach uses the **Create Feature Class** tool available in ArcGIS Pro. This method is more manual but does not require any additional licensing beyond a standard ArcGIS Pro installation.
 
