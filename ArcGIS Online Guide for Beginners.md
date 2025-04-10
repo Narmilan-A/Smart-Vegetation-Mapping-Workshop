@@ -43,7 +43,7 @@ If your organisation has a subscription to ArcGIS Online, you can sign in using 
    - After clicking **Sign In**, you will be prompted to either sign in with your Esri account or your organization's account. Choose the **Sign in with your ArcGIS organization** option.
 
 2. **Enter Your Organization's URL**:
-   - You will be asked to enter your organisation’s ArcGIS Online URL. This typically looks like: `https://<your_organisation_name>.arcgis.com`.
+   - You will be asked to enter your organisation’s ArcGIS Online URL. This typically looks like: `https://<your_organisation_name>.maps.arcgis.com` (https://geouow.maps.arcgis.com/).
 
 3. **Enter Your Credentials**:
    - After entering your organisation's URL, you will be prompted to enter your organisation's **username** and **password**.
