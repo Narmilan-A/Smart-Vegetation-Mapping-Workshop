@@ -2,6 +2,8 @@
 
 This guide outlines the steps to efficiently upload raster datasets to ArcGIS Online as tile layers for web visualization.
 
+https://github.com/user-attachments/assets/37c67849-686e-49e7-9e92-951b39a35585
+
 ## Prerequisites
 
 - **ArcGIS Pro**: Ensure you have ArcGIS Pro installed and licensed.
