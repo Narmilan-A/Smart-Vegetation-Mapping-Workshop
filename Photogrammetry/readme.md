@@ -1,4 +1,4 @@
-# 📘 3D Photogrammetry and Mapping Software Manuals
+# Photogrammetry Software Manuals
 
 This repository provides user manuals for three major 3D photogrammetry and mapping software tools:
 
