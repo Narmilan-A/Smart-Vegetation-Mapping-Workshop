@@ -16,7 +16,7 @@ These tools are used to process drone imagery into 3D models, orthomosaics, poin
 
 ### 🧱 Agisoft Metashape Professional
 
-📄 [View Manual (PDF)](https://www.agisoft.com/downloads/user-manuals/)
+📄 [View Manual (PDF)](https://www.agisoft.com/pdf/metashape-pro_2_2_en.pdf)
 
 ### 🧭 Pix4Dmapper
 
