@@ -1,40 +1,31 @@
-# 3D Photogrammetry and Mapping Software
+# 📘 3D Photogrammetry and Mapping Software Manuals
 
-This repository contains user manuals and basic info for popular 3D photogrammetry and mapping software:
+This repository provides user manuals for three major 3D photogrammetry and mapping software tools:
 
-- Agisoft Metashape Professional
-- Pix4Dmapper
-- DJI Terra
+- **Agisoft Metashape Professional**
+- **Pix4Dmapper**
+- **DJI Terra**
 
-These tools are widely used in drone-based surveying, environmental mapping, and 3D reconstruction.
-
----
-
-## 🛠️ Software Overview
-
-### 1. Agisoft Metashape Professional
-
-Agisoft Metashape is used for photogrammetric processing of digital images and generating 3D spatial data.
-
-**Manual:** [📄 Download PDF](./agisoft/Agisoft_Metashape_User_Manual.pdf)
+These tools are used to process drone imagery into 3D models, orthomosaics, point clouds, and DEMs.
 
 ---
 
-### 2. Pix4Dmapper
+## 📂 User Manuals
 
-Pix4Dmapper is a professional photogrammetry software to transform images into georeferenced 2D maps and 3D models.
+> 📌 **Click the links below to view or download the manuals. Make sure the PDF files are uploaded to the repo first.**
 
-**Manual:** [📄 Download PDF](./pix4d/Pix4Dmapper_User_Manual.pdf)
+### 🧱 Agisoft Metashape Professional
+
+📄 [View Manual (PDF)] [metashape-pro_1_8_en.pdf](https://github.com/user-attachments/files/19725258/metashape-pro_1_8_en.pdf)
+
+
+### 🧭 Pix4Dmapper
+
+📄 [View Manual (PDF)](./pix4d/Pix4Dmapper_User_Manual.pdf)
+
+### 🛰️ DJI Terra
+
+📄 [View Manual (PDF)](./dji-terra/DJI_Terra_User_Manual.pdf)
 
 ---
-
-### 3. DJI Terra
-
-DJI Terra is an easy-to-use 2D/3D reconstruction software designed for DJI drones.
-
-**Manual:** [📄 Download PDF](./dji-terra/DJI_Terra_User_Manual.pdf)
-
----
-
-## 📂 Repository Structure
 
