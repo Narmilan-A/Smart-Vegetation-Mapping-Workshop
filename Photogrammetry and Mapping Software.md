@@ -14,15 +14,15 @@ These tools are used to process drone imagery into 3D models, orthomosaics, poin
 
 > 📌 **Click the links below to view or download the manuals. Make sure the PDF files are uploaded to the repo first.**
 
-### 🧱 Agisoft Metashape Professional
+### Agisoft Metashape Professional
 
 📄 [View Manual (PDF)](https://www.agisoft.com/pdf/metashape-pro_2_2_en.pdf)
 
-### 🧭 Pix4Dmapper
+### Pix4Dmapper
 
 📄 [View Manual (PDF)](https://data.pix4d.com/misc/manual_pdf/manual_4_1.pdf)
 
-### 🛰️ DJI Terra
+### DJI Terra
 
 📄 [View Manual (PDF)](https://dl.djicdn.com/downloads/dji-terra/20240118/DJI_Terra_User_Manual_v4.0__EN.pdf)
 
