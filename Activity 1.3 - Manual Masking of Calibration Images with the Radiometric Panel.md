@@ -1,11 +1,30 @@
-# Manual Masking of Calibration Images with the Radiometric Panel
+# 🌞 Manual Masking for Reflectance Panel Calibration in Agisoft Metashape
 
-In some cases, panels may not be automatically detected (e.g., unsupported or non-MicaSense panels). When this occurs:
+This guide explains how to **manually mask reflectance panel images** in Agisoft Metashape for accurate **radiometric calibration** — especially useful when using sensors like MicaSense or Parrot Sequoia.
 
-### 1. Create a Camera Group for Calibration Images
+---
+
+## 📌 Goal
+
+To **mask out everything except the white reflectance panel** in calibration images, ensuring Metashape uses only valid regions for reflectance correction.
+
+---
+
+## 🧰 Requirements
+
+- Agisoft Metashape (any version with radiometric calibration support)
+- A set of **calibration images** containing the reflectance panel
+- Known **reflectance values** for the panel (typically ~0.99 for white)
+- A multispectral or RGB sensor
+
+---
+
+## 🪜 Step-by-Step Instructions
+
+### ✅ 1. Create a Camera Group for Calibration Images
 If the `Calibration images` folder is not automatically created:
 
-1. In the **Workspace** pane, select the images that contain the calibration panel.
+1. In the **Workspace** pane, select the images containing the calibration panel.
 2. Right-click on the selected images and choose:  
    `Move Cameras > New Camera Group`
 3. Right-click on the newly created folder and rename it to:  
@@ -13,73 +32,73 @@ If the `Calibration images` folder is not automatically created:
 4. Move all relevant calibration images into this folder.
 5. **Disable** the calibration cameras by right-clicking and selecting **Disable Cameras**.
 
-### 2. Apply Manual Masks
-For each image in the `Calibration images` group:
+### ✅ 2. Open Calibration Image
+- In the **Photos** pane, double-click a calibration image to open it.
+- This image should contain your white reflectance panel.
 
-- Manually **mask everything except the calibration plate**.
-- Ensure only the **panel area** is unmasked.
-- Masks must be created **for each calibration image and for each spectral band**.
+### ✅ 3. Draw a Polygon Around the Panel
+- Use the **Polygon Selection Tool** or **Free-Form (Lasso) Tool** from the toolbar.
+- Carefully draw a selection **around only the white panel**, avoiding shadows and borders.
 
-To switch between bands:
+### ✅ 4. Invert the Selection
+- Go to:  
+  `Tools` → `Mask` → `Invert Selection`  
+  _or press_ `Ctrl + Shift + I`
 
-- Use the **Photos pane** panel displayed to the right when an image is opened.
+> Now everything **except the panel** is selected.
 
-### 3. Continue with Reflectance Calibration
-After masking:
+### ✅ 5. Add Selection to Mask
+- Go to:  
+  `Tools` → `Mask` → `Add Selection`  
+  _or right-click and choose_ **"Add Selection to Mask"**
 
-- Proceed to **Step 3** of the reflectance calibration process.
-- Input the reflectance values for each band of the calibration panel.
+> 🔒 The masked area will appear shaded. The **unmasked (clear)** area should be **only the white panel**.
 
-📘 Refer to the official guide for more details:  
-[Agisoft Reflectance Calibration Tutorial – Appendix A](https://agisoft.freshdesk.com/support/solutions/articles/31000148381#Appendix-A.-Manual-masking-of-the-calibration-images-with-the-radiometric-panel)
+### ✅ 6. Repeat for All Bands
+- In multispectral images, each band is treated separately.
+- Use the **band switcher** (panel on the right side when image is opened) to switch between bands (e.g., Red, Green, NIR).
+- Repeat the masking process for **each band** of **each calibration image**.
 
----
+### ✅ 7. Input Reflectance Values
+Once all bands are masked:
 
-## Appendix B. Reflectance Panel Database
-
-Metashape stores previously used reflectance panel information and can auto-fill values when the same panel is detected.
-
-### Accessing and Editing the Reflectance Panel Database
-
-To access the panel database:
-
-- Open the **Calibrate Reflectance** dialog.
-- Click the **Select panel** button.
-
-Within the **Select Reflectance Panel** dialog, you can:
-
-- Load reflectance information from a `.csv` file.
-- Save the current reflectance table (wavelength / reflectance factor).
-- Edit the panel name (used in Calibrate Reflectance dialog).
-- Remove existing panel information from the database.
-
-📘 Official documentation:  
-[Agisoft Reflectance Calibration Tutorial – Appendix B](https://agisoft.freshdesk.com/support/solutions/articles/31000148381#Appendix-B.-Reflectance-panel-database)
+- Go to:  
+  `Tools` → `Calibrate Reflectance Panels...`
+- Select your calibration image.
+- Enter known reflectance values for each band (e.g., 0.99 for white).
 
 ---
 
-## Appendix C. Controlling Reflectance Calculation
+## 📸 Tips & Notes
 
-Reflectance calculation can be enabled/disabled per sensor in the **Camera Calibration** dialog.
-
-### Ensuring Calibration Is Used in Orthomosaic Generation
-
-To apply calibration in the final orthomosaic:
-
-1. Open **Camera Calibration**.
-2. Check the option:  
-   `Normalize band sensitivity`
-   
-If this option is **unchecked**, the orthomosaic will use **default color values**, ignoring reflectance panel calibration and metadata (including sun sensor info).
-
-### Note on Thermal (LWIR) Bands
-
-- Thermal (LWIR) bands are **not** included in the reflectance calibration process.
-- Keep the `Normalize band sensitivity` option **unchecked** for LWIR bands.
-
-📘 Additional reference:  
-[Agisoft Reflectance Calibration Tutorial – Appendix C](https://agisoft.freshdesk.com/support/solutions/articles/31000148381#Appendix-C.-Controlling-reflectance-calculation)
+- Use high zoom for precision when masking the panel edges.
+- You can apply the same polygon shape across bands by using the **"Copy Masks"** feature.
+- Always **double-check that only the panel is unmasked** before calibration.
 
 ---
 
-> For a complete guide, visit the [Agisoft Reflectance Calibration Tutorial](https://agisoft.freshdesk.com/support/solutions/articles/31000148381)
+## 💬 Definitions
+
+| Term | Description |
+|------|-------------|
+| **Add Selection** | Adds selected area to mask (marks as excluded). |
+| **Subtract Selection** | Removes selected area from existing mask (makes it usable again). |
+| **Invert Selection** | Flips selected and unselected regions. Useful when selecting the panel only. |
+
+---
+
+## ✅ Summary
+
+To prepare for manual reflectance calibration:
+- Create a **Camera Group** for calibration images if necessary.
+- **Mask all calibration images** and leave only the panel **unmasked**.
+- Repeat the process for **each band**.
+- Calibrate using known reflectance values.
+
+---
+
+## 🔗 Related
+
+- [Agisoft Metashape Manual](https://www.agisoft.com/support/downloads/manuals/)
+- [Generate and Edit Masks Manually (Agisoft)](https://agisoft.freshdesk.com/support/solutions/articles/31000153479#Generate-and-edit-masks-manually%C2%A0)
+- [MicaSense Panel Reference](https://support.micasense.com)
