@@ -1,4 +1,4 @@
-# 🌞 Manual Masking for Reflectance Panel Calibration in Agisoft Metashape
+## Manual Masking for Reflectance Panel Calibration in Agisoft Metashape
 
 This guide explains how to **manually mask reflectance panel images** in Agisoft Metashape for accurate **radiometric calibration** — especially useful when using sensors like MicaSense or Parrot Sequoia.
 
