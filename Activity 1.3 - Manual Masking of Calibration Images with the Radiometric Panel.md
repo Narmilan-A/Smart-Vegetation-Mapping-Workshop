@@ -66,6 +66,11 @@ Once all bands are masked:
   `Tools` → `Calibrate Reflectance Panels...`
 - Select your calibration image.
 - Enter known reflectance values for each band (e.g., 0.99 for white).
+- Example: Mavic 3M - Multispectral Camera Band
+   -Green (G): 560 ± 16 nm;-->0.474
+   -Red (R): 650 ± 16 nm;-->0.473
+   -Red Edge (RE): 730 ± 16 nm;-->0.47
+   -Near infrared (NIR): 860 ± 26 nm;-->0.466
 
 ---
 
