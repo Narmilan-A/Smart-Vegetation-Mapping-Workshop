@@ -37,19 +37,19 @@ If the `Calibration images` folder is not automatically created:
 - This image should contain your white reflectance panel.
 
 ### ✅ 3. Draw a Polygon Around the Panel
-- Use the **Polygon Selection Tool** or **Free-Form (Lasso) Tool** from the toolbar.
+- Use the **Intelligent scissors Tool** from the toolbar.
 - Carefully draw a selection **around only the white panel**, avoiding shadows and borders.
 
 ### ✅ 4. Invert the Selection
 - Go to:  
-  `Tools` → `Mask` → `Invert Selection`  
+  `Toolbar` → `Mask` → `Invert Selection`  
   _or press_ `Ctrl + Shift + I`
 
 > Now everything **except the panel** is selected.
 
 ### ✅ 5. Add Selection to Mask
 - Go to:  
-  `Tools` → `Mask` → `Add Selection`  
+  `Toolbar` → `Mask` → `Add Selection`  
   _or right-click and choose_ **"Add Selection to Mask"**
 
 > 🔒 The masked area will appear shaded. The **unmasked (clear)** area should be **only the white panel**.
