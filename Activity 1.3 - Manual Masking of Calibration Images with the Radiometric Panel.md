@@ -71,12 +71,13 @@ Once all bands are masked:
    -Red (R): 650 ± 16 nm;-->0.473
    -Red Edge (RE): 730 ± 16 nm;-->0.47
    -Near infrared (NIR): 860 ± 26 nm;-->0.466
+
 | Band | Reflectance value |
 |------|-------------|
-| **Green (G): 560 ± 16 nm** | 0.474 |
-| **Red (R): 650 ± 16 nm** | 0.473|
-| **Red Edge (RE): 730 ± 16 nm** | 0.47 |
-| **Near infrared (NIR): 860 ± 26 nm** | 0.466 |
+| **Green (G): 560 ± 16 nm** | 0.474. |
+| **Red (R): 650 ± 16 nm** | 0.473.|
+| **Red Edge (RE): 730 ± 16 nm** | 0.47. |
+| **Near infrared (NIR): 860 ± 26 nm** | 0.466. |
 
 ---
 
