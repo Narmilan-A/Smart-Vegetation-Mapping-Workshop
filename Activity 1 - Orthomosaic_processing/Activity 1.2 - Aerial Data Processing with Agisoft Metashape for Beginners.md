@@ -65,7 +65,7 @@ Before starting, ensure that you have:
 2. Click **Locate Panels**.
    - Metashape will detect images containing reflectance panels.
    - These images will be moved to a separate folder, and masks will be created to isolate the panel area.
-   - If panels are not detected automatically, follow the manual steps in [Activity 1.3] (https://github.com/Narmilan-A/Smart-Vegetation-Mapping-Workshop/blob/d1d25aa5c6a86a017e2c22bd57c1e06c17da4d5c/Activity%201%20-%20Orthomosaic_processing/Activity%201.3%20-%20Manual%20Masking%20of%20Calibration%20Images%20with%20the%20Radiometric%20Panel.md).
+   - If panels are not detected automatically, follow the manual steps in [Activity 1.3](https://github.com/Narmilan-A/Smart-Vegetation-Mapping-Workshop/blob/d1d25aa5c6a86a017e2c22bd57c1e06c17da4d5c/Activity%201%20-%20Orthomosaic_processing/Activity%201.3%20-%20Manual%20Masking%20of%20Calibration%20Images%20with%20the%20Radiometric%20Panel.md).
 3. If this is the first time using this panel, you may be prompted to load a **calibration CSV file**.
    - If not available, you can enter calibration values manually.
    - For MicaSense panels, CSV files can be requested from the manufacturer.
