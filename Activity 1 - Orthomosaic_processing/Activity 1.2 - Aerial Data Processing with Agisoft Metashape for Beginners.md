@@ -6,18 +6,20 @@
 2. [Prerequisites](#prerequisites)
 3. [Processing Steps in Agisoft Metashape](#processing-steps-in-agisoft-metashape)
    - [Step 1: Add Photos](#step-1-add-photos)
-   - [Step 2: Align Photos](#step-2-align-photos)
-   - [Step 3: Import Camera Positions](#step-3-import-camera-positions)
-   - [Step 4: Import Ground Control Points (GCPs)](#step-4-import-ground-control-points-gcps)
-   - [Step 5: Optimize Camera Alignment](#step-5-optimize-camera-alignment)
-   - [Step 6: Build Dense Cloud](#step-6-build-dense-cloud)
-   - [Step 7: Build DEM (Digital Elevation Model)](#step-7-build-dem)
-   - [Step 8: Build Orthomosaic](#step-8-build-orthomosaic)
+   - [Step 2: Reflectance Panel Calibration (for Multispectral Data)](#step-2-reflectance-panel-calibration-for-multispectral-data)
+   - [Step 3: Align Photos](#step-3-align-photos)
+   - [Step 4: Import Camera Positions](#step-4-import-camera-positions)
+   - [Step 5: Import Ground Control Points (GCPs)](#step-5-import-ground-control-points-gcps)
+   - [Step 6: Optimize Camera Alignment](#step-6-optimize-camera-alignment)
+   - [Step 7: Build Dense Cloud](#step-7-build-dense-cloud)
+   - [Step 8: Build DEM (Digital Elevation Model)](#step-8-build-dem-digital-elevation-model)
+   - [Step 9: Build Orthomosaic](#step-9-build-orthomosaic)
 4. [Exporting Results](#exporting-results)
-   - [Step 9: Export DEM](#step-9-export-dem)
-   - [Step 10: Export Orthomosaic](#step-10-export-orthomosaic)
+   - [Step 10: Export DEM](#step-10-export-dem)
+   - [Step 11: Export Orthomosaic](#step-11-export-orthomosaic)
 5. [Hyperparameters and Their Explanation](#hyperparameters-and-their-explanation)
 6. [Additional Resources](#additional-resources)
+
 
 ---
 
@@ -55,7 +57,22 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 2: Align Photos
+### Step 2: Reflectance Panel Calibration (for Multispectral Data)
+
+**Purpose**: Calibrate the image data using reflectance panel images to ensure radiometric accuracy, especially important for vegetation analysis.
+
+1. Identify the **reflectance panel images**—these are typically captured at the beginning or end of the flight, showing a known calibration panel (usually a gray or white reference target).
+2. In Metashape, go to **Tools** > **Calibrate Reflectance**.
+3. Select the image(s) that include the panel and assign known reflectance values (usually provided by the panel manufacturer, e.g., 0.03 for black, 0.5 for gray, 0.9 for white).
+4. If available, load the **radiometric calibration file** (e.g., from MicaSense or Parrot Sequoia sensors).
+5. Click **OK** to apply the reflectance calibration to all photos in the dataset.
+
+#### Notes:
+- This step is **crucial for multispectral imagery** where vegetation indices like NDVI or NDRE will be calculated.
+- Make sure the panel is clean and fully visible in the photo with no shadows.
+---
+
+### Step 3: Align Photos
 
 **Purpose**: Align the photos by detecting common features between them and estimating the position of the cameras.
 
@@ -77,7 +94,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 3: Import Camera Positions
+### Step 4: Import Camera Positions
 
 **Purpose**: Import the camera positions if available. This step improves the model's accuracy.
 
@@ -91,7 +108,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 4: Import Ground Control Points (GCPs)
+### Step 5: Import Ground Control Points (GCPs)
 
 **Purpose**: Import known geographic coordinates (GCPs) to improve the accuracy of the georeferenced model.
 
@@ -105,7 +122,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 5: Optimize Camera Alignment
+### Step 6: Optimize Camera Alignment
 
 **Purpose**: Refine the camera alignment by adjusting the parameters based on the GCPs and imported camera positions.
 
@@ -121,7 +138,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 6: Build Dense Cloud
+### Step 7: Build Dense Cloud
 
 **Purpose**: Create a dense point cloud that represents the 3D geometry of the scene.
 
@@ -142,7 +159,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 7: Build DEM (Digital Elevation Model)
+### Step 8: Build DEM (Digital Elevation Model)
 
 **Purpose**: Create a Digital Elevation Model (DEM), which represents the terrain surface of the study area.
 
@@ -158,7 +175,7 @@ Before starting, ensure that you have:
 
 ---
 
-### Step 8: Build Orthomosaic
+### Step 9: Build Orthomosaic
 
 **Purpose**: Generate a georeferenced orthophoto, which is a geometrically corrected image of the study area.
 
@@ -176,7 +193,7 @@ Before starting, ensure that you have:
 
 ## Exporting Results
 
-### Step 9: Export DEM
+### Step 10: Export DEM
 
 To export the DEM:
 
@@ -187,7 +204,7 @@ To export the DEM:
 
 ---
 
-### Step 10: Export Orthomosaic
+### Step 11: Export Orthomosaic
 
 To export the orthomosaic:
 
