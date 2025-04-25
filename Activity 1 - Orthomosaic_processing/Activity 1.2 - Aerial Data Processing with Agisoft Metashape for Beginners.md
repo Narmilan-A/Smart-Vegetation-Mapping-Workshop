@@ -166,6 +166,7 @@ Markers can be specified in one of the following ways:
 
 #### Notes:
 - Optimizing the alignment ensures that the model is as accurate as possible by adjusting the camera positions and GCPs according to the observed data.
+- [Tutorial from Agisoft: Aerial data processing (with GCPs) - Orthomosaic&DEM generation](https://agisoft.freshdesk.com/support/solutions/articles/31000153696)
 
 ---
 
