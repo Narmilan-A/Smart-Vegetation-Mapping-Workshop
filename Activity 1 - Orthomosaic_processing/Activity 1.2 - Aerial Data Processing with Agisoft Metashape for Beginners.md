@@ -59,13 +59,26 @@ Before starting, ensure that you have:
 
 ### Step 2: Reflectance Panel Calibration (for Multispectral Data)
 
-**Purpose**: Calibrate the image data using reflectance panel images to ensure radiometric accuracy, especially important for vegetation analysis.
+**Purpose**: To correct for lighting conditions and sensor variability, ensuring accurate reflectance values using reference panels and sun sensor data.
 
-1. Identify the **reflectance panel images**—these are typically captured at the beginning or end of the flight, showing a known calibration panel (usually a gray or white reference target).
-2. In Metashape, go to **Tools** > **Calibrate Reflectance**.
-3. Select the image(s) that include the panel and assign known reflectance values (usually provided by the panel manufacturer, e.g., 0.03 for black, 0.5 for gray, 0.9 for white).
-4. If available, load the **radiometric calibration file** (e.g., from MicaSense or Parrot Sequoia sensors).
-5. Click **OK** to apply the reflectance calibration to all photos in the dataset.
+1. Go to **Tools** > **Calibrate Reflectance**.
+2. Click **Locate Panels**.
+   - Metashape will detect images containing reflectance panels.
+   - These images will be moved to a separate folder, and masks will be created to isolate the panel area.
+   - If panels are not detected automatically, follow the manual steps in Appendix A.
+3. If this is the first time using this panel, you may be prompted to load a **calibration CSV file**.
+   - If not available, you can enter calibration values manually.
+   - For MicaSense panels, CSV files can be requested from the manufacturer.
+4. Input the reflectance values (albedo) for each band based on the panel’s certificate.
+   - Use the **Select Panel...** button to load values or enter them manually in the dialog.
+   - For thermal bands (LWIR), this step is not required—leave the field empty.
+5. In the **Calibrate Reflectance** dialog:
+   - Tick **Use reflectance panels**.
+   - Tick **Use sun sensor** (Based on exteranl factors like sun light variation).
+6. Click **OK** to apply reflectance calibration.
+
+**Notes**:
+- If calibration is rerun, the previous settings will be overwritten.
 
 #### Notes:
 - This step is **crucial for multispectral imagery** where vegetation indices like NDVI or NDRE will be calculated.
