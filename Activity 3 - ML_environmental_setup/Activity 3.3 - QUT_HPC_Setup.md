@@ -49,7 +49,7 @@ conda init
 conda create --name myenv python=3.10 -y
 ```
 ```
-conda activate envhpc
+conda activate myenv
 ```
 
 #### Step 2: Install TensorFlow and Required Libraries
