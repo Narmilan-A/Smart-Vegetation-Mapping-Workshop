@@ -121,15 +121,35 @@ Before starting, ensure that you have:
 
 ### Step 5: Import Ground Control Points (GCPs)
 
-**Purpose**: Import known geographic coordinates (GCPs) to improve the accuracy of the georeferenced model.
+Markers can be specified in one of the following ways:
+- Imported from a separate text file (using character-separated values format).
+- Entered manually in the **Reference** pane.
 
-1. Go to **Reference** > **Import** > **Import Ground Control Points**.
-2. Select the GCP file (usually in CSV format) and load it into Metashape.
-3. After importing, Metashape will match the GCPs to the photos. This step involves manually selecting the GCPs in the photos and matching them with the corresponding coordinates from the GCP file.
-4. Once matched, Metashape will optimize the alignment using these GCPs.
+#### 1. Import from File
 
-#### Explanation:
-- **Ground Control Points (GCPs)** are specific locations with known coordinates on the earth's surface (often surveyed points) that help improve the accuracy of georeferencing. GCPs are optional but highly recommended when high-accuracy georeferencing is needed.
+1. Click the **Import** toolbar button in the **Reference** pane. (To open the **Reference** pane, use the **Reference** command from the **View** menu.)
+2. Browse to the file with Ground Control Points (GCPs) and coordinates, then click the **Open** button.
+3. In the **Import CSV** dialog, set the coordinate system if the data contains geographical coordinates.
+4. Select the delimiter and specify the column number for each coordinate (e.g., latitude, longitude, and altitude).
+5. Click **OK** to import the markers.
+
+#### 2. Manual Entry
+
+- You can also add markers manually in the **Reference** pane by entering the coordinates directly.
+
+#### 3. Filter by Markers
+
+- To filter photos by markers, use the **Filter by Markers** command from the 3D view context menu.
+
+#### 4. Marker Editing
+
+1. Switch to the marker editing mode using the **Edit Markers** toolbar button.
+2. To adjust the marker projection, drag it to the desired location using the left mouse button.
+
+#### 5. Types of Markers
+
+- **Control Points**: These are used to reference the model. They are critical for aligning and georeferencing the model to real-world coordinates.
+- **Check Points**: These are used to validate the accuracy of the camera alignment and optimization procedures.
 
 ---
 
