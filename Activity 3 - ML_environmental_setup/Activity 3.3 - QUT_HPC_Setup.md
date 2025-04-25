@@ -4,7 +4,7 @@
    - Method 1 - Install Putty and set aqua@qut.edu.au as host name.
    - Method 2 - In the windows terminal, type
    ```
-   ssh amarasi5@aqua.qut.edu.au
+   ssh username@aqua.qut.edu.au
    ``` 
    - Then enter password.
    - Method 3 - Open VS Code --> Terminal --> follow Method 2.
