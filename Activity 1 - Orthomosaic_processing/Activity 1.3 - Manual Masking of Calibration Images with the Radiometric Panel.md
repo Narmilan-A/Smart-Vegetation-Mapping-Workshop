@@ -105,5 +105,5 @@ To prepare for manual reflectance calibration:
 
 ---
 
-## 🔗 Related
+## 🔗 Additional resource from Agisoft
 - [Generate and Edit Masks Manually (Agisoft)](https://agisoft.freshdesk.com/support/solutions/articles/31000153479#Generate-and-edit-masks-manually%C2%A0)
