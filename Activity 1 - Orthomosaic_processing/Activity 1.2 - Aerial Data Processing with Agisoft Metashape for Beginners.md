@@ -47,12 +47,12 @@ Before starting, ensure that you have:
 **Purpose**: Import the photos you want to process into the software.
 
 1. Open **Agisoft Metashape**.
-2. In the **Workflow** menu on the left, click on **"Add Photos"** / **"Add Folders"**.
-3. A dialog will appear asking you to select the folder containing the images. Select the folder and click **Open**.
+2. In the **Workflow** menu on the left, click on **"Add Photos"** / **"Add Folder"**.
+3. A dialog will appear asking you to select the folder containing the images. Select the photos/folder and click **Open**.
 4. Metashape will load all the images into the project.
 
 #### Notes:
-- Ensure the photos are from the same drone flight and that they have proper overlap (60-80%).
+- Ensure the photos are from the same drone flight and that they have proper overlap (50-80%).
 - The photos should be in supported formats like JPEG, PNG, or TIFF.
 
 ---
