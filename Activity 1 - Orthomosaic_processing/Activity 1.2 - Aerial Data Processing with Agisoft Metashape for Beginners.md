@@ -172,24 +172,19 @@ Markers can be specified in one of the following ways:
 
 ---
 
-### Step 7: Build Dense Cloud
+### Step 7: Build Point Cloud
 
 **Purpose**: Create a dense point cloud that represents the 3D geometry of the scene.
 
-1. Go to **Workflow** > **Build Dense Cloud**.
+1. Go to **Workflow** > **Build Point Cloud**.
 2. Set the following parameters:
    - **Quality**: Choose between **Low**, **Medium**, **High**, or **Ultra High**. Higher quality produces a denser point cloud with more details but takes more time.
    - **Depth Filtering**: Choose the depth filtering method:
      - **Mild**: Removes minimal noise.
      - **Moderate**: Balances between noise removal and data retention.
      - **Aggressive**: Removes more noise but might also discard useful points.
-   - **Point Confidence**: This determines how much confidence Metashape has in the detected points. A higher setting means more accurate points but requires more processing power.
 
 3. Click **OK** to begin building the dense cloud.
-
-#### Notes:
-- The dense cloud is a collection of 3D points that represent the object or scene. The quality and resolution of this cloud depend on the **Dense Cloud Quality** setting you choose.
-- **Higher quality** will result in a more detailed model, but the processing time increases.
 
 ---
 
@@ -199,13 +194,11 @@ Markers can be specified in one of the following ways:
 
 1. Go to **Workflow** > **Build DEM**.
 2. Set the following parameters:
-   - **Source Data**: Choose **Dense Cloud** as the source for building the DEM.
-   - **Interpolation**: Select **Average** (smoothes the surface) or **Min** (captures depressions better).
-   - **Resolution**: Define the resolution (e.g., 0.1 m for high resolution, 1 m for large areas).
+   - **Source Data**: Choose **Point Cloud** as the source for building the DEM.
 3. Click **OK** to generate the DEM.
 
 #### Notes:
-- The **DEM** represents the ground surface and helps you visualize terrain features like hills, valleys, and flat areas. It can also be used for analysis like slope, aspect, and elevation changes.
+- The **DEM** represents the ground surface and helps you visualise terrain features like hills, valleys, and flat areas. It can also be used for analysis like slope, aspect, and elevation changes.
 
 ---
 
@@ -217,7 +210,6 @@ Markers can be specified in one of the following ways:
 2. Set the following parameters:
    - **Projection**: Choose the coordinate system for the orthomosaic (e.g., UTM).
    - **Surface**: Choose between **Height Field** (use the DEM) or **Orthophoto**.
-   - **Resolution**: Set the resolution (e.g., 0.1 m for high detail).
 3. Click **OK** to generate the orthomosaic.
 
 #### Notes:
