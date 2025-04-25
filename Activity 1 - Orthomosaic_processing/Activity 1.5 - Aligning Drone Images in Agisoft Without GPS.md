@@ -1,4 +1,4 @@
-# 🚁 Aligning Drone Images in Agisoft Without GPS (Interactive Guide)
+# 🚁 Aligning Drone Images in Agisoft Without GPS
 
 Welcome! 📸  
 This guide shows how to align drone images **without GPS data** in **Agisoft Metashape** — step-by-step, beginner-friendly, and perfect for RGB images from non-GPS drones.
@@ -109,13 +109,3 @@ Don’t panic. Try this:
 - 🔁 Check for missing overlap in your flight pattern
 
 ---
-
-## 🧩 What's Next?
-
-Want to generate the **Dense Cloud**, **DEM**, or **Orthomosaic** next?  
-I can give you interactive guides for those steps too. Just say the word!
-
----
-
-#### Created by: [Your Name]  
-_Last updated: April 2025_
