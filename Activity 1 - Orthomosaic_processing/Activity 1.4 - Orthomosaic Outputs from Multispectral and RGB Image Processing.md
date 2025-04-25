@@ -1,4 +1,3 @@
-
 # 🛰️ Orthomosaic Outputs
 ---
 ## 🧠 Key Concepts
