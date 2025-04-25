@@ -28,9 +28,9 @@ This repository provides:
 Ensure the following tools are installed before starting:
 
 - Agisoft Metashape Pro
-- QGIS/ArcGIS Pro
-- Python (with necessary libraries: NumPy, OpenCV, TensorFlow, PyTorch, etc.)
-- Google Colab (for cloud-based training)
+- QGIS
+- ArcGIS Pro
+- Visual Studio Code
 
 ## Contact
 
