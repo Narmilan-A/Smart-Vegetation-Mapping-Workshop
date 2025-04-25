@@ -151,7 +151,6 @@ Markers can be specified in one of the following ways:
 
 - **Control Points**: These are used to reference the model. They are critical for aligning and georeferencing the model to real-world coordinates.
 - **Check Points**: These are used to validate the accuracy of the camera alignment and optimization procedures.
----
 
 #### Notes:
 - [Tutorial from Agisoft: Aerial data processing with GCPs](https://agisoft.freshdesk.com/support/solutions/articles/31000153696)
