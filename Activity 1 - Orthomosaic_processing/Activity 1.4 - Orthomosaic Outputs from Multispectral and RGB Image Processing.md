@@ -2,16 +2,6 @@
 # 🛰️ Orthomosaic Outputs from Multispectral and RGB Image Processing
 
 This repository documents the different types of orthomosaic outputs generated during multispectral and RGB imagery processing using Agisoft Metashape. It provides detailed explanations of reflectance correction, transparency (alpha channel), and best practices for scientific and machine learning workflows.
-
----
-
-## 📁 File Naming Convention Example
-
-```plaintext
-AgMs_CG_D1F2to6_MR_step2_transparent_reflectance_blue.tif
-AgMs_CG_D1F2to6_MR_step2_transparent_mosaic_blue.tif
-```
-
 ---
 
 ## 🧠 Key Concepts
@@ -57,12 +47,12 @@ Agisoft automatically includes an alpha channel during orthomosaic export when y
 
 ---
 
-## 📊 Summary Table
+## 📊 Example Table
 
 | Output Type                    | Reflectance Corrected | Alpha Channel | Use Case                                |
 |-------------------------------|------------------------|---------------|-----------------------------------------|
 | `...reflectance_blue.tif`     | ✅ Yes                 | ✅ Yes        | Scientific analysis, NDVI, monitoring   |
-| `...mosaic_blue.tif`          | ❌ No                  | ✅ Yes        | Visualization, DL preprocessing         |
+| `...mosaic_blue.tif`          | ❌ No                  | ✅ Yes        | Visualisation, DL preprocessing         |
 
 ---
 
@@ -112,11 +102,5 @@ When using orthomosaics in deep learning (e.g., U-Net, DeepLabV3+), apply the al
 - [Vegetation Indices (NDVI, NDRE)](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index)
 - [Radiometric Calibration in Agisoft](https://agisoft.freshdesk.com/support/solutions/articles/31000148366)
 - [Alpha Channel in TIF Images](https://en.wikipedia.org/wiki/Alpha_compositing)
-
----
-
-## 📬 Contributions & Questions
-
-Feel free to open issues or contribute improvements. If you're working on Antarctic vegetation mapping or deep learning for remote sensing, let’s connect!
 
 ---
