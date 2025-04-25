@@ -109,10 +109,9 @@ mdss -P a00 dmls -ltrh aaa777/test
 
 ---
 
-## Authors
-- Yue Sun
-- Andrew Wellington
-- Mohsin Ali
-- Javed Shaikh
-- Adam Huttner-Koros
-- Andrew Johnston
+### Reference
+
+If you need to monitor the progress of jobs running on Gadi, you can use the *Job Monitoring* page from the NCI Opus site. This page provides instructions on how to track job statuses and check their logs:
+
+NCI. (n.d.). *Job monitoring*. Opus - NCI Confluence. Retrieved from [https://opus.nci.org.au/spaces/Help/pages/236880322/Job+monitoring](https://opus.nci.org.au/spaces/Help/pages/236880322/Job+monitoring)
+
