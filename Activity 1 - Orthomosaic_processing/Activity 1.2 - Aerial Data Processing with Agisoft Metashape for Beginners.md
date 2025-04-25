@@ -34,7 +34,7 @@
 Before starting, ensure that you have:
 
 - **Agisoft Metashape installed**: Download it from [Agisoft's official website](https://www.agisoft.com/).
-- **A set of aerial images and Camera position data**: These should ideally have 50-80% overlap between adjacent images to allow for proper feature matching during the alignment step.
+- **A set of aerial images and camera position data**: These should ideally have 50-80% overlap between adjacent images to allow for proper feature matching during the alignment step.
 - **Reflectance panel images and metadata** (for multispectral processing): Ensure you captured calibration panel images during the field campaign and have access to their known reflectance values or calibration certificates.
 - **Ground Control Points (GCPs)**: These are known geographic coordinates that help improve georeferencing accuracy. (This is optional, but highly recommended for precise models).
 
