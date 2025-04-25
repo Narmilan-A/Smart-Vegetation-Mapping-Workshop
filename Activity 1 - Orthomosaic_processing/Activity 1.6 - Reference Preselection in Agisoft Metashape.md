@@ -88,6 +88,3 @@ Let Agisoft match everything visually — it's slower, but much more reliable in
 - Use `Sequential` if your image files are **neatly ordered and flown consistently**.
 
 ---
-
-#### ✅ Author: [Your Name]  
-_Last updated: April 2025_
