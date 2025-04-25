@@ -1,6 +1,5 @@
 # 🚁 Aligning Drone Images in Agisoft Without GPS
 
-Welcome! 📸  
 This guide shows how to align drone images **without GPS data** in **Agisoft Metashape** — step-by-step, beginner-friendly, and perfect for RGB images from non-GPS drones.
 
 ---
