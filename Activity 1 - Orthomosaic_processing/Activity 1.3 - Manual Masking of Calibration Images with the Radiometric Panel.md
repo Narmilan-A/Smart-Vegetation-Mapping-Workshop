@@ -106,7 +106,4 @@ To prepare for manual reflectance calibration:
 ---
 
 ## 🔗 Related
-
-- [Agisoft Metashape Manual](https://www.agisoft.com/support/downloads/manuals/)
 - [Generate and Edit Masks Manually (Agisoft)](https://agisoft.freshdesk.com/support/solutions/articles/31000153479#Generate-and-edit-masks-manually%C2%A0)
-- [MicaSense Panel Reference](https://support.micasense.com)
