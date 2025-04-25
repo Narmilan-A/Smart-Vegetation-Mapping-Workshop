@@ -1,6 +1,6 @@
 # Working with QUT's HPC - Workflow
 
-## 1. Connecting to HPC
+## Connecting to HPC
    - Method 1 - Install Putty and set aqua@qut.edu.au as host name.
    - Method 2 - In the windows terminal, type
    ```
@@ -9,33 +9,33 @@
    - Then enter password.
    - Method 3 - Open VS Code --> Terminal --> follow Method 2.
 
-## 2. Mounting your HPC Home Folder
+## Mounting your HPC Home Folder
 - [Create local network drive and mount with HPC](https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage/supercomputing/using-hpc-filesystems#h2-0)
 
-## 3. Conda setup
-### Download Miniconda
+## Conda setup
+### Step 1: Download Miniconda
 ```
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
-### Run the installer and specify a valid home directory
+### Step 2: Run the installer and specify a valid home directory
 ```
 bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
 ```
-### Initialise Conda
+### Step 3: Initialise Conda
 
 ```
 $HOME/miniconda3/bin/conda init
 ```
 
-### Update .bashrc
+### Step 4: Update .bashrc
 ```
 echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 4. Conda create and activate
+## Step 5: Conda create and activate
 
-### Load Conda if not already loaded
+### Step 5.1: Load Conda if not already loaded
 ```
 source $HOME/miniconda3/bin/activate
 ```
@@ -43,7 +43,7 @@ source $HOME/miniconda3/bin/activate
 ```
 conda init
 ```
-#### Step 1: Create and Activate the Environment
+#### Step 5.2: Create and Activate the Environment
 
 ```
 conda create --name myenv python=3.10 -y
@@ -52,16 +52,14 @@ conda create --name myenv python=3.10 -y
 conda activate myenv
 ```
 
-#### Step 2: Install TensorFlow and Required Libraries
+#### Step 5.3: Installation of required  Libraries
+
+##### TensorFlow and Keras
 ```
 conda install -y tensorflow=2.12 keras=2.12.0 keras-preprocessing=1.1.2 -c conda-forge
 ```
-#### Step 3: Install modules in existing environment
-```
-conda install --file requirements.txt` or `pip install -r requirements.txt`.
-```
 
-#### Step 4: Install required Libraries
+##### Other DL Libraries
 ```
 conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults \
     cudatoolkit=11.2.2 \
@@ -72,32 +70,32 @@ conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults \
     cupy=11.5.0 \
     curl=7.87.0
 ```
-##### Install OpenCV via Pip
+##### OpenCV
 ```
 pip install opencv-python opencv-python-headless
 ```
-##### Install Matplotlib via Pip
+##### Matplotlib
 ```
 pip install matplotlib
 ```
-##### Install Seaborn via Pip
+##### Seaborn
 ```
 pip install seaborn
 ```
-##### Install scikit-image via Pip
+##### scikit-image
 ```
 pip install scikit-image
 ```
-##### Install GDAL via Conda (specify the channel)
+##### GDAL
 ```
 conda install -c conda-forge gdal
 ```
-##### XGBoost install using pip (Recommended for most cases)
+##### XGBoost
 ```
 pip install xgboost==1.7.5
 ```
 
-#### Create the Environment using existing libraries 
+#### Create the Environment using existing libraries  (Optional)
 Open your terminal or command prompt, navigate to the directory containing your environment.yml file, and execute the following command
 ```
 conda env create -f environment.yml
