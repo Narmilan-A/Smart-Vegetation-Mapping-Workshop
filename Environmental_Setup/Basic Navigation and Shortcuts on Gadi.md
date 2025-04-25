@@ -1,45 +1,35 @@
+# Basic Navigation and Shortcuts on Gadi
+
+Now that we have covered some basic login elements, we can look through some commands that are required to navigate within Gadi while you submit and monitor jobs.
+
+If you are new to the Unix environment, you can try out some of these commands to practice using the system.
+
+> **Tip:** You can use our **Linux command cheat sheet** when you're stuck. For recurring issues, feel free to contact the **NCI helpdesk** or email us at [help@nci.org.au](mailto:help@nci.org.au).
+
+---
+
+## Commands
+
+### `man <cmd>`
+Use `man` followed by a command (e.g., `ls`, `pwd`) to access its manual.  
+If no manpage is available, try:
+- `<program> -h`
+- `<program> --help`
+
+### `ls -l`
+Lists the contents of the current directory in a detailed format.
+
+### `pwd`
+Displays the **present working directory**, i.e., your current location in the file system.
+
+### `cd <path>`
+Use to **change directories**. Navigate through Gadi's file system using paths.
+
+### `mkdir <pathname>`
+Creates a new directory. Think of it as creating a new folder.
+
+### `cp`
+Copies files.  
+Example:
 ```bash
-# man <cmd> — access the manual for a command
-man ls
-man pwd
-
-# If no man page is available:
-<program> -h
-<program> --help
-
-# ls -l — list directory contents in long format
-ls -l
-
-# pwd — print present working directory
-pwd
-
-# cd <path> — change directory
-cd /g/data/your_project/
-
-# mkdir <pathname> — create a new directory
-mkdir my_new_folder
-
-# cp — copy a file from source to destination
-cp /path/to/source.txt /path/to/destination/
-
-# quota -s — check personal disk quota
-quota -s
-
-# lquota — check project disk quota
-lquota
-
-# rm — delete a file (⚠️ permanent!)
-rm filename.txt
-
-# NOTE: Be extremely cautious.
-# Files in /scratch and /gdata are NOT backed up.
-# Deleted files cannot be recovered!
-
-# Keyboard Shortcuts (for terminal)
-# Ctrl+C   — Cancel current command
-# Ctrl+A   — Move cursor to beginning of line
-# Ctrl+E   — Move cursor to end of line
-# Ctrl+K   — Delete from cursor to end of line
-# Ctrl+Z   — Suspend current job
-# Ctrl+D   — Log out (same as `exit`)
-```
+cp <path/to/target> <path/to/destination>
