@@ -13,23 +13,6 @@ This repository provides:
 - Model training workflows using classical ML and DL approaches.
 - Mapping and visualisation methods for vegetation analysis.
 
-## Key Topics
-
-### Preprocessing UAV Data
-Learn how to process UAV imagery using Agisoft Metashape Pro and georeference datasets.
-
-### Labelling Techniques
-Explore ground truthing, region-of-interest extraction, and semi-automatic labeling methods.
-
-### Model Training
-Implement classical ML and DL models on different platforms, including local machines, Google Colab, and high-performance computing (HPC).
-
-### Working with Own Data
-Apply learned techniques on personal datasets for customized vegetation mapping.
-
-### Mapping and Visualisation
-Generate predictions and visualise results using geospatial tools.
-
 ## Repository Contents
 
 - Activity 1 - Orthomosaic_processing
