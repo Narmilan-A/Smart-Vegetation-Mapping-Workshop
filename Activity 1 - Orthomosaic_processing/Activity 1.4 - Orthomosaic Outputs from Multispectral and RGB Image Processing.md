@@ -1,8 +1,6 @@
 
 # 🛰️ Orthomosaic Outputs from Multispectral and RGB Image Processing
 
----
-
 ## 🧠 Key Concepts
 
 ### 1. Band Reflectance Orthomosaic
