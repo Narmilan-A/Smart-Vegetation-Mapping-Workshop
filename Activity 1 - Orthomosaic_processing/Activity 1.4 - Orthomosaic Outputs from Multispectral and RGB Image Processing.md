@@ -1,7 +1,8 @@
 
 # 🛰️ Orthomosaic Outputs from Multispectral and RGB Image Processing
 
-The This repository documents the different types of orthomosaic outputs generated during multispectral and RGB imagery processing using Agisoft Metashape. It provides detailed explanations of reflectance correction, transparency (alpha channel), and best practices for scientific and machine learning workflows
+---
+The repository documents the different types of orthomosaic outputs generated during multispectral and RGB imagery processing using Agisoft Metashape. It provides detailed explanations of reflectance correction, transparency (alpha channel), and best practices for scientific and machine learning workflows
 ---
 
 ## 🧠 Key Concepts
