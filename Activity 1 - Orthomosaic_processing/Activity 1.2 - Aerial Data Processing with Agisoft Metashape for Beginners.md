@@ -11,7 +11,7 @@
    - [Step 4: Import Camera Positions](#step-4-import-camera-positions)
    - [Step 5: Import Ground Control Points (GCPs)](#step-5-import-ground-control-points-gcps)
    - [Step 6: Optimize Camera Alignment](#step-6-optimize-camera-alignment)
-   - [Step 7: Build Dense Cloud](#step-7-build-dense-cloud)
+   - [Step 7: Build Point Cloud](#step-7-build-point-cloud)
    - [Step 8: Build DEM (Digital Elevation Model)](#step-8-build-dem-digital-elevation-model)
    - [Step 9: Build Orthomosaic](#step-9-build-orthomosaic)
 4. [Exporting Results](#exporting-results)
