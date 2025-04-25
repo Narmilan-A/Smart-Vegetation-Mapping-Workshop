@@ -1,5 +1,5 @@
 # 🛰️ Orthomosaic Outputs
----
+
 ## 🧠 Key Concepts
 
 ### 1. Band Reflectance Orthomosaic
