@@ -1,35 +1,74 @@
-# Basic Navigation and Shortcuts on Gadi
+# Gadi Basic Navigation and Shortcuts Guide
 
-Now that we have covered some basic login elements, we can look through some commands that are required to navigate within Gadi while you submit and monitor jobs.
-
-If you are new to the Unix environment, you can try out some of these commands to practice using the system.
-
-> **Tip:** You can use our **Linux command cheat sheet** when you're stuck. For recurring issues, feel free to contact the **NCI helpdesk** or email us at [help@nci.org.au](mailto:help@nci.org.au).
+This guide introduces basic navigation commands and keyboard shortcuts for users of the Gadi supercomputing environment at NCI.
 
 ---
 
-## Commands
+**🔹 Basic Navigation Commands**
 
-### `man <cmd>`
-Use `man` followed by a command (e.g., `ls`, `pwd`) to access its manual.  
-If no manpage is available, try:
-- `<program> -h`
-- `<program> --help`
+- **`man <cmd>`**  
+  View the manual page for a command. For example, `man ls` or `man pwd`.  
+  If no manpage exists, try `<program> -h` or `<program> --help`.
 
-### `ls -l`
-Lists the contents of the current directory in a detailed format.
+- **`ls -l`**  
+  List contents of the current directory in long format.
 
-### `pwd`
-Displays the **present working directory**, i.e., your current location in the file system.
+- **`pwd`**  
+  Print the current working directory path.
 
-### `cd <path>`
-Use to **change directories**. Navigate through Gadi's file system using paths.
+- **`cd <path>`**  
+  Change to the specified directory.
 
-### `mkdir <pathname>`
-Creates a new directory. Think of it as creating a new folder.
+- **`mkdir <pathname>`**  
+  Create a new directory. Equivalent to creating a new folder.
 
-### `cp`
-Copies files.  
-Example:
-```bash
-cp <path/to/target> <path/to/destination>
+- **`cp <source> <destination>`**  
+  Copy files from source to destination.  
+  Example: `cp /home/user/file.txt /g/data/project/`  
+  If destination is a directory, the file is placed inside it.
+
+- **`quota -s`**  
+  Show your user disk quota, including usage and limit.
+
+- **`lquota`**  
+  Show quota information for the project you're associated with.
+
+- **`rm <filename>`**  
+  Permanently delete a file.  
+  ⚠️ No confirmation is given — use with caution, especially on `/scratch` and `/gdata`.
+
+---
+
+**🔹 Keyboard Shortcuts**
+
+- **`Ctrl+C`**  
+  Cancel or interrupt the currently running command.
+
+- **`Ctrl+A`**  
+  Move cursor to the beginning of the command line.
+
+- **`Ctrl+E`**  
+  Move cursor to the end of the command line.
+
+- **`Ctrl+K`**  
+  Delete from the cursor position to the end of the line.
+
+- **`Ctrl+Z`**  
+  Suspend the foreground process and put it in the background (stopped).
+
+- **`Ctrl+D`**  
+  Log out of the session (same as `exit`).
+
+---
+
+**🔹 Tips and Additional Resources**
+
+- These commands are ideal for beginners in the Unix/Linux environment.
+- Use NCI's [Linux Command Quick Reference Guide](https://opus.nci.org.au/display/Help/Linux+Command+Quick+Reference) for more detailed usage.
+- Explore the [Gadi User Guide](https://opus.nci.org.au/display/Help/Gadi+User+Guide) for comprehensive system documentation.
+- For persistent issues, contact the **NCI Helpdesk** at 📧 **help@nci.org.au**
+
+---
+
+**Authors:** Yue Sun, Andrew Johnston  
+**Source:** [Opus - NCI Confluence](https://opus.nci.org.au)
