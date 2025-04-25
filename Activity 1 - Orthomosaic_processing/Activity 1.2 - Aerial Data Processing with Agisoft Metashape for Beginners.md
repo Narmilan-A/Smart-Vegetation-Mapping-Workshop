@@ -81,6 +81,7 @@ Before starting, ensure that you have:
 - If calibration is rerun, the previous settings will be overwritten.
 - This step is **crucial for multispectral imagery** where vegetation indices like NDVI or NDRE will be calculated.
 - Make sure the panel is clean and fully visible in the photo with no shadows.
+- [Tutorial from Agisoft:MicaSense Altum processing workflow (including Reflectance Calibration) in Agisoft Metashape Professional](https://agisoft.freshdesk.com/support/solutions/articles/31000148381)
 ---
 
 ### Step 3: Align Photos
