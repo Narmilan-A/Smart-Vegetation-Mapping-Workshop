@@ -105,6 +105,3 @@ Once your dense cloud looks good, you’re ready to:
 > Want interactive guides for those too? Just ask!
 
 ---
-
-#### 🛠 Author: [Your Name]  
-_Last updated: April 2025_
