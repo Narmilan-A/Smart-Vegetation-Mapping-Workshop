@@ -1,7 +1,7 @@
 
 # 🛰️ Orthomosaic Outputs from Multispectral and RGB Image Processing
 
-This repository documents the different types of orthomosaic outputs generated during multispectral and RGB imagery processing using Agisoft Metashape. It provides detailed explanations of reflectance correction, transparency (alpha channel), and best practices for scientific and machine learning workflows.
+****This repository documents the different types of orthomosaic outputs generated during multispectral and RGB imagery processing using Agisoft Metashape. It provides detailed explanations of reflectance correction, transparency (alpha channel), and best practices for scientific and machine learning workflows.****
 ---
 
 ## 🧠 Key Concepts
@@ -98,9 +98,6 @@ When using orthomosaics in deep learning (e.g., U-Net, DeepLabV3+), apply the al
 ---
 
 ## 🔗 Related Topics
-
-- [Vegetation Indices (NDVI, NDRE)](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index)
-- [Radiometric Calibration in Agisoft](https://agisoft.freshdesk.com/support/solutions/articles/31000148366)
 - [Alpha Channel in TIF Images](https://en.wikipedia.org/wiki/Alpha_compositing)
 
 ---
