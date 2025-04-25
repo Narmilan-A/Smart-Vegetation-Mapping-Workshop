@@ -32,13 +32,11 @@ Generate predictions and visualise results using geospatial tools.
 
 ## Repository Contents
 
-```
-/Activity 1 - Orthomosaic_processing/  
-/Activity 2 - Data_labelling/
-/Activity 3 - Environmental_Setup/
-/Activity 4 - Model_training/
-/Activity 5 - ArcGIS-pro_online/
-```
+- Activity 1 - Orthomosaic_processing
+- Activity 2 - Data_labelling
+- Activity 3 - Environmental_Setup
+- Activity 4 - Model_training
+- Activity 5 - ArcGIS-pro_online
 
 ## Getting Started
 
