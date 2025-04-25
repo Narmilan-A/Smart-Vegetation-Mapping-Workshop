@@ -35,4 +35,4 @@ Ensure the following tools are installed before starting:
 
 ## Contact
 
-For questions or support, please reach out to [narmi.narmilan@gmail.com](mailto:narmi.narmilan@gmail.com).
+For questions or support, please reach out to [narmilan@uow.edu.au.com](mailto:narmilan@uow.edu.au.com) / [narmi.narmilan@gmail.com](mailto:narmi.narmilan@gmail.com)
