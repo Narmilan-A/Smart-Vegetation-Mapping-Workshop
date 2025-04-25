@@ -35,7 +35,7 @@ source ~/.bashrc
 
 ## Step 5: Conda create and activate
 
-### Step 5.1: Load Conda if not already loaded
+#### Step 5.1: Load Conda if not already loaded
 ```
 source $HOME/miniconda3/bin/activate
 ```
