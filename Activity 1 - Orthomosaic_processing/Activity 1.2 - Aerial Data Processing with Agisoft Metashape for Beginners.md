@@ -47,7 +47,7 @@ Before starting, ensure that you have:
 **Purpose**: Import the photos you want to process into the software.
 
 1. Open **Agisoft Metashape**.
-2. In the **Workflow** menu on the left, click on **"Add Photos"**.
+2. In the **Workflow** menu on the left, click on **"Add Photos"** / **"Add Folders"**.
 3. A dialog will appear asking you to select the folder containing the images. Select the folder and click **Open**.
 4. Metashape will load all the images into the project.
 
