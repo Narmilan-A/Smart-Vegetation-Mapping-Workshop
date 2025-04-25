@@ -30,6 +30,7 @@ Ensure the following tools are installed before starting:
 - Agisoft Metashape Pro
 - QGIS
 - ArcGIS Pro
+- Anaconda
 - Visual Studio Code
 
 ## Contact
