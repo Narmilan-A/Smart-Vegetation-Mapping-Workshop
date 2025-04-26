@@ -17,9 +17,8 @@ This repository provides:
 
 - Activity 1 - Orthomosaic_processing
 - Activity 2 - Data_labelling
-- Activity 3 - Environmental_Setup
-- Activity 4 - Model_training
-- Activity 5 - ArcGIS-pro_online
+- Activity 3 - Model_training
+- Activity 4 - ArcGIS-pro_online
 
 ## Getting Started
 
