@@ -107,3 +107,16 @@ python
 ---
 
 You are now ready to use the Geo-SAM plugin within QGIS to segment and label your geospatial raster images efficiently with GPU acceleration support.
+
+---
+
+## Useful Links
+
+- **Video Tutorial:** [Segment Anything in QGIS with the Geo-SAM Plugin](https://www.youtube.com/watch?v=GSKmK7qERUw&ab_channel=HansvanderKwast)
+- **Geo-SAM Official GitHub:** [https://github.com/coolzhao/Geo-SAM](https://github.com/coolzhao/Geo-SAM)
+- **Geo-SAM Plugin Download:** [https://github.com/coolzhao/Geo-SAM/releases](https://github.com/coolzhao/Geo-SAM/releases)
+- **Installation Guide:** [https://geo-sam.readthedocs.io/en/latest/installation.html](https://geo-sam.readthedocs.io/en/latest/installation.html)
+- **Usage of Geo-SAM Tools:** [https://geo-sam.readthedocs.io/en/latest/Usage/index.html](https://geo-sam.readthedocs.io/en/latest/Usage/index.html)
+- **Download SAM Checkpoints:** [https://geo-sam.readthedocs.io/en/latest/Usage/encoding.html](https://geo-sam.readthedocs.io/en/latest/Usage/encoding.html)
+
+
