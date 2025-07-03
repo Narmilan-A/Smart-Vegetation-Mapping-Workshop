@@ -12,10 +12,10 @@ Geo-SAM is a QGIS plugin designed to help users segment, delineate, or label lan
 
 2. If your PC has an NVIDIA GPU, to accelerate encoding you need to:
    - Download and install the **CUDA Toolkit** first.
-   - Then install the GPU-enabled PyTorch version using the following command (example uses CUDA 11.7):
+   - Then install the GPU-enabled PyTorch version using the following command (example uses CUDA 12.4):
 
    ```bash
-   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
    ```
 
 3. Install the other necessary dependencies:
