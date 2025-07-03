@@ -44,10 +44,6 @@ Geo-SAM is a QGIS plugin designed to help users segment, delineate, or label lan
 
    - **Windows:**  
      `%APPDATA%\QGIS\QGIS3\profiles\default\python\plugins`
-   - **MacOS:**  
-     *(Locate your QGIS profile folder similar to Windows)*
-   - **Linux:**  
-     *(Locate your QGIS profile folder similar to Windows)*
 
 ---
 
