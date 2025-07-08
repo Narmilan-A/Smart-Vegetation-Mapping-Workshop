@@ -1,4 +1,4 @@
-# 📸 Beginner’s Guide to UAV Photogrammetry in Agisoft Metashape
+# Beginner’s Guide to UAV Photogrammetry in Agisoft Metashape
 
 This guide summarises practical Q&A topics on **orthomosaic pixel size estimation, camera geometry, processing settings, and resolution reporting** to support your UAV remote sensing workflows.
 
@@ -24,12 +24,12 @@ Even without GPS or external scale, **Metashape estimates PGSD (Projected Ground
 3. **Estimated scene depth**
    - Approximate distance from camera to ground based on internal bundle adjustment.
 
-🔬 **Key note:**
+**Key note:**
 - The reported PGSD is **only relative**, not real-world accurate, because:
   - The model has no absolute scale.
   - E.g. Orthomosaic may report **5 cm/px**, but the map could be arbitrarily small or large in reality.
 
-### 💡 **Why does it appear in the report?**
+### **Why does it appear in the report?**
 
 Because Metashape **automatically calculates PGSD** from:
 
@@ -40,7 +40,7 @@ Because Metashape **automatically calculates PGSD** from:
 
 ---
 
-## 🛠️ **2. What is Camera Geometry?**
+## **2. What is Camera Geometry?**
 
 ### ❓ **Question:**
 What does camera geometry mean in photogrammetry?
@@ -49,7 +49,7 @@ What does camera geometry mean in photogrammetry?
 
 **Camera geometry describes the mathematical relationship between 3D real-world points and their 2D projections onto the camera image plane.**
 
-### ➡️ **Key Components:**
+### **Key Components:**
 
 1. **Intrinsic Parameters (Internal)**
    - Focal length (f)
@@ -61,16 +61,16 @@ What does camera geometry mean in photogrammetry?
    - Camera position (X, Y, Z)
    - Camera orientation (Roll, Pitch, Yaw)
 
-### 🔬 **Importance in Photogrammetry:**
+### **Importance in Photogrammetry:**
 
 - Converts between **2D image pixels and 3D real-world coordinates**.
 - Enables bundle adjustment, dense reconstruction, and orthomosaic generation.
 
 ---
 
-## 🏔️ **3. Processing Parameter Effects: Alignment Quality, Surface Type, and Depth Map Quality**
+## **3. Processing Parameter Effects: Alignment Quality, Surface Type, and Depth Map Quality**
 
-### ❓ **Question:**
+### **Question:**
 I processed RGB data for two sites with different parameters:
 
 | Step | Site 1 | Site 2 |
@@ -95,7 +95,7 @@ I got better quality images with **Highest alignment and Mesh surface** with hig
 
 ---
 
-### 💡 **Best Practice Workflow**
+### **Best Practice Workflow**
 
 1. **Align Photos:** Highest
 2. **Optimize Cameras**
@@ -104,7 +104,7 @@ I got better quality images with **Highest alignment and Mesh surface** with hig
 5. **Build Mesh:** Prefer mesh for smooth surfaces
 6. **Build Orthomosaic:** Use mesh as surface
 
-⚠️ **Trade-off:** Higher settings = longer processing time and higher GPU memory demand.
+**Trade-off:** Higher settings = longer processing time and higher GPU memory demand.
 
 ---
 
@@ -129,7 +129,7 @@ For the same untagged RGB dataset in local coordinates:
 
 ---
 
-## 🛰️ **5. How does Metashape estimate correct GSD with geotagged images?**
+## **5. How does Metashape estimate correct GSD with geotagged images?**
 
 ### ❓ **Question:**
 If my raw images have GPS data, how does Metashape calculate accurate GSD?
@@ -162,7 +162,7 @@ Where:
 
 ---
 
-### ⚠️ **Note:**
+### **Note:**
 - If GPS altitude is ASL, integrating a **DEM or GCPs** ensures correct ground elevation for GSD accuracy.
 
 ---
@@ -175,5 +175,3 @@ Where:
 - Always include **GPS, GCPs, or scale bars** for meaningful resolution and measurements.
 
 ---
-
-_Compiled for UAV photogrammetry beginner training and Antarctic processing documentation._
