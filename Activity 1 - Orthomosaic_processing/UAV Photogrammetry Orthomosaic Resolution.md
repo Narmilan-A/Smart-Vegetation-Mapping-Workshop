@@ -1,21 +1,58 @@
-# 📸 Beginner’s Guide: UAV Photogrammetry Orthomosaic Resolution and Camera Geometry
+# 📸 Beginner’s Guide to UAV Photogrammetry in Agisoft Metashape
 
-This guide summarises key practical Q&A concepts about **Agisoft Metashape orthomosaic processing, GSD estimation, and camera geometry**, structured based on real processing queries for quick reference.
+This guide summarises practical Q&A topics on **orthomosaic pixel size estimation, camera geometry, processing settings, and resolution reporting** to support your UAV remote sensing workflows.
 
 ---
 
-## ✨ **1. What is Camera Geometry?**
+## ✨ **1. How does Metashape estimate PGSD without GPS data?**
 
-**Question:** What does camera geometry mean in photogrammetry?
+### ❓ **Question:**
+I developed an RGB orthomosaic using Agisoft, but raw images lacked geotags. I produced an orthomosaic, and in the export and processing report found pixel size in meters. **How is it possible to estimate PGSD without GPS info?**
 
-**Answer:**
+### ✅ **Answer:**
 
-Camera geometry defines the **mathematical relationship between 3D real-world points and their 2D projections onto an image sensor**.
+Even without GPS or external scale, **Metashape estimates PGSD (Projected Ground Sample Distance)** using:
 
-### ➡️ **Key Components**
+1. **Camera intrinsic parameters**
+   - Sensor pixel size + image width/height.
+   - Focal length (from EXIF or calibration).
+
+2. **Relative tie points**
+   - Matching features between overlapping images.
+   - Builds an internally consistent 3D model with relative dimensions.
+
+3. **Estimated scene depth**
+   - Approximate distance from camera to ground based on internal bundle adjustment.
+
+🔬 **Key note:**
+- The reported PGSD is **only relative**, not real-world accurate, because:
+  - The model has no absolute scale.
+  - E.g. Orthomosaic may report **5 cm/px**, but the map could be arbitrarily small or large in reality.
+
+### 💡 **Why does it appear in the report?**
+
+Because Metashape **automatically calculates PGSD** from:
+
+- Scene depth
+- Camera sensor size + image resolution
+
+**Even if units are arbitrary** in local coordinates.
+
+---
+
+## 🛠️ **2. What is Camera Geometry?**
+
+### ❓ **Question:**
+What does camera geometry mean in photogrammetry?
+
+### ✅ **Answer:**
+
+**Camera geometry describes the mathematical relationship between 3D real-world points and their 2D projections onto the camera image plane.**
+
+### ➡️ **Key Components:**
 
 1. **Intrinsic Parameters (Internal)**
-   - Focal length
+   - Focal length (f)
    - Principal point (cx, cy)
    - Sensor size and pixel size
    - Lens distortion parameters (radial, tangential)
@@ -24,117 +61,119 @@ Camera geometry defines the **mathematical relationship between 3D real-world po
    - Camera position (X, Y, Z)
    - Camera orientation (Roll, Pitch, Yaw)
 
-### 🔬 **Why is it important?**
-- Enables transformation between **2D image pixels and real-world 3D coordinates**.
-- Forms the basis for **bundle adjustment**, dense reconstruction, and orthomosaic generation in Metashape.
+### 🔬 **Importance in Photogrammetry:**
+
+- Converts between **2D image pixels and 3D real-world coordinates**.
+- Enables bundle adjustment, dense reconstruction, and orthomosaic generation.
 
 ---
 
-## 📏 **2. How does Metashape estimate GSD without GPS data?**
+## 🏔️ **3. Processing Parameter Effects: Alignment Quality, Surface Type, and Depth Map Quality**
 
-**Question:** I processed images without geotags. How does Metashape estimate PGSD or GSD in this case?
+### ❓ **Question:**
+I processed RGB data for two sites with different parameters:
 
-**Answer:**
+| Step | Site 1 | Site 2 |
+|---|---|---|
+| **Align Photos** | High | Highest |
+| **Build Surface** | Point Cloud | Mesh |
+| **Depth Map Quality** | - | High |
 
-✅ **Metashape uses internal camera geometry and relative tie points.**
+I got better quality images with **Highest alignment and Mesh surface** with high depth map quality. **Why?**
 
-### ➡️ **How it works:**
+### ✅ **Answer:**
 
-1. Uses **camera intrinsic parameters** (focal length, sensor size) to define field of view.
-2. Uses **relative image positions and tie points** to build an internally consistent 3D model.
-3. Calculates PGSD (Projected GSD) based on the internal model scale.
+#### ✔ **a) Alignment Accuracy**
+- **Highest alignment** uses maximum key points → better camera pose estimation → more accurate models.
 
-⚠️ **However:**
-- Without **GPS or GCPs**, the model has **no absolute scale**.
-- Reported PGSD is **only relative**, not tied to real-world distances.
+#### ✔ **b) Surface Type: Point Cloud vs Mesh**
+- **Point Cloud:** Orthomosaic projected onto dense cloud; may show noise if points are sparse.
+- **Mesh:** Generates a triangulated continuous surface; produces smoother, higher-quality orthomosaics, especially in low-texture areas.
 
----
-
-## 🔍 **3. Why does my processing report show resolution for one project but not another?**
-
-**Question:** Both my RGB projects used untagged images in local coordinates. One report shows resolution (e.g. 6.37 mm/px), the other does not. Why?
-
-**Answer:**
-
-### ✅ **Possible reasons:**
-
-1. **Surface type used for orthomosaic:**
-   - **Point Cloud Surface:**  
-     Uses dense cloud with assumed units (treated as meters) → **Metashape calculates and reports resolution**.
-   - **Mesh Surface:**  
-     Treated as **dimensionless geometry with texture mapping**, without defined real-world units → **resolution not reported**.
-
-2. **Processing report settings:**
-   - If orthomosaic build step is skipped or fails, resolution section is omitted.
-
-3. **Alignment quality differences:**
-   - Poor alignment results in unstable model scales → resolution calculation omitted.
+#### ✔ **c) Depth Map Quality**
+- **Higher quality depth maps → denser, more accurate dense clouds and meshes**, leading to sharper orthomosaics.
 
 ---
 
-## 🏔️ **4. Why does mesh surface processing omit resolution while point cloud surface shows it?**
+### 💡 **Best Practice Workflow**
 
-**Question:** I processed with mesh surface – no resolution info; with point cloud surface – resolution appears. Why?
+1. **Align Photos:** Highest
+2. **Optimize Cameras**
+3. **Build Depth Maps:** High or Ultra-high
+4. **Build Dense Cloud**
+5. **Build Mesh:** Prefer mesh for smooth surfaces
+6. **Build Orthomosaic:** Use mesh as surface
 
-**Answer:**
+⚠️ **Trade-off:** Higher settings = longer processing time and higher GPU memory demand.
 
-✔ **Point Cloud Surface:**
-- Dense cloud has spacing interpreted as meters in local CRS.
-- Metashape calculates GSD from this spacing and camera parameters.
+---
 
-❌ **Mesh Surface:**
-- Treated as a **3D model with no defined metric scale** in unscaled projects.
-- Orthomosaic becomes a texture projection without calculable GSD in real-world units.
+## 📏 **4. Why does resolution appear in some processing reports but not others?**
+
+### ❓ **Question:**
+For the same untagged RGB dataset in local coordinates:
+- Processing with **point cloud surface** shows resolution (e.g. 6.37 mm/px).
+- Processing with **mesh surface** shows no resolution.
+
+**Why?**
+
+### ✅ **Answer:**
+
+✔ **Point Cloud Surface**
+- Dense cloud has internal unit spacing (interpreted as meters in local CRS).
+- Metashape calculates GSD from this spacing + camera parameters → reports resolution.
+
+❌ **Mesh Surface**
+- Treated as dimensionless geometry for texture mapping.
+- Without external scale (GPS/GCPs/scale bar), mesh units have no real-world meaning → resolution not reported.
 
 ---
 
 ## 🛰️ **5. How does Metashape estimate correct GSD with geotagged images?**
 
-**Question:** If my raw images have GPS data, how does Metashape calculate accurate GSD?
+### ❓ **Question:**
+If my raw images have GPS data, how does Metashape calculate accurate GSD?
 
-**Answer:**
+### ✅ **Answer:**
 
-✅ **Steps:**
+Metashape uses:
 
-1. Reads **camera intrinsic parameters** from EXIF or calibration:
-   - Focal length
-   - Sensor size
-2. Uses **GPS altitude (ASL or AGL)** to estimate camera height above ground.
-3. Calculates GSD using:
+1. **Camera intrinsics**
+   - Focal length, sensor size (from EXIF or calibration)
+
+2. **GPS altitude**
+   - Provides camera height above ground (AGL or ASL)
+
+3. **Standard GSD formula:**
 
 \[
 GSD = \frac{H \times S}{f \times I}
 \]
 
 Where:
+
 - **H** = Flight altitude above ground (mm)
 - **S** = Sensor width (mm)
 - **f** = Focal length (mm)
 - **I** = Image width (pixels)
 
-4. Refines GSD during **bundle adjustment** for final accurate reporting.
-
-⚠️ **Note:** If GPS altitude is ASL (Above Sea Level), a DEM or GCPs improves true ground elevation and GSD accuracy.
-
----
-
-## ✅ **6. Final Key Takeaways**
-
-- **Always include scale constraints (GPS or GCPs)** for meaningful resolution and measurements.
-- **Point cloud surfaces** provide resolution reporting even for unscaled projects.
-- **Mesh surfaces** require scale bars or georeferencing for metric resolution reporting.
+4. **Bundle adjustment refinement**
+   - Optimises camera positions/orientations, correcting GPS errors for final accurate GSD reporting.
 
 ---
 
-### 💡 **Next Steps**
-
-For consistent Antarctic UAV processing:
-
-- Add **scale bars or GCPs** even in untagged datasets.
-- Document all processing settings for reproducibility.
-- Consider exporting both **mesh-based and point-cloud-based orthomosaics** depending on analysis needs.
+### ⚠️ **Note:**
+- If GPS altitude is ASL, integrating a **DEM or GCPs** ensures correct ground elevation for GSD accuracy.
 
 ---
 
-_Compiled for UAV photogrammetry beginner training and documentation._
+## ✅ **6. Final Takeaways**
 
+- **Without GPS or scale:** PGSD is relative, not real-world accurate.
+- **Point cloud surfaces** → resolution reported; **mesh surfaces** → resolution omitted unless scaled.
+- **Higher processing settings** (alignment, depth map, mesh) → better orthomosaic quality.
+- Always include **GPS, GCPs, or scale bars** for meaningful resolution and measurements.
+
+---
+
+_Compiled for UAV photogrammetry beginner training and Antarctic processing documentation._
