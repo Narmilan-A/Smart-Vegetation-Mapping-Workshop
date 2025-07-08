@@ -1,4 +1,4 @@
-# Beginner’s Guide to UAV Photogrammetry in Agisoft Metashape
+# UAV Photogrammetry Q&A
 
 This guide summarises practical Q&A topics on **orthomosaic pixel size estimation, camera geometry, processing settings, and resolution reporting** to support your UAV remote sensing workflows.
 
