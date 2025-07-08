@@ -10,7 +10,6 @@ A beginner's guide for processing MicaSense RedEdge multispectral imagery collec
 - **Images:** Geo-tagged TIFFs (from drone flight)
 - **Positioning:** RTK-enabled GNSS with centimeter-level accuracy
 - **Image Structure:** Maintain MicaSense folder structure (per-capture folders)
-- **Flight Altitude:** ~100–120 m AGL (adjust GSD estimate accordingly)
 
 ---
 
@@ -72,6 +71,15 @@ Max Neighbors:      32
 
 > "High" quality captures more detail for terrain; "Mild" filtering keeps sharp features like crevasses or rock edges.
 
+| Aspect                     | Medium Quality                                                                                        | High Quality                                             |
+|----------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| **Processing Time**        | Faster (significantly quicker)                                                                      | Much slower (can be 2-3x longer)                         |
+| **Memory Usage**           | Moderate                                                                                            | High                                                     |
+| **Point Cloud Detail**     | Good detail but fewer points in complex areas                                                       | Denser and more detailed point cloud                     |
+| **Noise**                  | Moderate noise filtering                                                                            | Cleaner with better small feature representation         |
+| **Final DEM & Ortho**      | Slightly less detailed surface model; minor loss in fine details                                    | More precise DEM, sharper edges, better texture in ortho |
+| **Orthomosaic Resolution** | Same pixel resolution (based on input images) but spatial accuracy and sharpness may degrade slightly | Best possible spatial accuracy and sharpness             |
+
 ---
 
 ## 🌐 Step 3: Dense Point Cloud
@@ -128,28 +136,5 @@ Export Resolution:  Match native GSD (~5–6 cm/pixel typical)
 | Artifacts in orthomosaic    | Enable ghosting filter + check for moving features (snow, shadows)  |
 | DEM looks flat or noisy     | Use Mild filtering + High quality depth maps                        |
 
----
-
-## 📚 Version Control
-
-- **Guide Version:** v1.1  
-- **Metashape Version:** 2.0.1+  
-- **Author:** [Your Name or Org]  
-- **Last Updated:** July 2025
-
----
-
-## 📥 Optional: Automate with Batch Processing
-
-Use Metashape's Batch tool or Python scripting to automate repetitive tasks across datasets.
-
----
-
-## 🧊 Antarctic Notes
-
-- Snow/ice surfaces require lower alignment strictness (more tolerant settings).
-- Use textureless surface enhancement techniques (e.g., reduce reprojection error filtering).
-- Fly with ≥75% frontlap / 70% sidelap for reliable tie point matching.
-- Even with RTK, always verify alignment visually due to terrain and lighting limitations.
 
 ---
