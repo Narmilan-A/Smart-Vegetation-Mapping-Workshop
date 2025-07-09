@@ -118,12 +118,6 @@ You can request an interactive CPU-only session using the following command:
    ```
    qsub -I -S /bin/bash -l select=1:ncpus=1:mem=4GB -l walltime=12:00:00
    ``` 
-# 🖥️ GPU Update: NVIDIA A100s Now Available on Aqua
-
-**From:** eResearch Support  
-**Contact:** [qut.hpc_users@qut.edu.au](mailto:qut.hpc_users@qut.edu.au)
-
----
 
 ## ✅ GPU Update on the HPC
 
