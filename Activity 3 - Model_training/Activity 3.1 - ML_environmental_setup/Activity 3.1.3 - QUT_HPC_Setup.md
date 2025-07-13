@@ -269,7 +269,11 @@ Get the present working directory:
 ```sh
 pwd
 ```
+## Navigating the exact Folder
 
+```
+(envhpc) [amarasi5@gpu1n001 /]$ cd ~/hpc/tsa/tsa_model_training/scripts/rgb
+```
 ### List Files
 List files in the current directory:
 ```sh
