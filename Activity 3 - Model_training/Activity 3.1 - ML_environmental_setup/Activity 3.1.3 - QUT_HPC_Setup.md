@@ -160,6 +160,10 @@ qsub -I -S /bin/bash -l select=1:ncpus=4:mem=32g:ngpus=1:gpu_id=A100 -l walltime
 qsub -I -S /bin/bash -l select=1:ncpus=4:mem=32g:ngpus=1:gpu_id=H100 -l walltime=12:00:00
 ```
 
+```bash
+qsub -I -S /bin/bash -l select=1:ncpus=32:mem=128g:ngpus=1:gpu_id=H100 -l walltime=24:00:00
+```
+
 ---
 
 ### 📦 Batch Jobs
