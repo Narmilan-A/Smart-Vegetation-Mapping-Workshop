@@ -64,6 +64,11 @@ conda install -y tensorflow=2.12 keras=2.12.0 keras-preprocessing=1.1.2 -c conda
 conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults cudatoolkit
 ```
 ```
+conda install -y -c conda-forge cuda-python cudnn cupy curl
+```
+
+
+```
 conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults \
     cudatoolkit=11.2.2 \
     cuda-python=11.8 \
