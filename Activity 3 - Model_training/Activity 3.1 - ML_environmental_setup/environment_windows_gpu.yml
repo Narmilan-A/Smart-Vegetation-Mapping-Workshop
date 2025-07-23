@@ -1,3 +1,58 @@
+# Conda Environment: Deep Learning Package List
+
+**Date Generated:** 2025-07-23
+
+This document summarises only the **Deep Learning-related packages** installed in the environment for quick reference and reproducibility.
+
+---
+
+## 📦 Installed Deep Learning Packages
+
+| Name                          | Version   | Build                 | Channel     |
+|-------------------------------|-----------|-----------------------|-------------|
+| cudatoolkit                   | 11.2.2    | h7d7167e_13           | conda-forge |
+| cudnn                         | 8.1.0.77  | h3e0f4f4_0            | conda-forge |
+| cupy                          | 9.1.0     | py38hf95616d_0        | conda-forge |
+| tensorflow                    | 2.10.0    | pypi_0                | pypi        |
+| tensorflow-estimator          | 2.10.0    | pypi_0                | pypi        |
+| keras                         | 2.10.0    | pypi_0                | pypi        |
+| keras-preprocessing           | 1.1.2     | pypi_0                | pypi        |
+| tensorboard                   | 2.10.1    | pypi_0                | pypi        |
+| tensorboard-data-server       | 0.6.1     | pypi_0                | pypi        |
+| tensorboard-plugin-wit        | 1.8.1     | pypi_0                | pypi        |
+| tensorflow-io-gcs-filesystem  | 0.31.0    | pypi_0                | pypi        |
+| opt-einsum                    | 3.4.0     | pypi_0                | pypi        |
+| wrapt                         | 1.17.2    | pypi_0                | pypi        |
+| gast                          | 0.4.0     | pypi_0                | pypi        |
+| flatbuffers                   | 25.2.10   | pypi_0                | pypi        |
+| protobuf                      | 3.19.6    | pypi_0                | pypi        |
+| absl-py                       | 2.3.1     | pypi_0                | pypi        |
+| google-pasta                  | 0.2.0     | pypi_0                | pypi        |
+| grpcio                        | 1.70.0    | pypi_0                | pypi        |
+| termcolor                     | 2.4.0     | pypi_0                | pypi        |
+
+---
+
+## 💻 Purpose
+
+This environment setup supports:
+
+- **TensorFlow GPU workflows** using CUDA and cuDNN
+- **Keras model building**
+- **TensorBoard logging and visualisation**
+- **General deep learning development and experimentation**
+
+---
+
+## 🔁 Recreate This Environment
+
+To recreate only the deep learning components:
+
+```bash
+conda install cudatoolkit=11.2.2 cudnn=8.1.0.77 cupy=9.1.0
+pip install tensorflow==2.10.0 keras==2.10.0 tensorboard==2.10.1
+
+
 name: tf_gpu_env
 channels:
   - conda-forge
