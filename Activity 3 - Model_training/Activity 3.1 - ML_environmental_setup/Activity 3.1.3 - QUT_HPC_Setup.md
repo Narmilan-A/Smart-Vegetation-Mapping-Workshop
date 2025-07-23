@@ -70,20 +70,18 @@ pip install tensorflow
 ###### If your HPC uses module for environment management (common), run:
 ```
 module avail cuda
-
 ```
 ###### Then load the correct version:
 
 ```
 module load cuda/12.8.0
-
 ```
 ###### Re-check GPU Access in Python
 ```
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
 
-#### INstall other required libraries
+#### Install other required libraries
 
 ###### OpenCV
 ```
@@ -140,11 +138,6 @@ You can request an interactive CPU-only session using the following command:
 Good news — the **NVIDIA A100 GPU nodes** have been migrated from **Lyra** to **Aqua**, increasing the number of GPUs available on the HPC.
 
 > **Note:** If you are running interactive or batch jobs and **do not specify** a particular GPU type, the scheduler will allocate **any available GPU** (A100 or H100).
-
----
-
-### 📅 Date  
-**Today**
 
 ---
 
@@ -291,7 +284,7 @@ pwd
 ## Navigating the exact Folder
 
 ```
-(envhpc) [amarasi5@gpu1n001 /]$ cd ~/hpc/tsa/tsa_model_training/scripts/rgb
+cd ~/hpc/tsa/tsa_model_training/scripts/rgb
 ```
 ### List Files
 List files in the current directory:
