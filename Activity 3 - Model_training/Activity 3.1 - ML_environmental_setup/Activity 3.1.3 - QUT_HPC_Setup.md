@@ -108,7 +108,7 @@ conda install -c conda-forge gdal
 pip install xgboost==1.7.5
 ```
 
-#### Create the Environment using existing libraries  (Optional)
+#### Note: Create the Environment using existing libraries  (Optional)
 Open your terminal or command prompt, navigate to the directory containing your environment.yml file, and execute the following command
 ```
 conda env create -f environment.yml
