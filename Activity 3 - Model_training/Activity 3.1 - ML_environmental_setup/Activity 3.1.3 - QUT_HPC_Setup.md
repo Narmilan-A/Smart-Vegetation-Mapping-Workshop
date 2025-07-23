@@ -55,7 +55,7 @@ conda activate myenv
 #### Step 5.3: Installation of required  Libraries
 
 ##### Install TensorFlow
-```
+
 ###### For GPU users
 ```
 pip install tensorflow[and-cuda]
