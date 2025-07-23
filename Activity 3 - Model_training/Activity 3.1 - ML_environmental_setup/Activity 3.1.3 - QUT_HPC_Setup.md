@@ -83,31 +83,29 @@ module load cuda/12.8.0
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
 
+#### INstall other required libraries
 
-
-
-
-##### OpenCV
+###### OpenCV
 ```
 pip install opencv-python opencv-python-headless
 ```
-##### Matplotlib
+###### Matplotlib
 ```
 pip install matplotlib
 ```
-##### Seaborn
+###### Seaborn
 ```
 pip install seaborn
 ```
-##### scikit-image
+###### scikit-image
 ```
 pip install scikit-image
 ```
-##### GDAL
+###### GDAL
 ```
 conda install -c conda-forge gdal
 ```
-##### XGBoost
+###### XGBoost
 ```
 pip install xgboost==1.7.5
 ```
