@@ -54,30 +54,39 @@ conda activate myenv
 
 #### Step 5.3: Installation of required  Libraries
 
-##### TensorFlow and Keras
+##### Install TensorFlow
 ```
-conda install -y tensorflow=2.12 keras=2.12.0 keras-preprocessing=1.1.2 -c conda-forge
+###### For GPU users
 ```
-
-##### Other DL Libraries
+pip install tensorflow[and-cuda]
 ```
-conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults cudatoolkit
+###### For CPU users
 ```
-```
-conda install -y -c conda-forge cuda-python cudnn cupy curl
+pip install tensorflow
 ```
 
+##### Load the CUDA Module
+
+###### If your HPC uses module for environment management (common), run:
+```
+module avail cuda
 
 ```
-conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults \
-    cudatoolkit=11.2.2 \
-    cuda-python=11.8 \
-    cudf=23.02 \
-    cuml=23.02 \
-    cudnn=8.1.0.77 \
-    cupy=11.5.0 \
-    curl=7.87.0
+###### Then load the correct version:
+
 ```
+module load cuda/12.8.0
+
+```
+###### Re-check GPU Access in Python
+```
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+
+
+
+
+
 ##### OpenCV
 ```
 pip install opencv-python opencv-python-headless
