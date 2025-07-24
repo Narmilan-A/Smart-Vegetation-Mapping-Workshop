@@ -74,7 +74,7 @@ module avail cuda
 ###### Then load the correct version:
 
 ```
-module load cuda/12.8.0
+module load CUDA/12.8.0
 ```
 ###### Re-check GPU Access in Python
 ```
