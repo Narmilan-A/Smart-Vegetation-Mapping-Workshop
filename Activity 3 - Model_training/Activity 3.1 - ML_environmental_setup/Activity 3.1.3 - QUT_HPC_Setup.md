@@ -54,48 +54,61 @@ conda activate myenv
 
 #### Step 5.3: Installation of required  Libraries
 
-##### TensorFlow and Keras
+##### Install TensorFlow
+
+###### For GPU users
 ```
-conda install -y tensorflow=2.12 keras=2.12.0 keras-preprocessing=1.1.2 -c conda-forge
+pip install tensorflow[and-cuda]
+```
+###### For CPU users
+```
+pip install tensorflow
 ```
 
-##### Other DL Libraries
+##### Load the CUDA Module
+
+###### If your HPC uses module for environment management (common), run:
 ```
-conda install -y -c nvidia -c rapidsai -c conda-forge -c defaults \
-    cudatoolkit=11.2.2 \
-    cuda-python=11.8 \
-    cudf=23.02 \
-    cuml=23.02 \
-    cudnn=8.1.0.77 \
-    cupy=11.5.0 \
-    curl=7.87.0
+module avail cuda
 ```
-##### OpenCV
+###### Then load the correct version:
+
+```
+module load CUDA/12.8.0
+```
+###### Re-check GPU Access in Python
+```
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+
+#### Install other required libraries
+
+###### OpenCV
 ```
 pip install opencv-python opencv-python-headless
 ```
-##### Matplotlib
+###### Matplotlib
 ```
 pip install matplotlib
 ```
-##### Seaborn
+###### Seaborn
 ```
 pip install seaborn
 ```
-##### scikit-image
+###### scikit-image
 ```
 pip install scikit-image
 ```
-##### GDAL
+###### GDAL
 ```
 conda install -c conda-forge gdal
 ```
-##### XGBoost
+###### XGBoost
 ```
 pip install xgboost==1.7.5
 ```
 
-#### Create the Environment using existing libraries  (Optional)
+#### Note: Create the Environment using existing libraries  (Optional)
 Open your terminal or command prompt, navigate to the directory containing your environment.yml file, and execute the following command
 ```
 conda env create -f environment.yml
@@ -118,11 +131,66 @@ You can request an interactive CPU-only session using the following command:
    ```
    qsub -I -S /bin/bash -l select=1:ncpus=1:mem=4GB -l walltime=12:00:00
    ``` 
-CPU and GPU Interactive Jobs
-To maximise utilisation and availability of GPUs, interactive CPU+GPU interactive sessions utilise Nvidia’s Multi Instance GPU (MIG) technology.
-   ```
-   qsub -I -S /bin/bash -l select=1:ncpus=6:ngpus=1:mem=34gb -l walltime=12:00:00
-   ``` 
+
+## ✅ GPU Update on the HPC
+
+### Item  
+Good news — the **NVIDIA A100 GPU nodes** have been migrated from **Lyra** to **Aqua**, increasing the number of GPUs available on the HPC.
+
+> **Note:** If you are running interactive or batch jobs and **do not specify** a particular GPU type, the scheduler will allocate **any available GPU** (A100 or H100).
+
+---
+
+### ℹ️ Background
+
+When running batch or interactive jobs on the HPC, you can choose the type of GPU you want to use:
+
+- **H100s** are newer and faster.
+- **A100s** are powerful GPUs recently migrated from Lyra to Aqua.
+
+---
+
+## 🛠️ Instructions
+
+To request a **specific GPU model**, set the `gpu_id` resource to either `A100` or `H100`.
+
+---
+
+### 💻 Interactive Jobs
+
+**A100:**
+```bash
+qsub -I -S /bin/bash -l select=1:ncpus=4:mem=32g:ngpus=1:gpu_id=A100 -l walltime=12:00:00
+```
+
+**H100:**
+```bash
+qsub -I -S /bin/bash -l select=1:ncpus=4:mem=32g:ngpus=1:gpu_id=H100 -l walltime=12:00:00
+```
+
+```bash
+qsub -I -S /bin/bash -l select=1:ncpus=32:mem=128g:ngpus=1:gpu_id=H100 -l walltime=24:00:00
+```
+
+---
+
+### 📦 Batch Jobs
+
+**A100:**
+```bash
+#!/bin/bash -l
+#PBS -N My_A100_Job
+#PBS -l select=1:ncpus=4:ngpus=1:mem=32g:gpu_id=A100
+```
+
+**H100:**
+```bash
+#!/bin/bash -l
+#PBS -N My_H100_Job
+#PBS -l select=1:ncpus=4:ngpus=1:mem=32g:gpu_id=H100
+```
+
+---
 
 ## 7. List of Useful Commands
    - `qsub`.
@@ -213,7 +281,11 @@ Get the present working directory:
 ```sh
 pwd
 ```
+## Navigating the exact Folder
 
+```
+cd ~/hpc/tsa/tsa_model_training/scripts/rgb
+```
 ### List Files
 List files in the current directory:
 ```sh

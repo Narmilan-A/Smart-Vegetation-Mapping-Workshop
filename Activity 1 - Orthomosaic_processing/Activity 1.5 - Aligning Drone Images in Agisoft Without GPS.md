@@ -94,8 +94,8 @@ Use these when going to `Workflow → Align Photos`.
 3. 🎯 Apply the recommended settings (see table above)  
 4. 🧩 Wait for tie points to generate  
 5. 🔍 Inspect the sparse cloud  
-6. ✅ If all looks good → move on to build the **dense cloud**  
-7. 🗺️ Then create a **DEM** and **orthomosaic**
+6. ✅ If all looks good → move on to build the **dense cloud/Mesh**  
+7. 🗺️ Then create a **orthomosaic**
 
 ---
 
