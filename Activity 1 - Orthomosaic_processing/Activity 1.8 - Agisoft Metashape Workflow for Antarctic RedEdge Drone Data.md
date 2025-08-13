@@ -1,8 +1,4 @@
-# Agisoft Metashape Workflow for Antarctic RedEdge Drone Data
-
-A beginner's guide for processing MicaSense RedEdge multispectral imagery collected over Antarctic terrain using **Agisoft Metashape Pro**. This guide is optimized for high-quality orthomosaics and DEMs in challenging low-texture environments (e.g., snow, ice, flat terrain), and assumes data collected with **GNSS RTK**.
-
----
+# Agisoft Metashape Workflow for RedEdge Drone Data
 
 ## 📦 Input Requirements
 
