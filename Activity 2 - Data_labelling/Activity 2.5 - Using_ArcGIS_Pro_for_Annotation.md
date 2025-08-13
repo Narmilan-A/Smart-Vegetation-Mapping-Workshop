@@ -41,11 +41,11 @@ The first method utilises the advanced capabilities of ArcGIS Pro (v3.1 or highe
 ### Step 4 – Create a New Training Sample
 1. Click **Create New Schema** in the Training Samples Manager.
 2. Right-click the new schema and select **Edit Properties**.
-3. Rename the schema to a meaningful name, e.g., `SCII399_ASPA131_G1_P1_20230812_v1` and Save it.
-4. Click **Save Current Classification Schema**, select the output location, and save the schema file (SCII399_ASPA131_G1_P1_20230812_v1.ecs).
+3. Rename the schema to a meaningful name and Save it.
+4. Click **Save Current Classification Schema**, select the output location, and save the schema file (xxxxx.ecs).
 5. Right-click the created schema again and select **Add New Class**.
 6. In the dialog:
-   - Enter the **Name** (e.g., `class_name` such as Healthy Moss).
+   - Enter the **Name** (e.g., `class_name`).
    - Assign the corresponding **Value** (e.g., `class_id` integer).
    - Click the color box to select a suitable color for this class.
    - Click **OK** to add the class.
@@ -167,9 +167,3 @@ Both methods provide viable approaches to image labelling within ArcGIS Pro, dep
 - **Feature Class Tool**: Manual but accessible; suitable for broader use cases with no additional licensing cost.
 
 ---
-
-<div style="text-align: right;">
-  <a href="Activity_09_Annotation_Quality_Checks.md" style="background-color:#4CAF50; color:white; padding:6px 12px; text-decoration:none; border-radius:4px;">
-    Next ➡
-  </a>
-</div>
