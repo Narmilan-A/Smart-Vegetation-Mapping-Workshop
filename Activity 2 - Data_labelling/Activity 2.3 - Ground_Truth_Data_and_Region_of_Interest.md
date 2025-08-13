@@ -1,12 +1,12 @@
 # Ground Truth Data and Region of Interest (ROI) Development
 
 ## Overview
-This document explains how to use the GNSS RTK (Real-Time Kinematic) ground truth points collected for different vegetation classes in the Antarctic vegetation mapping project. These accurate location points provide the foundation for creating Regions of Interest (ROIs), which guide manual annotation of UAV imagery.
+This document explains how to use the GNSS RTK (Real-Time Kinematic) ground truth points collected for different vegetation classes in the vegetation mapping project. These accurate location points provide the foundation for creating Regions of Interest (ROIs), which guide manual annotation of UAV imagery.
 
 ---
 
 ## Step 1 – Understanding GNSS RTK Ground Truth Points
-- GNSS RTK points provide precise spatial locations (centimeter-level accuracy) of sample vegetation types such as Healthy Moss, Stressed Moss, Moribund Moss, and Lichen species.
+- GNSS RTK points provide precise spatial locations (centimeter-level accuracy) of sample vegetation types such as A, B, C, and D species.
 - Each point is tagged with:
   - Class ID and name
   - Timestamp and metadata
@@ -20,7 +20,7 @@ This document explains how to use the GNSS RTK (Real-Time Kinematic) ground trut
 - Load the data into GIS software such as QGIS or ArcGIS Pro:
   1. Open QGIS or ArcGIS Pro.
   2. Import the ground truth file.
-  3. Inspect the distribution of points across the ASPA sites.
+  3. Inspect the distribution of points across the sites.
 - Confirm that the points correspond to visible features on the drone orthomosaics.
 
 ---
@@ -56,11 +56,6 @@ This document explains how to use the GNSS RTK (Real-Time Kinematic) ground trut
 ---
 
 ## Summary
-Using GNSS RTK ground truth points to develop ROIs ensures your manual annotation is spatially accurate and scientifically robust. This methodology supports high-quality training datasets for machine learning-based vegetation mapping in Antarctica.
+Using GNSS RTK ground truth points to develop ROIs ensures your manual annotation is spatially accurate and scientifically robust. This methodology supports high-quality training datasets for machine learning-based vegetation mapping.
 
 ---
-<div style="text-align: right;">
-  <a href="Activity_07_Using_QGIS_for_Annotation.md" style="background-color:#4CAF50; color:white; padding:6px 12px; text-decoration:none; border-radius:4px;">
-    Next ➡
-  </a>
-</div>
