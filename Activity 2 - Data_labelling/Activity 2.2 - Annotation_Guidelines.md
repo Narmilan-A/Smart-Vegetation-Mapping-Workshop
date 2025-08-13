@@ -11,12 +11,12 @@
 
 | Class ID | Class Name         | Confidence Level (%) | Remarks                          |
 |----------|--------------------|---------------------|---------------------------------|
-| 1        | Healthy Moss       | 25, 50, 75, 100     | Use to indicate health status   |
-| 2        | Stressed Moss      | 25, 50, 75, 100     | Shows signs of stress            |
-| 3        | Moribund Moss      | 25, 50, 75, 100     | Near death or dying moss         |
-| 4        | Lichen A           | 25, 50, 75, 100     | One species of lichen            |
-| 5        | Lichen B           | 25, 50, 75, 100     | Another lichen species           |
-| 6        | Non vegetated area | 100                 | Confirmed bare ground or rocks   |
+| 1        | A       | 25, 50, 75, 100     | .....   |
+| 2        | B      | 25, 50, 75, 100     | ....           |
+| 3        | C      | 25, 50, 75, 100     | ....        |
+| 4        | D           | 25, 50, 75, 100     | ....          |
+| 5        | E           | 25, 50, 75, 100     | ....           |
+| 6        | F | 100                 | ....   |
 
 ### Annotation Attribute: Confidence Level
 
@@ -50,8 +50,3 @@ Each annotated polygon should include an attribute called **Confidence_Level** i
 📌 **Remember:** Follow the class definitions exactly for data consistency.
 
 ---
-<div style="text-align: right;">
-  <a href="Activity_06_Ground_Truth_Data_and_Region_of_Interest.md" style="background-color:#4CAF50; color:white; padding:6px 12px; text-decoration:none; border-radius:4px;">
-    Next ➡
-  </a>
-</div>
