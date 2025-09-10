@@ -54,7 +54,7 @@ sites/<site>/
    │  │  │  │  ├─ qc/
    │  │  │  │  ├─ products/
    │  │  │  │  └─ logs/
-   │  │  └─ geonadir/
+   │  │  └─ geonadir/ Pix4D
    │  │     ├─ params_A/
    │  │     │  ├─ project_file/
    │  │     │  ├─ qc/
@@ -72,7 +72,7 @@ sites/<site>/
    │     │     ├─ qc/
    │     │     ├─ products/
    │     │     └─ logs/
-   │     └─ terra/
+   │     └─ terra/ Pix4D / geonadir
    │        ├─ params_A/
    │        │  ├─ project_file/
    │        │  ├─ qc/
@@ -114,38 +114,37 @@ annotation/
 
 ---
 
-## File naming conventions (core imagery)
+## Folder and File naming conventions (core imagery)
 
-| File type             | Format                              | Example                                        | Explanation                                                                 |
+| Folder/File type      | Format                       | Example                                 | Explanation                                                          |
 |-----------------------|-------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------|
-| Raw RGB (P1)          | `RGB-P1_<site>_<date>_IMG####.jpg`  | `RGB-P1_Maleny_20250614_IMG0001.jpg`           | RGB photo from DJI P1 sensor, site + date + image number                    |
-| Raw RGB (M3M)         | `RGB-M3M_<site>_<date>_IMG####.jpg` | `RGB-M3M_Buderim_20250407_IMG0234.jpg`         | RGB photo from M3M oblique camera                                           |
-| Raw MS (Altum)        | `MS-Altum_<site>_<date>_B#.tif`     | `MS-Altum_Petrie_20250705_B1.tif`              | Multispectral band file from Altum sensor, with band number                 |
-| Raw MS (M3M)          | `MS-M3M_<site>_<date>_B#.tif`       | `MS-M3M_Buderim_20250407_B3.tif`               | Multispectral band file from M3M sensor, with band number                   |
+| Raw RGB (P1) folder   | `RGB-P1_<site>_<date>`              | `RGB-P1_Maleny_20250614`                       | RGB photo from DJI P1 sensor, site + date                                   |
+| Raw RGB (M3M) folder  | `RGB-M3M_<site>_<date>`             | `RGB-M3M_Buderim_20250407`                     | RGB photo from M3M                                                          |
+| Raw MS (Altum) folder | `MS-Altum_<site>_<date>`            | `MS-Altum_Petrie_20250705`                     | Multispectral band file from Altum sensor                                   |
+| Raw MS (M3M) folder   | `MS-M3M_<site>_<date>`              | `MS-M3M_Buderim_20250407`                      | Multispectral band file from M3M sensor                                     |
 | Project file          | `<site>_<date>_<tool>_paramsX.psx`  | `Maleny_20250614_agisoft_paramsA.psx`          | Photogrammetry project file, includes date, site, tool, and parameter set   |
 | Ortho (RGB)           | `<site>_<date>_rgb_ortho_<res>m.tif`| `Maleny_20250614_rgb_ortho_0.05m.tif`          | Orthomosaic from RGB data, resolution included                              |
 | Ortho (MS)            | `<site>_<date>_ms_ortho_<res>m.tif` | `Petrie_20250705_ms_ortho_0.10m.tif`           | Orthomosaic from multispectral data, resolution included                    |
 | DEM                   | `<site>_<date>_dem.tif`             | `Buderim_20250407_dem.tif`                     | Digital Elevation Model generated from processing                           |
 | Mesh (OBJ)            | `<site>_<date>_rgb_mesh_<level>.obj`| `Maleny_20250614_rgb_mesh_high.obj`            | 3D mesh model, with resolution level (low/medium/high)                      |
 | QC report             | `qc_<stage>_<date>.txt`             | `qc_alignment_report_20250614.txt`             | QC report: alignment stats, reprojection error, band histograms             |
-| Log file              | `<tool>_<stage>_<date>_<time>.log`  | `metashape_densecloud_20250614_1530.log`       | Log from photogrammetry software, includes step and timestamp               |
-| Parameter record      | `PARAMS.json`                       | `PARAMS.json`                                  | JSON record of parameters used for this run                                 |
+| Parameter record      | `PARAMS.json/xml`                   | `PARAMS.json/xml`                              | JSON/xml record of parameters used for this run                             |
 
 ---
 
 ## File naming conventions (annotation, species-based)
 
-| File type           | Format                                        | Example                                                   | Explanation                                               |
-|---------------------|-----------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| RGB ortho copy      | `<species>_<site>_vX_rgb_ortho.tif`           | `camphorlaurel_maleny_v1_rgb_ortho.tif`                   | Copy of RGB orthomosaic for annotation (safe to edit)     |
-| MS ortho copy       | `<species>_<site>_vX_ms_ortho.tif`            | `catsclawcreeper_petriecreek_v1_ms_ortho.tif`             | Copy of MS orthomosaic for annotation                     |
-| ROI shapefile       | `<species>_<site>_vX_rois.shp`                | `madeiravine_buderim_v1_rois.shp`                         | Shapefile of ROIs (AOIs, training polygons)               |
-| Working shapefile   | `<species>_<site>_vX_working.shp`             | `camphorlaurel_maleny_v1_working.shp`                     | In-progress shapefile for annotation                      |
-| Final labels        | `<species>_<site>_vX_labels.shp`              | `catsclawcreeper_petriecreek_v1_labels.shp`               | Final labelled polygons                                   |
-| Clusters/VIs            | `<species>_<site>_vX_<cluster_name>/<VI_name>.tif`            | `catsclawcreeper_petriecreek_v2_NDVI.tif`             | VIs/ Clustering outputs to guide labelling                     |
-| Report document     | `<species>_<site>_vX_report.docx`             | `madeiravine_buderim_v1_report.docx`                      | Labelling report (Word)                                   |
-| Report slides       | `<species>_<site>_vX_slides.pptx`             | `camphorlaurel_maleny_v1_slides.pptx`                     | Labelling presentation slides (PPTX)                      |
-| Screenshot          | `<species>_<site>_vX_screenshot_##.png`       | `catsclawcreeper_petriecreek_v2_screenshot_01.png`        | Screenshots documenting annotation                        |
+| File type        | Format                                          | Example                                          | Explanation                                           |
+|------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
+| RGB ortho copy   | `<species>_<site>_rgb_ortho.tif`                | `camphorlaurel_maleny_rgb_ortho.tif`             | Copy of RGB orthomosaic for annotation (safe to edit) |
+| MS ortho copy    | `<species>_<site>_ms_ortho.tif`                 | `catsclawcreeper_petriecreek_ms_ortho.tif`       | Copy of MS orthomosaic for annotation                 |
+| ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeiravine_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
+| Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphorlaurel_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
+| Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclawcreeper_petriecreek_v1_labels.geojson`  | Final labelled polygons                               |
+| Clusters / VIs   | `<species>_<site>_vX_<cluster/vi-name>.tif`     | `catsclawcreeper_petriecreek_v2_NDVI.tif`        | Vegetation index or clustering output used in labelling|
+| Report document  | `<species>_<site>_vX_report.docx`               | `madeiravine_buderim_v1_report.docx`             | Labelling report in Word format                       |
+| Report slides    | `<species>_<site>_vX_slides.pptx`               | `camphorlaurel_maleny_v1_slides.pptx`            | Labelling presentation slides (PPTX)                  |
+| Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclawcreeper_petriecreek_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
 
 ---
 
