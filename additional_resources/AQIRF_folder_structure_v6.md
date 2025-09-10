@@ -1,6 +1,6 @@
 # AQIRF – Folder & File Structure
 
-Root folder for UAV RGB + Multispectral data across three sites (**Maleny**, **Petrie Creek**, **Buderim**). Structure separates **raw vs processed**, then **RGB vs MS**, then by **sensor type**. Additional root folder `annotation/` is included for labelling work.
+Root folder for UAV RGB + Multispectral data across different sites (**Maleny**, **Petrie Creek**, **Buderim**). Structure separates **raw vs processed**, then **RGB vs MS**, then by **sensor type**. Additional root folder `annotation/` is included for labelling work.
 
 ---
 
@@ -8,8 +8,8 @@ Root folder for UAV RGB + Multispectral data across three sites (**Maleny**, **P
 ```
 AQIRF-Drone/
 ├─ docs/                     # Protocols, SOPs, site maps
-├─ metadata/                 # Flight logs, GCPs, survey data, master summary
-├─ scripts/                  # Agisoft, Terra, Geonadir, utilities
+├─ metadata/                 # Flight logs, GCPs, survey data (GTPs), master summary (Spread sheets)
+├─ scripts/                  # Agisoft, ML/DL
 ├─ templates/                # Naming templates, metadata forms, checklists
 ├─ sites/                    # Site-specific data (raw + processed)
 └─ annotation/               # Labelling outputs
@@ -25,19 +25,19 @@ sites/<site>/
 └─ <YYYY-MM-DD>/
    ├─ raw/
    │  ├─ rgb/
-   │  │  ├─ p1/              # DJI P1 M300 (RGB nadir)
-   │  │  └─ m3m/             # M3M RGB (oblique)
+   │  │  ├─ p1/              # DJI P1 M300
+   │  │  └─ m3m/             # M3M RGB
    │  └─ ms/
    │     ├─ altum/           # Altum PT M300
-   │     └─ m3m/             # M3M MS (oblique)
+   │     └─ m3m/             # M3M MS
    ├─ processed/
    │  ├─ rgb/
    │  │  ├─ agisoft/
    │  │  │  ├─ params_A/
    │  │  │  │  ├─ project_file/   # Photogrammetry project file (.psx, etc.)
-   │  │  │  │  ├─ qc/             # QC reports, thumbnails
-   │  │  │  │  ├─ products/       # Final mosaics, masks
-   │  │  │  │  └─ logs/           # Processing logs, PARAMS.json
+   │  │  │  │  ├─ qc/             # QC reports
+   │  │  │  │  ├─ products/       # Final mosaics, other (DEM, Mesh, VIs)
+   │  │  │  │  └─ logs/           # Processing logs, PARAMS.json - Batch processing (XMl files)
    │  │  │  ├─ params_B/
    │  │  │  │  ├─ project_file/
    │  │  │  │  ├─ qc/
@@ -86,13 +86,24 @@ sites/<site>/
 ```
 annotation/
 ├─ <site>/
-│  └─ <YYYY-MM-DD>/
-│     ├─ rgb/
-│     │  ├─ labels/          # Vector (shp/geojson) or raster masks (tif)
-│     │  └─ qc/              # Annotation QC (who labelled, % checked)
-│     └─ ms/
-│        ├─ labels/
-│        └─ qc/
+│  ├─ v1/                        # First version of labelling
+│  │  ├─ working_shp/            # Current working shapefiles
+│  │  ├─ labels/                 # Finalised labels (geojson/shp/tif)
+│  │  ├─ vi/                     # Vegetation indices used during labelling (NDVI, GNDVI, etc.)
+│  │  ├─ clusters/               # Clustering outputs used for guiding labelling
+│  │  └─ reports/                # Documentation: doc, ppt, screenshots
+│  ├─ v2/                        # Second iteration
+│  │  ├─ working_shp/
+│  │  ├─ labels/
+│  │  ├─ vi/
+│  │  ├─ clusters/
+│  │  └─ reports/
+│  └─ v3/
+│     ├─ working_shp/
+│     ├─ labels/
+│     ├─ vi/
+│     ├─ clusters/
+│     └─ reports/
 ```
 
 ---
