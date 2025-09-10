@@ -150,20 +150,20 @@ annotation/
 
 | File type        | Format                                          | Example                                          | Explanation                                           |
 |------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
-| RGB ortho copy   | `<species>_<site>_rgb_ortho.tif`                | `camphorlaurel_maleny_rgb_ortho.tif`             | Copy of RGB orthomosaic for annotation (safe to edit) |
-| MS ortho copy    | `<species>_<site>_ms_ortho.tif`                 | `catsclawcreeper_petriecreek_ms_ortho.tif`       | Copy of MS orthomosaic for annotation                 |
-| RGB ortho aligned| `<species>_<site>_rgb_ortho_mod.tif`            | `camphorlaurel_maleny_rgb_ortho_mod.tif`         | Manually realigned RGB orthomosaic for annotation     |
-| MS ortho aligned | `<species>_<site>_ms_ortho_mod.tif`             | `catsclawcreeper_petriecreek_ms_ortho_mod.tif`   | Manually realigned MS orthomosaic for annotation      |
-| ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeiravine_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
-| Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphorlaurel_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
-| Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclawcreeper_petriecreek_v1_labels.geojson`  | Final labelled polygons                               |
-| Clusters / VIs   | `<species>_<site>_vX_<cluster/vi-name>.tif`     | `catsclawcreeper_petriecreek_v2_NDVI.tif`        | Vegetation index or clustering output used in labelling|
-| Report document  | `<species>_<site>_vX_report.docx`               | `madeiravine_buderim_v1_report.docx`             | Labelling , image alignment report in Word pdf format |
-| GCP export (text) | `<species>_<site>_rgb_gcp_points.txt`  | `camphorlaurel_maleny_rgb_gcp_points.txt`             | GCP export in `.txt` format from QGIS (RGB alignment) |
-| GCP export (CSV)  | `<species>_<site>_ms_gcp_points.csv`   | `catsclawcreeper_petriecreek_ms_gcp_points.csv`       | GCP export in `.csv` format from QGIS (MS alignment) |
-| GCP export (QGIS) | `<species>_<site>_rgb_gcp_points.points` | `madeiravine_buderim_rgb_gcp_points.points`          | Native `.points` file from QGIS georeferencing |
-| Report slides    | `<species>_<site>_vX_slides.pptx`               | `camphorlaurel_maleny_v1_slides.pptx`            | Labelling presentation slides (PPTX)                  |
-| Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclawcreeper_petriecreek_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
+| RGB ortho copy   | `<species>_<site>_rgb_ortho.tif`                | `camphor_maleny_rgb_ortho.tif`             | Copy of RGB orthomosaic for annotation (safe to edit) |
+| MS ortho copy    | `<species>_<site>_ms_ortho.tif`                 | `catsclaw_petrie_ms_ortho.tif`       | Copy of MS orthomosaic for annotation                 |
+| RGB ortho aligned| `<species>_<site>_rgb_ortho_modified.tif`            | `camphor_maleny_rgb_ortho_modified.tif`         | Manually realigned RGB orthomosaic for annotation     |
+| MS ortho aligned | `<species>_<site>_ms_ortho_modified.tif`             | `catsclaw_petrie_ms_ortho_modified.tif`   | Manually realigned MS orthomosaic for annotation      |
+| ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeira_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
+| Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphor_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
+| Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclaw_petrie_v1_labels.geojson`  | Final labelled polygons                               |
+| Clusters / VIs   | `<species>_<site>_vX_<cluster/vi-name>.tif`     | `catsclaw_petrie_v2_NDVI.tif`        | Vegetation index or clustering output used in labelling|
+| Report document  | `<species>_<site>_vX_report.docx`               | `madeira_buderim_v1_report.docx`             | Labelling , image alignment report in Word pdf format |
+| GCP export (text) | `<species>_<site>_rgb_gcp_points.txt`  | `camphor_maleny_rgb_gcp_points.txt`             | GCP export in `.txt` format from QGIS (RGB alignment) |
+| GCP export (CSV)  | `<species>_<site>_ms_gcp_points.csv`   | `catsclaw_petrie_ms_gcp_points.csv`       | GCP export in `.csv` format from QGIS (MS alignment) |
+| GCP export (QGIS) | `<species>_<site>_rgb_gcp_points.points` | `madeira_buderim_rgb_gcp_points.points`          | Native `.points` file from QGIS georeferencing |
+| Report slides    | `<species>_<site>_vX_slides.pptx`               | `camphor_maleny_v1_slides.pptx`            | Labelling presentation slides (PPTX)                  |
+| Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclaw_petrie_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
 
 ---
 
