@@ -121,7 +121,7 @@ annotation/
 
 ---
 
-## Folder Naming Conventions – Raw Imagery
+## Folder naming conventions (Raw imagery)
 
 | Folder/File type      | Format                       | Example                                 | Explanation                                      |
 |-----------------------|------------------------------|-----------------------------------------|--------------------------------------------------|
@@ -132,7 +132,7 @@ annotation/
 
 ---
 
-## Folder and File Naming Conventions – Processed Imagery
+## Folder and file naming conventions (Processed imagery)
 
 | File type             | Format                                | Example                                   | Explanation                                                                 |
 |-----------------------|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
