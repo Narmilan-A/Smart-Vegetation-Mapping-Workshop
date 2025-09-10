@@ -171,5 +171,4 @@ annotation/
 - `raw/` = unprocessed UAV imagery separated into RGB vs MS, then by sensor.  
 - `processed/` = outputs by tool + parameter set, with `project_file/`, `qc/`, `products/`, and `logs/` inside each param folder.  
 - `annotation/` = species-based labelling sandbox with site + version control. Annotators copy orthos here and generate labels, ROIs, indices, and reports without altering master data.  
-- **QC reports** = stats, plots, or checks proving alignment quality, reflectance scaling, or DEM/ortho quality.  
 - `metadata/summaries/data_summary_weeds_scc16052025.xlsx` is the master summary.  
