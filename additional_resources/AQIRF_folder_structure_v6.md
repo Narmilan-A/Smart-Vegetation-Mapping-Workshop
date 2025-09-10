@@ -82,28 +82,34 @@ sites/<site>/
 
 ---
 
-## Annotation layout
+## Annotation layout (species-based)
 ```
 annotation/
-├─ <site>/
-│  ├─ v1/                        # First version of labelling
-│  │  ├─ working_shp/            # Current working shapefiles
-│  │  ├─ labels/                 # Finalised labels (geojson/shp/tif)
-│  │  ├─ vi/                     # Vegetation indices used during labelling (NDVI, GNDVI, etc.)
-│  │  ├─ clusters/               # Clustering outputs used for guiding labelling
-│  │  └─ reports/                # Documentation: doc, ppt, screenshots
-│  ├─ v2/                        # Second iteration
-│  │  ├─ working_shp/
-│  │  ├─ labels/
-│  │  ├─ vi/
-│  │  ├─ clusters/
-│  │  └─ reports/
-│  └─ v3/
-│     ├─ working_shp/
-│     ├─ labels/
-│     ├─ vi/
-│     ├─ clusters/
-│     └─ reports/
+├─ camphor_laurel/
+│  ├─ maleny/
+│  │  ├─ orthos/              # Copies of RGB + MS orthomosaics (common to all versions)
+│  │  │  ├─ rgb/
+│  │  │  └─ ms/
+│  │  ├─ v1/
+│  │  │  ├─ rois/             # ROI shapefiles (AOIs, training polygons)
+│  │  │  ├─ working_shp/      # In-progress shapefiles (draft labelling)
+│  │  │  ├─ labels/           # Finalised labels (geojson/shp/masks)
+│  │  │  ├─ vi/               # Vegetation indices (NDVI, GNDVI, etc.)
+│  │  │  ├─ clusters/         # Clustering outputs
+│  │  │  └─ reports/          # Reports (docx, pptx, screenshots)
+│  │  └─ v2/
+│  │     └─ ...
+│  ├─ petrie_creek/
+│  │  ├─ orthos/
+│  │  └─ v1/...
+│  └─ buderim/
+│     ├─ orthos/
+│     └─ v1/...
+├─ cats_claw_creeper/
+│  └─ <site>/orthos + v1, v2...
+└─ madeira_vine/
+   └─ <site>/orthos + v1, v2...
+
 ```
 
 ---
@@ -116,7 +122,7 @@ annotation/
 | Raw RGB (M3M)         | `RGB-M3M_<site>_<date>_IMG####.jpg` | `RGB-M3M_Buderim_20250407_IMG0234.jpg`         | RGB photo from M3M oblique camera                                           |
 | Raw MS (Altum)        | `MS-Altum_<site>_<date>_B#.tif`     | `MS-Altum_Petrie_20250705_B1.tif`              | Multispectral band file from Altum sensor, with band number                 |
 | Raw MS (M3M)          | `MS-M3M_<site>_<date>_B#.tif`       | `MS-M3M_Buderim_20250407_B3.tif`               | Multispectral band file from M3M sensor, with band number                   |
-| Project file          | `<date>_<site>_<tool>_paramsX.psx`  | `20250614_Maleny_agisoft_paramsA.psx`          | Photogrammetry project file, includes date, site, tool, and parameter set   |
+| Project file          | `<site>_<date>_<tool>_paramsX.psx`  | `Maleny_20250614_agisoft_paramsA.psx`          | Photogrammetry project file, includes date, site, tool, and parameter set   |
 | Ortho (RGB)           | `<site>_<date>_rgb_ortho_<res>m.tif`| `Maleny_20250614_rgb_ortho_0.05m.tif`          | Orthomosaic from RGB data, resolution included                              |
 | Ortho (MS)            | `<site>_<date>_ms_ortho_<res>m.tif` | `Petrie_20250705_ms_ortho_0.10m.tif`           | Orthomosaic from multispectral data, resolution included                    |
 | DEM                   | `<site>_<date>_dem.tif`             | `Buderim_20250407_dem.tif`                     | Digital Elevation Model generated from processing                           |
@@ -127,20 +133,25 @@ annotation/
 
 ---
 
-## File naming conventions (annotation)
+## File naming conventions (annotation, species-based)
 
-| File type         | Format                                       | Example                                         | Explanation                                                   |
-|-------------------|----------------------------------------------|-------------------------------------------------|---------------------------------------------------------------|
-| Vector labels     | `<site>_<date>_<sensor>_labels.geojson`      | `Maleny_20250614_rgb_labels.geojson`            | Polygon/GeoJSON annotations for one site/date/sensor          |
-| Raster mask       | `<site>_<date>_<sensor>_mask_multiclass.tif` | `Petrie_20250705_ms_mask_multiclass.tif`        | Multiclass raster mask aligned with imagery                   |
-| QC log            | `annotation_qc_<site>_<date>.csv`            | `annotation_qc_Buderim_20250407.csv`            | Who labelled, % checked, reviewer notes                       |
-| Training split    | `<site>_<date>_<sensor>_train_test_split.csv`| `Maleny_20250614_rgb_train_test_split.csv`      | Records which labels/masks went to train/val/test sets        |
+| File type           | Format                                        | Example                                                   | Explanation                                               |
+|---------------------|-----------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| RGB ortho copy      | `<species>_<site>_vX_rgb_ortho.tif`           | `camphorlaurel_maleny_v1_rgb_ortho.tif`                   | Copy of RGB orthomosaic for annotation (safe to edit)     |
+| MS ortho copy       | `<species>_<site>_vX_ms_ortho.tif`            | `catsclawcreeper_petriecreek_v1_ms_ortho.tif`             | Copy of MS orthomosaic for annotation                     |
+| ROI shapefile       | `<species>_<site>_vX_rois.shp`                | `madeiravine_buderim_v1_rois.shp`                         | Shapefile of ROIs (AOIs, training polygons)               |
+| Working shapefile   | `<species>_<site>_vX_working.shp`             | `camphorlaurel_maleny_v1_working.shp`                     | In-progress shapefile for annotation                      |
+| Final labels        | `<species>_<site>_vX_labels.shp`              | `catsclawcreeper_petriecreek_v1_labels.shp`               | Final labelled polygons                                   |
+| Clusters            | `<species>_<site>_vX_clusters.tif`            | `catsclawcreeper_petriecreek_v2_clusters.tif`             | Clustering outputs to guide labelling                     |
+| Report document     | `<species>_<site>_vX_report.docx`             | `madeiravine_buderim_v1_report.docx`                      | Labelling report (Word)                                   |
+| Report slides       | `<species>_<site>_vX_slides.pptx`             | `camphorlaurel_maleny_v1_slides.pptx`                     | Labelling presentation slides (PPTX)                      |
+| Screenshot          | `<species>_<site>_vX_screenshot_##.png`       | `catsclawcreeper_petriecreek_v2_screenshot_01.png`        | Screenshots documenting annotation                        |
 
 ---
 
 ## Notes
 - `raw/` = unprocessed UAV imagery separated into RGB vs MS, then by sensor.  
 - `processed/` = outputs by tool + parameter set, with `project_file/`, `qc/`, `products/`, and `logs/` inside each param folder.  
+- `annotation/` = species-based labelling sandbox with site + version control. Annotators copy orthos here and generate labels, ROIs, indices, and reports without altering master data.  
 - **QC reports** = stats, plots, or checks proving alignment quality, reflectance scaling, or DEM/ortho quality.  
-- **Annotation** is stored in its own root for AI training, with labels and QC logs.  
 - `metadata/summaries/data_summary_weeds_scc16052025.xlsx` is the master summary.  
