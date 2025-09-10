@@ -87,48 +87,55 @@ sites/<site>/
 annotation/
 ├─ camphor_laurel/
 │  ├─ maleny/
-│  │  ├─ orthos/              # Copies of RGB + MS orthomosaics (common to all versions)
+│  │  ├─ orthos/               # Baseline imagery for annotation
 │  │  │  ├─ rgb/
-│  │  │  └─ ms/
+│  │  │  ├─ ms/
+│  │  │  └─ image_alignment/   # Modified orthos (aligned/reprojected copies)
 │  │  ├─ v1/
-│  │  │  ├─ rois/             # ROI shapefiles (AOIs, training polygons)
-│  │  │  ├─ working_shp/      # In-progress shapefiles (draft labelling)
-│  │  │  ├─ labels/           # Finalised labels (geojson/shp/masks)
-│  │  │  ├─ vi/               # Vegetation indices (NDVI, GNDVI, etc.)
-│  │  │  ├─ clusters/         # Clustering outputs
-│  │  │  └─ reports/          # Reports (docx, pptx, screenshots)
+│  │  │  ├─ rois/              # ROI shapefiles (AOIs, training polygons)
+│  │  │  ├─ working_shp/       # In-progress shapefiles
+│  │  │  ├─ labels/            # Final labels (geojson/shp/masks)
+│  │  │  ├─ vi/                # Vegetation indices (NDVI, GNDVI, etc.)
+│  │  │  ├─ clusters/          # Clustering outputs
+│  │  │  └─ reports/           # Reports (docx, pptx, screenshots)
 │  │  └─ v2/
 │  │     └─ ...
 │  ├─ petrie_creek/
 │  │  ├─ orthos/
+│  │  │  └─ image_alignment/
 │  │  └─ v1/...
 │  └─ buderim/
 │     ├─ orthos/
+│     │  └─ image_alignment/
 │     └─ v1/...
-├─ cats_claw_creeper/
-│  └─ <site>/orthos + v1, v2...
-└─ madeira_vine/
-   └─ <site>/orthos + v1, v2...
+
 
 ```
 
 ---
 
-## Folder and File naming conventions (core imagery)
+## Folder Naming Conventions – Raw Imagery
 
-| Folder/File type      | Format                       | Example                                 | Explanation                                                          |
-|-----------------------|-------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------|
-| Raw RGB (P1) folder   | `RGB-P1_<site>_<date>`              | `RGB-P1_Maleny_20250614`                       | RGB photo from DJI P1 sensor, site + date                                   |
-| Raw RGB (M3M) folder  | `RGB-M3M_<site>_<date>`             | `RGB-M3M_Buderim_20250407`                     | RGB photo from M3M                                                          |
-| Raw MS (Altum) folder | `MS-Altum_<site>_<date>`            | `MS-Altum_Petrie_20250705`                     | Multispectral band file from Altum sensor                                   |
-| Raw MS (M3M) folder   | `MS-M3M_<site>_<date>`              | `MS-M3M_Buderim_20250407`                      | Multispectral band file from M3M sensor                                     |
-| Project file          | `<site>_<date>_<tool>_paramsX.psx`  | `Maleny_20250614_agisoft_paramsA.psx`          | Photogrammetry project file, includes date, site, tool, and parameter set   |
-| Ortho (RGB)           | `<site>_<date>_rgb_ortho_<res>m.tif`| `Maleny_20250614_rgb_ortho_0.05m.tif`          | Orthomosaic from RGB data, resolution included                              |
-| Ortho (MS)            | `<site>_<date>_ms_ortho_<res>m.tif` | `Petrie_20250705_ms_ortho_0.10m.tif`           | Orthomosaic from multispectral data, resolution included                    |
-| DEM                   | `<site>_<date>_dem.tif`             | `Buderim_20250407_dem.tif`                     | Digital Elevation Model generated from processing                           |
-| Mesh (OBJ)            | `<site>_<date>_rgb_mesh_<level>.obj`| `Maleny_20250614_rgb_mesh_high.obj`            | 3D mesh model, with resolution level (low/medium/high)                      |
-| QC report             | `qc_<stage>_<date>.txt`             | `qc_alignment_report_20250614.txt`             | QC report: alignment stats, reprojection error, band histograms             |
-| Parameter record      | `PARAMS.json/xml`                   | `PARAMS.json/xml`                              | JSON/xml record of parameters used for this run                             |
+| Folder/File type      | Format                       | Example                                 | Explanation                                      |
+|-----------------------|------------------------------|-----------------------------------------|--------------------------------------------------|
+| Raw RGB (P1) folder   | `RGB-P1_<site>_<date>`       | `RGB-P1_Maleny_20250614`                | Folder of RGB photos from DJI P1 (site + date)   |
+| Raw RGB (M3M) folder  | `RGB-M3M_<site>_<date>`      | `RGB-M3M_Buderim_20250407`              | Folder of RGB photos from M3M (oblique camera)   |
+| Raw MS (Altum) folder | `MS-Altum_<site>_<date>`     | `MS-Altum_Petrie_20250705`              | Folder of multispectral images from Altum sensor |
+| Raw MS (M3M) folder   | `MS-M3M_<site>_<date>`       | `MS-M3M_Buderim_20250407`               | Folder of multispectral images from M3M sensor   |
+
+---
+
+## Folder and File Naming Conventions – Processed Imagery
+
+| File type             | Format                                | Example                                   | Explanation                                                                 |
+|-----------------------|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
+| Project folder/file   | `<site>_<date>_<tool>_paramsX.psx`    | `Maleny_20250614_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
+| Ortho (RGB)           | `<site>_<date>_rgb_ortho_<res>m.tif`  | `Maleny_20250614_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
+| Ortho (MS)            | `<site>_<date>_ms_ortho_<res>m.tif`   | `Petrie_20250705_ms_ortho_0.10m.tif`      | Orthomosaic from multispectral data, resolution included                    |
+| DEM                   | `<site>_<date>_dem.tif`               | `Buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
+| QC report             | `qc_<stage>_<date>.pdf`               | `qc_alignment_report_20250614.pdf`        | QC report: orthomosaic, alignment stats, reprojection error, band histograms|
+| Parameter record      | `<site>_PARAMS.json/xml`              | `<site>_PARAMS.json/xml`                  | JSON or XML record of parameters used for this run                          |
+
 
 ---
 
