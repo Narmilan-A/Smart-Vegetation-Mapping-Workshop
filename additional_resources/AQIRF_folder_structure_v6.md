@@ -142,7 +142,7 @@ annotation/
 | ROI shapefile       | `<species>_<site>_vX_rois.shp`                | `madeiravine_buderim_v1_rois.shp`                         | Shapefile of ROIs (AOIs, training polygons)               |
 | Working shapefile   | `<species>_<site>_vX_working.shp`             | `camphorlaurel_maleny_v1_working.shp`                     | In-progress shapefile for annotation                      |
 | Final labels        | `<species>_<site>_vX_labels.shp`              | `catsclawcreeper_petriecreek_v1_labels.shp`               | Final labelled polygons                                   |
-| Clusters            | `<species>_<site>_vX_clusters.tif`            | `catsclawcreeper_petriecreek_v2_clusters.tif`             | Clustering outputs to guide labelling                     |
+| Clusters/VIs            | `<species>_<site>_vX_<cluster_name>/<VI_name>.tif`            | `catsclawcreeper_petriecreek_v2_NDVI.tif`             | VIs/ Clustering outputs to guide labelling                     |
 | Report document     | `<species>_<site>_vX_report.docx`             | `madeiravine_buderim_v1_report.docx`                      | Labelling report (Word)                                   |
 | Report slides       | `<species>_<site>_vX_slides.pptx`             | `camphorlaurel_maleny_v1_slides.pptx`                     | Labelling presentation slides (PPTX)                      |
 | Screenshot          | `<species>_<site>_vX_screenshot_##.png`       | `catsclawcreeper_petriecreek_v2_screenshot_01.png`        | Screenshots documenting annotation                        |
