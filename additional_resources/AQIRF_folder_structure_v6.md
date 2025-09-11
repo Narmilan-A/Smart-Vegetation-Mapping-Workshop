@@ -177,8 +177,8 @@ metadata/
 | File type             | Format                                | Example                                   | Explanation                                                                 |
 |-----------------------|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
 | Project folder/file   | `<site>_<date>_<tool>_paramsX.psx`    | `Maleny_20250614_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
-| Ortho (RGB)           | `<site>_<date>_rgb_ortho_<res>m.tif`  | `Maleny_20250614_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
-| Ortho (MS)            | `<site>_<date>_ms_ortho_<res>m.tif`   | `Petrie_20250705_ms_ortho_0.10m.tif`      | Orthomosaic from multispectral data, resolution included                    |
+| Ortho (RGB)           | `<site>_<date>_<sensor>_rgb_ortho_<res>m.tif`  | `Maleny_20250614_P1_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
+| Ortho (MS)            | `<site>_<date>_<sensor>_ms_ortho_<res>m.tif`   | `Petrie_20250705_altum_ms_ortho_0.10m.tif`      | Orthomosaic from multispectral data, resolution included                    |
 | DEM                   | `<site>_<date>_dem.tif`               | `Buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
 | QC report             | `qc_<stage>_<date>.pdf`               | `qc_alignment_report_20250614.pdf`        | QC report: orthomosaic, alignment stats, reprojection error, band histograms|
 | Parameter record      | `<site>_PARAMS.json/xml`              | `<site>_PARAMS.json/xml`                  | JSON or XML record of parameters used for this run                          |
@@ -190,10 +190,10 @@ metadata/
 
 | File type        | Format                                          | Example                                          | Explanation                                           |
 |------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
-| RGB ortho copy   | `<species>_<site>_rgb_ortho.tif`                | `camphor_maleny_rgb_ortho.tif`             | Copy of RGB orthomosaic for annotation (safe to edit) |
-| MS ortho copy    | `<species>_<site>_ms_ortho.tif`                 | `catsclaw_petrie_ms_ortho.tif`       | Copy of MS orthomosaic for annotation                 |
-| RGB ortho aligned| `<species>_<site>_rgb_ortho_modified.tif`            | `camphor_maleny_rgb_ortho_modified.tif`         | Manually realigned RGB orthomosaic for annotation     |
-| MS ortho aligned | `<species>_<site>_ms_ortho_modified.tif`             | `catsclaw_petrie_ms_ortho_modified.tif`   | Manually realigned MS orthomosaic for annotation      |
+| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_P1rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
+| MS ortho copy    | `<species>_<site>_<sensor>_ms_ortho.tif`                 | `catsclaw_petrie_altum_ms_ortho.tif`           | Copy of MS orthomosaic for annotation                 |
+| RGB ortho aligned| `<species>_<site>_<sensor>_rgb_ortho_modified.tif`       | `camphor_maleny_P1_rgb_ortho_modified.tif`     | Manually realigned RGB orthomosaic for annotation     |
+| MS ortho aligned | `<species>_<site>_<sensor>_ms_ortho_modified.tif`        | `catsclaw_petrie_altum_ms_ortho_modified.tif`  | Manually realigned MS orthomosaic for annotation      |
 | ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeira_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
 | Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphor_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
 | Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclaw_petrie_v1_labels.geojson`  | Final labelled polygons                               |
