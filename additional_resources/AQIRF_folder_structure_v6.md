@@ -118,7 +118,51 @@ annotation/
 └─ madeira_vine/
    └─ <site>/orthos + v1, v2...
 ```
+---
+## metadata layout
 
+Central, read-only store for site-specific metadata (flight logs, GCPs, ground-truth plots) and global master summaries.  
+Dates use `YYYY-MM-DD`. Sites: `maleny`, `petrie_creek`, `buderim`.
+
+```text
+metadata/
+├─ maleny/
+│  ├─ flight_logs/                     # Drone/controller GNSS & telemetry
+│  │  ├─ <YYYY-MM-DD>/                 # Per-flight
+│  │  │  ├─ mrk/                       # DJI *.MRK (P1) or equivalent
+│  │  │  ├─ ulog/                      # UAV flight logs (*.ULG)
+│  │  │  ├─ controller/                # RC logs, screenshots
+│  │  │  ├─ kml_gpx/                   # KML/GPX flight paths
+│  │  │  └─ exports/                   # CSV summaries from logs
+│  ├─ gcp/                             # Ground Control Points
+│  │  ├─ <YYYY-MM-DD>/
+│  │  │  ├─ raw_survey/                # Field sheets, raw rover/base files
+│  │  │  ├─ processed/                  # Adjusted coords, CRS, QA
+│  │  │  └─ exports/                   # CSV/GeoJSON for processing tools
+│  └─ gtp/                             # Ground-Truth Plots
+│     ├─ <YYYY-MM-DD>/
+│     │  ├─ forms/                     # Field datasheets (species cover, notes)
+│     │  ├─ gps_tracks/                # GPX/KML centroid/transects
+│     │  ├─ photos/                    # Plot photographs
+│     │  └─ processed/exports/         # Clean CSVs ready for analysis
+│
+├─ petrie_creek/
+│  ├─ flight_logs/
+│  ├─ gcp/
+│  └─ gtp/
+│
+├─ buderim/
+│  ├─ flight_logs/
+│  ├─ gcp/
+│  └─ gtp/
+├─ calibration/
+│  ├─ panels/                           # Reflectance panel definitions
+│  │  └─ factory/                       # Factory CSVs
+├─ permissions/                         # Permits, landholder letters
+├─ summaries/                           # Global master spreadsheets
+│  └─ data_summary_weeds_<date>.xlsx
+└─ README.md
+```
 ---
 
 ## Folder naming conventions (Raw imagery)
@@ -166,7 +210,27 @@ annotation/
 | Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclaw_petrie_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
 
 ---
+## File Naming Conventions (metadata)
 
+| File type                  | Format                                           | Example                                                   | Explanation                                                      |
+|-----------------------------|--------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|
+| Flight log (MRK)            | `<site>_<date>_p1.mrk`                           | `maleny_20250614_p1.mrk`                                  | DJI P1 *.MRK file for photo geotags                              |
+| Flight log (UAV raw)        | `<site>_<date>_flight.ulg`                       | `petriecreek_20250705_flight.ulg`                         | UAV onboard flight log                                           |
+| Flight log (controller)     | `<site>_<date>_controller.log`                   | `buderim_20250407_controller.log`                         | Remote controller flight log                                     |
+| Flight path (KML/GPX)       | `<site>_<date>_path.kml`                         | `maleny_20250614_path.kml`                                | Exported flight trajectory                                       |
+| Flight log export (CSV)     | `<site>_<date>_flight_summary.csv`               | `petriecreek_20250705_flight_summary.csv`                 | Processed flight log summary in CSV                              |
+| GCP raw survey              | `<site>_<date>_gcp_raw.csv`                      | `buderim_20250407_gcp_raw.csv`                            | Raw rover/base outputs                                           |
+| GCP processed               | `<site>_<date>_gcp_processed.csv`                | `maleny_20250614_gcp_processed.csv`                       | Adjusted GCP coordinates (corrected CRS, QA checked)             |
+| GCP export (GeoJSON)        | `<site>_<date>_gcp.geojson`                      | `petriecreek_20250705_gcp.geojson`                        | Final GCP file for GIS/photogrammetry                           |
+| GTP datasheet (field form)  | `<site>_<date>_gtp_field.xlsx`                   | `maleny_20250614_gtp_field.xlsx`                          | Survey datasheet (species cover, notes)                         |
+| GTP GPS track               | `<site>_<date>_gtp_track.gpx`                    | `petriecreek_20250705_gtp_track.gpx`                      | GPX/KML file marking centroid and transects                     |
+| GTP photos                  | `<site>_<date>_gtp_photo_##.jpg`                 | `buderim_20250407_gtp_photo_01.jpg`                       | Photographs of ground-truth plot                                |
+| GTP export (CSV)            | `<site>_<date>_gtp_summary.csv`                  | `maleny_20250614_gtp_summary.csv`                         | Cleaned CSV of ground-truth plot data ready for analysis         |
+| Master register             | `master_register.csv`                            | `master_register.csv`                                     | Cross-site register of metadata and survey dates                 |
+| Data Master summary (spreadsheet)| `data_summary_<project>_<date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+| AI Master summary (spreadsheet)| `AI_summary_<project>_<date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+
+---
 ## Notes
 - `raw/` = unprocessed UAV imagery separated into RGB vs MS, then by sensor.  
 - `processed/` = outputs by tool + parameter set, with `project_file/`, `qc/`, `products/`, and `logs/` inside each param folder.  
