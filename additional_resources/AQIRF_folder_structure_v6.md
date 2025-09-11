@@ -212,7 +212,6 @@ metadata/
 |-------------------------------|--------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|
 | Flight log (MRK)              | `<site>_<date>_p1.mrk`                           | `maleny_20250614_p1.mrk`                                  | DJI P1 *.MRK file for photo geotags                              |
 | Flight log (UAV raw)          | `<site>_<date>_flight.ulg`                       | `petriecreek_20250705_flight.ulg`                         | UAV onboard flight log                                           |
-| Flight log (controller)       | `<site>_<date>_controller.log`                   | `buderim_20250407_controller.log`                         | Remote controller flight log                                     |
 | Flight path (KML/GPX)         | `<site>_<date>_path.kml`                         | `maleny_20250614_path.kml`                                | Exported flight trajectory                                       |
 | Flight log export (CSV)       | `<site>_<date>_flight_summary.csv`               | `petriecreek_20250705_flight_summary.csv`                 | Processed flight log summary in CSV                              |
 | GCP raw survey                | `<site>_<date>_gcp_raw.csv`                      | `buderim_20250407_gcp_raw.csv`                            | Raw rover/base outputs                                           |
@@ -232,8 +231,3 @@ metadata/
 | AI Master summary (spreadsheet)| `AI_summary_<project>_<date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
 
 ---
-## Notes
-- `raw/` = unprocessed UAV imagery separated into RGB vs MS, then by sensor.  
-- `processed/` = outputs by tool + parameter set, with `project_file/`, `qc/`, `products/`, and `logs/` inside each param folder.  
-- `annotation/` = species-based labelling sandbox with site + version control. Annotators copy orthos here and generate labels, ROIs, indices, and reports without altering master data.  
-- `metadata/summaries/data_summary_weeds_scc16052025.xlsx` is the master summary.  
