@@ -3,7 +3,7 @@
 ## Root layout
 ```
 AQIRF-Drone/
-├─ docs/                     # Protocols, SOPs, site maps
+├─ data_collection/          # Protocols, SOPs, site maps
 ├─ metadata/                 # Flight logs, GCPs, survey data (GTPs), master summary (Spread sheets)
 ├─ scripts/                  # Agisoft, ML/DL
 ├─ sites/                    # Site-specific data (raw + processed)
@@ -88,9 +88,9 @@ annotation/
 │  │  │  ├─ rgb/               # RGB orthomosaics (copied from processed)
 │  │  │  ├─ ms/                # MS orthomosaics (copied from processed)
 │  │  │  └─ image_alignment/   # Modified orthos + GCP exports
-│  │  │     ├─ aligned_rgb/    # Manually aligned RGB orthos
-│  │  │     ├─ aligned_ms/     # Manually aligned MS orthos
-│  │  │     └─ gcp/            # GCP exports from QGIS (.points, .csv, .txt)
+│  │  │     ├─ aligned_ms/     # Manually aligned MS orthos - using P1 or M3M-RGB
+│  │  │     ├─ reports/        # alignment report.pdf
+│  │  │     └─ gcps            # GCP exports from QGIS (.points, .csv, .txt)
 │  │  ├─ v1/
 │  │  │  ├─ rois/              # ROI shapefiles (AOIs, training polygons)
 │  │  │  ├─ working_shp/       # In-progress shapefiles
@@ -189,18 +189,15 @@ metadata/
 
 | File type        | Format                                          | Example                                          | Explanation                                           |
 |------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
-| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_p1_rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
-| MS ortho copy    | `<species>_<site>_<sensor>_ms_ortho.tif`                 | `catsclaw_petrie_altum_ms_ortho.tif`           | Copy of MS orthomosaic for annotation                 |
-| RGB ortho aligned| `<species>_<site>_<sensor>_rgb_ortho_modified.tif`       | `camphor_maleny_p1_rgb_ortho_modified.tif`     | Manually realigned RGB orthomosaic for annotation     |
-| MS ortho aligned | `<species>_<site>_<sensor>_ms_ortho_modified.tif`        | `catsclaw_petrie_altum_ms_ortho_modified.tif`  | Manually realigned MS orthomosaic for annotation      |
+| MS ortho aligned | `<species>_<site>_<sensor>_ms_ortho_modified.tif`        | `petrie_20250614_altum_ms_ortho_modified.tif`  | Manually realigned MS orthomosaic for annotation      |
 | ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeira_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
 | Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphor_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
-| Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclaw_petrie_v1_labels.geojson`  | Final labelled polygons                               |
+| Final labels     | `<species>_<site>_vX_labels.geojson`            | `catsclaw_petrie_v1_labels.shp`  | Final labelled polygons                               |
 | Clusters / VIs   | `<species>_<site>_vX_<cluster/vi-name>.tif`     | `catsclaw_petrie_v2_NDVI.tif`        | Vegetation index or clustering output used in labelling|
 | Report document  | `<species>_<site>_vX_report.docx`               | `madeira_buderim_v1_report.docx`             | Labelling , image alignment report in Word pdf format |
-| GCP export (text) | `<species>_<site>_rgb_gcp_points.txt`  | `camphor_maleny_rgb_gcp_points.txt`             | GCP export in `.txt` format from QGIS (RGB alignment) |
-| GCP export (CSV)  | `<species>_<site>_ms_gcp_points.csv`   | `catsclaw_petrie_ms_gcp_points.csv`       | GCP export in `.csv` format from QGIS (MS alignment) |
-| GCP export (QGIS) | `<species>_<site>_rgb_gcp_points.points` | `madeira_buderim_rgb_gcp_points.points`          | Native `.points` file from QGIS georeferencing |
+| GCP export (text) | `<site>_rgb_gcp_points.txt`  | `maleny_rgb_gcp_points.txt`             | GCP export in `.txt` format from QGIS (RGB alignment) |
+| GCP export (CSV)  | `<site>_ms_gcp_points.csv`   | `petrie_ms_gcp_points.csv`       | GCP export in `.csv` format from QGIS (MS alignment) |
+| GCP export (QGIS) | `<site>_rgb_gcp_points.points` | `buderim_rgb_gcp_points.points`          | Native `.points` file from QGIS georeferencing |
 | Report slides    | `<species>_<site>_vX_slides.pptx`               | `camphor_maleny_v1_slides.pptx`            | Labelling presentation slides (PPTX)                  |
 | Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclaw_petrie_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
 
@@ -226,7 +223,7 @@ metadata/
 | GTP export (SHP)              | `<site>_<date>_gtp.shp`                          | `petriecreek_20250705_gtp.shp`                            | Ground-truth plots in shapefile format                          |
 | GTP export (GPKG)             | `<site>_<date>_gtp.gpkg`                         | `buderim_20250407_gtp.gpkg`                               | Ground-truth plots in geopackage format                         |
 | GTP export (GDB)              | `<site>_<date>_gtp.gdb`                          | `maleny_20250614_gtp.gdb`                                 | Ground-truth plots in file geodatabase format                   |
-| Data Master summary (spreadsheet)| `data_summary_<project>_<updated_date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
-| AI Master summary (spreadsheet)| `ml_summary_<project>_<updated_date>.xlsx`               | `ml_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+| Data Master summary (spreadsheet)| `data_summary_<project>.xlsx`               | `data_summary_AQIRF.xlsx`                     | Global Excel summary             |
+| AI Master summary (spreadsheet)| `ml_summary_<project>.xlsx`               | `ml_summary_AQIRF.xlsx`                     | Global Excel summary             |
 
 ---
