@@ -119,7 +119,7 @@ annotation/
    └─ <site>/orthos + v1, v2...
 ```
 ---
-## metadata layout
+## Metadata layout
 
 Central, read-only store for site-specific metadata (flight logs, GCPs, ground-truth plots) and global master summaries.  
 Dates use `YYYY-MM-DD`. Sites: `maleny`, `petrie_creek`, `buderim`.
