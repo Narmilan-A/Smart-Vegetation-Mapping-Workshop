@@ -210,7 +210,7 @@ metadata/
 | Screenshot       | `<species>_<site>_vX_screenshot_##.png`         | `catsclaw_petrie_v2_screenshot_01.png`| Screenshots documenting annotation progress          |
 
 ---
-## File Naming Conventions (metadata)
+## File naming conventions (Metadata)
 
 | File type                  | Format                                           | Example                                                   | Explanation                                                      |
 |-----------------------------|--------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|
