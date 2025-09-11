@@ -162,12 +162,12 @@ metadata/
 
 ## Folder naming conventions (Raw imagery)
 
-| Folder/File type      | Format                       | Example                                 | Explanation                                      |
+| Folder type           | Format                       | Example                                 | Explanation                                      |
 |-----------------------|------------------------------|-----------------------------------------|--------------------------------------------------|
-| Raw RGB (P1) folder   | `RGB-P1_<site>_<date>`       | `RGB-P1_Maleny_20250614`                | Folder of RGB photos from DJI P1 (site + date)   |
-| Raw RGB (M3M) folder  | `RGB-M3M_<site>_<date>`      | `RGB-M3M_Buderim_20250407`              | Folder of RGB photos from M3M (oblique camera)   |
-| Raw MS (Altum) folder | `MS-Altum_<site>_<date>`     | `MS-Altum_Petrie_20250705`              | Folder of multispectral images from Altum sensor |
-| Raw MS (M3M) folder   | `MS-M3M_<site>_<date>`       | `MS-M3M_Buderim_20250407`               | Folder of multispectral images from M3M sensor   |
+| Raw RGB (P1) folder   | `p1_rgb_<site>_<date>`       | `p1_rgb_maleny_20250614`                | Folder of RGB photos from DJI P1 (site + date)   |
+| Raw RGB (M3M) folder  | `m3m_rgb_<site>_<date>`      | `m3m_rgb_buderim_20250407`              | Folder of RGB photos from M3M (oblique camera)   |
+| Raw MS (Altum) folder | `altum_ms_<site>_<date>`     | `altum_ms_petrie_20250705`              | Folder of multispectral images from Altum sensor |
+| Raw MS (M3M) folder   | `m3m_ms_<site>_<date>`       | `m3m_ms_buderim_20250407`               | Folder of multispectral images from M3M sensor   |
 
 ---
 
@@ -175,12 +175,12 @@ metadata/
 
 | File type             | Format                                | Example                                   | Explanation                                                                 |
 |-----------------------|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
-| Project folder/file   | `<site>_<date>_<sensor>_<tool>_paramsX.psx`    | `Maleny_20250614_p1_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
-| Ortho (RGB)           | `<site>_<date>_<sensor>_rgb_ortho_<res>m.tif`  | `Maleny_20250614_p1_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
-| Ortho (MS)            | `<site>_<date>_<sensor>_ms_ortho_<res>m.tif`   | `Petrie_20250705_altum_ms_ortho_0.10m.tif`      | Orthomosaic from multispectral data, resolution included                    |
-| DEM                   | `<site>_<date>_dem.tif`               | `Buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
+| Project folder/file   | `<site>_<date>_<sensor>_<tool>_paramsX.psx`    | `maleny_20250614_p1_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
+| Ortho (RGB)           | `<site>_<date>_<sensor>_rgb_ortho_<res>m.tif`  | `maleny_20250614_p1_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
+| Ortho (MS)            | `<site>_<date>_<sensor>_ms_ortho_<res>m.tif`   | `petrie_20250705_altum_ms_ortho_0.20m.tif`      | Orthomosaic from multispectral data, resolution included                    |
+| DEM                   | `<site>_<date>_dem.tif`               | `buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
 | QC report             | `qc_<stage>_<date>.pdf`               | `qc_alignment_report_20250614.pdf`        | QC report: orthomosaic, alignment stats, reprojection error, band histograms|
-| Parameter record      | `<site>_PARAMS.json/xml`              | `<site>_PARAMS.json/xml`                  | JSON or XML record of parameters used for this run                          |
+| Parameter record      | `<site>_PARAMS.json/xml`              | `buderim_PARAMS.json/xml`                  | JSON or XML record of parameters used for this run                          |
 
 
 ---
@@ -189,9 +189,9 @@ metadata/
 
 | File type        | Format                                          | Example                                          | Explanation                                           |
 |------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
-| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_P1_rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
+| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_p1_rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
 | MS ortho copy    | `<species>_<site>_<sensor>_ms_ortho.tif`                 | `catsclaw_petrie_altum_ms_ortho.tif`           | Copy of MS orthomosaic for annotation                 |
-| RGB ortho aligned| `<species>_<site>_<sensor>_rgb_ortho_modified.tif`       | `camphor_maleny_P1_rgb_ortho_modified.tif`     | Manually realigned RGB orthomosaic for annotation     |
+| RGB ortho aligned| `<species>_<site>_<sensor>_rgb_ortho_modified.tif`       | `camphor_maleny_p1_rgb_ortho_modified.tif`     | Manually realigned RGB orthomosaic for annotation     |
 | MS ortho aligned | `<species>_<site>_<sensor>_ms_ortho_modified.tif`        | `catsclaw_petrie_altum_ms_ortho_modified.tif`  | Manually realigned MS orthomosaic for annotation      |
 | ROI shapefile    | `<species>_<site>_vX_rois.shp`                  | `madeira_buderim_v1_rois.shp`                | Shapefile of ROIs (AOIs, training polygons)           |
 | Working shapefile| `<species>_<site>_vX_labelling.shp`             | `camphor_maleny_v1_labelling.shp`            | In-progress shapefile for annotation                |
@@ -227,6 +227,6 @@ metadata/
 | GTP export (GPKG)             | `<site>_<date>_gtp.gpkg`                         | `buderim_20250407_gtp.gpkg`                               | Ground-truth plots in geopackage format                         |
 | GTP export (GDB)              | `<site>_<date>_gtp.gdb`                          | `maleny_20250614_gtp.gdb`                                 | Ground-truth plots in file geodatabase format                   |
 | Data Master summary (spreadsheet)| `data_summary_<project>_<updated_date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
-| AI Master summary (spreadsheet)| `AI_summary_<project>_<updated_date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+| AI Master summary (spreadsheet)| `ml_summary_<project>_<updated_date>.xlsx`               | `ml_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
 
 ---
