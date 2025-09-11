@@ -208,21 +208,26 @@ metadata/
 ---
 ## File naming conventions (Metadata)
 
-| File type                  | Format                                           | Example                                                   | Explanation                                                      |
-|-----------------------------|--------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|
-| Flight log (MRK)            | `<site>_<date>_p1.mrk`                           | `maleny_20250614_p1.mrk`                                  | DJI P1 *.MRK file for photo geotags                              |
-| Flight log (UAV raw)        | `<site>_<date>_flight.ulg`                       | `petriecreek_20250705_flight.ulg`                         | UAV onboard flight log                                           |
-| Flight log (controller)     | `<site>_<date>_controller.log`                   | `buderim_20250407_controller.log`                         | Remote controller flight log                                     |
-| Flight path (KML/GPX)       | `<site>_<date>_path.kml`                         | `maleny_20250614_path.kml`                                | Exported flight trajectory                                       |
-| Flight log export (CSV)     | `<site>_<date>_flight_summary.csv`               | `petriecreek_20250705_flight_summary.csv`                 | Processed flight log summary in CSV                              |
-| GCP raw survey              | `<site>_<date>_gcp_raw.csv`                      | `buderim_20250407_gcp_raw.csv`                            | Raw rover/base outputs                                           |
-| GCP processed               | `<site>_<date>_gcp_processed.csv`                | `maleny_20250614_gcp_processed.csv`                       | Adjusted GCP coordinates (corrected CRS, QA checked)             |
-| GCP export (GeoJSON)        | `<site>_<date>_gcp.geojson`                      | `petriecreek_20250705_gcp.geojson`                        | Final GCP file for GIS/photogrammetry                           |
-| GTP datasheet (field form)  | `<site>_<date>_gtp_field.xlsx`                   | `maleny_20250614_gtp_field.xlsx`                          | Survey datasheet (species cover, notes)                         |
-| GTP GPS track               | `<site>_<date>_gtp_track.gpx`                    | `petriecreek_20250705_gtp_track.gpx`                      | GPX/KML file marking centroid and transects                     |
-| GTP photos                  | `<site>_<date>_gtp_photo_##.jpg`                 | `buderim_20250407_gtp_photo_01.jpg`                       | Photographs of ground-truth plot                                |
-| GTP export (CSV)            | `<site>_<date>_gtp_summary.csv`                  | `maleny_20250614_gtp_summary.csv`                         | Cleaned CSV of ground-truth plot data ready for analysis         |
-| Master register             | `master_register.csv`                            | `master_register.csv`                                     | Cross-site register of metadata and survey dates                 |
+| File type                    | Format                                           | Example                                                   | Explanation                                                      |
+|-------------------------------|--------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|
+| Flight log (MRK)              | `<site>_<date>_p1.mrk`                           | `maleny_20250614_p1.mrk`                                  | DJI P1 *.MRK file for photo geotags                              |
+| Flight log (UAV raw)          | `<site>_<date>_flight.ulg`                       | `petriecreek_20250705_flight.ulg`                         | UAV onboard flight log                                           |
+| Flight log (controller)       | `<site>_<date>_controller.log`                   | `buderim_20250407_controller.log`                         | Remote controller flight log                                     |
+| Flight path (KML/GPX)         | `<site>_<date>_path.kml`                         | `maleny_20250614_path.kml`                                | Exported flight trajectory                                       |
+| Flight log export (CSV)       | `<site>_<date>_flight_summary.csv`               | `petriecreek_20250705_flight_summary.csv`                 | Processed flight log summary in CSV                              |
+| GCP raw survey                | `<site>_<date>_gcp_raw.csv`                      | `buderim_20250407_gcp_raw.csv`                            | Raw rover/base outputs                                           |
+| GCP processed                 | `<site>_<date>_gcp_processed.csv`                | `maleny_20250614_gcp_processed.csv`                       | Adjusted GCP coordinates (corrected CRS, QA checked)             |
+| GCP export (GeoJSON)          | `<site>_<date>_gcp.geojson`                      | `petriecreek_20250705_gcp.geojson`                        | Final GCP file for GIS/photogrammetry                           |
+| GCP export (SHP)              | `<site>_<date>_gcp.shp`                          | `maleny_20250614_gcp.shp`                                 | GCP shapefile export for QGIS/ArcGIS                            |
+| GCP export (GPKG)             | `<site>_<date>_gcp.gpkg`                         | `buderim_20250407_gcp.gpkg`                               | GCP geopackage for GIS workflows                                |
+| GCP export (GDB)              | `<site>_<date>_gcp.gdb`                          | `petriecreek_20250705_gcp.gdb`                            | GCP file geodatabase (ArcGIS)                                   |
+| GTP datasheet (field form)    | `<site>_<date>_gtp_field.xlsx`                   | `maleny_20250614_gtp_field.xlsx`                          | Survey datasheet (species cover, notes)                         |
+| GTP GPS track                 | `<site>_<date>_gtp_track.gpx`                    | `petriecreek_20250705_gtp_track.gpx`                      | GPX/KML file marking centroid and transects                     |
+| GTP photos                    | `<site>_<date>_gtp_photo_##.jpg`                 | `buderim_20250407_gtp_photo_01.jpg`                       | Photographs of ground-truth plot                                |
+| GTP export (CSV)              | `<site>_<date>_gtp_summary.csv`                  | `maleny_20250614_gtp_summary.csv`                         | Cleaned CSV of ground-truth plot data ready for analysis         |
+| GTP export (SHP)              | `<site>_<date>_gtp.shp`                          | `petriecreek_20250705_gtp.shp`                            | Ground-truth plots in shapefile format                          |
+| GTP export (GPKG)             | `<site>_<date>_gtp.gpkg`                         | `buderim_20250407_gtp.gpkg`                               | Ground-truth plots in geopackage format                         |
+| GTP export (GDB)              | `<site>_<date>_gtp.gdb`                          | `maleny_20250614_gtp.gdb`                                 | Ground-truth plots in file geodatabase format                   |
 | Data Master summary (spreadsheet)| `data_summary_<project>_<date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
 | AI Master summary (spreadsheet)| `AI_summary_<project>_<date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
 
