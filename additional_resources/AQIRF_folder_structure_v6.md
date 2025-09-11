@@ -1,4 +1,4 @@
-# AQIRF – Folder & File Structure
+# AQIRF – Folder & File Structure and Naming
 
 ## Root layout
 ```
