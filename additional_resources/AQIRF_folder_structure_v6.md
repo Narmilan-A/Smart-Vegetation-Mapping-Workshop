@@ -1,9 +1,5 @@
 # AQIRF – Folder & File Structure
 
-Root folder for UAV RGB + Multispectral data across different sites (**Maleny**, **Petrie Creek**, **Buderim**). Structure separates **raw vs processed**, then **RGB vs MS**, then by **sensor type**. Additional root folder `annotation/` is included for labelling work.
-
----
-
 ## Root layout
 ```
 AQIRF-Drone/
