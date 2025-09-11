@@ -6,7 +6,6 @@ AQIRF-Drone/
 ├─ docs/                     # Protocols, SOPs, site maps
 ├─ metadata/                 # Flight logs, GCPs, survey data (GTPs), master summary (Spread sheets)
 ├─ scripts/                  # Agisoft, ML/DL
-├─ templates/                # Naming templates, metadata forms, checklists
 ├─ sites/                    # Site-specific data (raw + processed)
 └─ annotation/               # Labelling outputs
 ```
