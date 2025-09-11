@@ -189,7 +189,7 @@ metadata/
 
 | File type        | Format                                          | Example                                          | Explanation                                           |
 |------------------|-------------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
-| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_P1rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
+| RGB ortho copy   | `<species>_<site>_<sensor>_rgb_ortho.tif`                | `camphor_maleny_P1_rgb_ortho.tif`               | Copy of RGB orthomosaic for annotation (safe to edit) |
 | MS ortho copy    | `<species>_<site>_<sensor>_ms_ortho.tif`                 | `catsclaw_petrie_altum_ms_ortho.tif`           | Copy of MS orthomosaic for annotation                 |
 | RGB ortho aligned| `<species>_<site>_<sensor>_rgb_ortho_modified.tif`       | `camphor_maleny_P1_rgb_ortho_modified.tif`     | Manually realigned RGB orthomosaic for annotation     |
 | MS ortho aligned | `<species>_<site>_<sensor>_ms_ortho_modified.tif`        | `catsclaw_petrie_altum_ms_ortho_modified.tif`  | Manually realigned MS orthomosaic for annotation      |
