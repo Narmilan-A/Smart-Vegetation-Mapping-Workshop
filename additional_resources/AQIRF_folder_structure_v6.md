@@ -226,7 +226,7 @@ metadata/
 | GTP export (SHP)              | `<site>_<date>_gtp.shp`                          | `petriecreek_20250705_gtp.shp`                            | Ground-truth plots in shapefile format                          |
 | GTP export (GPKG)             | `<site>_<date>_gtp.gpkg`                         | `buderim_20250407_gtp.gpkg`                               | Ground-truth plots in geopackage format                         |
 | GTP export (GDB)              | `<site>_<date>_gtp.gdb`                          | `maleny_20250614_gtp.gdb`                                 | Ground-truth plots in file geodatabase format                   |
-| Data Master summary (spreadsheet)| `data_summary_<project>_<date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
-| AI Master summary (spreadsheet)| `AI_summary_<project>_<date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+| Data Master summary (spreadsheet)| `data_summary_<project>_<updated_date>.xlsx`               | `data_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
+| AI Master summary (spreadsheet)| `AI_summary_<project>_<updated_date>.xlsx`               | `AI_summary_AQIRF_16052025.xlsx`                     | Global Excel summary             |
 
 ---
