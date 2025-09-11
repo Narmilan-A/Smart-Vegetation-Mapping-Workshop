@@ -176,7 +176,7 @@ metadata/
 
 | File type             | Format                                | Example                                   | Explanation                                                                 |
 |-----------------------|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
-| Project folder/file   | `<site>_<date>_<tool>_paramsX.psx`    | `Maleny_20250614_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
+| Project folder/file   | `<site>_<date>_<sensor>_<tool>_paramsX.psx`    | `Maleny_20250614_P1_agisoft_paramsA.psx`     | Photogrammetry project file, includes site, date, tool, and parameter set   |
 | Ortho (RGB)           | `<site>_<date>_<sensor>_rgb_ortho_<res>m.tif`  | `Maleny_20250614_P1_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
 | Ortho (MS)            | `<site>_<date>_<sensor>_ms_ortho_<res>m.tif`   | `Petrie_20250705_altum_ms_ortho_0.10m.tif`      | Orthomosaic from multispectral data, resolution included                    |
 | DEM                   | `<site>_<date>_dem.tif`               | `Buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
