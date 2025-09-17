@@ -21,15 +21,3 @@ Welcome to this beginner-friendly guide and repository for drone-based data coll
 ## 🙌 Contributions Welcome
 
 If you’ve improved a workflow, added a better script, or resolved a bug — feel free to open a PR or issue. This project thrives on shared knowledge.
-
-## 📬 Contact
-
-Maintainer: **Narmilan**  
-For suggestions, contact me via GitHub or raise an issue in the repo.
-
-## 🧠 Acknowledgements
-
-Special thanks to collaborators and mentors who helped shape these workflows.  
-Thanks to Charlotte and Liz for insights on RTK/PPK setup and GCP processing.
-
-> “Accuracy is no accident — it’s a process.”
