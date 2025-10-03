@@ -70,8 +70,10 @@ sites/<site>/
    │        │  ├─ qc/
    │        │  ├─ products/
    │        │  └─ logs/
+   ├─ ground/
+   │  ├─ gcp/      # Ground Control Points
+   │  ├─ gtp/      # Ground-Truth Points
 ```
-
 ---
 
 ## Annotation layout (species-based)
