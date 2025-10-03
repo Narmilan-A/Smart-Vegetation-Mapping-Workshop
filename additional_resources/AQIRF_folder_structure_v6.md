@@ -2,7 +2,7 @@
 
 ## Root layout
 ```
-AQIRF-Drone/
+weeds_scc/
 ├─ data_collection/          # Protocols, SOPs, site maps
 ├─ metadata/                 # Flight logs, GCPs, survey data (GTPs), master summary (Spread sheets)
 ├─ scripts/                  # Agisoft, ML/DL
