@@ -7,7 +7,7 @@ weeds_scc/
 ├─ metadata/                 # master summary (Spread sheets)
 ├─ scripts/                  # Agisoft, ML/DL
 ├─ sites/                    # Site-specific data (raw + processed)
-└─ Annotation/               # Labelling outputs
+└─ annotation/               # Labelling outputs
 ```
 
 ---
