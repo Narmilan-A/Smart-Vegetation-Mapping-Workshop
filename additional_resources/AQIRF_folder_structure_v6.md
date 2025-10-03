@@ -20,7 +20,7 @@ sites/<site>/
 └─ <YYYY-MM-DD>/
    ├─ raw/
    │  ├─ p1/       # DJI P1 M300
-   │  ├─ m3m/  # M3M 
+   │  ├─ m3m/      # M3M 
    │  └─ altum/    # Altum PT M300
    ├─ processed/
    │  ├─ rgb/
