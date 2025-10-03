@@ -19,12 +19,10 @@ Each site folder has subfolders per survey date (`YYYY-MM-DD`):
 sites/<site>/
 └─ <YYYY-MM-DD>/
    ├─ raw/
-   │  ├─ rgb/
-   │  │  ├─ p1/              # DJI P1 M300
-   │  │  └─ m3m/             # M3M RGB
-   │  └─ ms/
-   │     ├─ altum/           # Altum PT M300
-   │     └─ m3m/             # M3M MS
+   │  ├─ p1/       # DJI P1 M300
+   │  ├─ m3m_rgb/  # M3M RGB
+   │  └─ altum/    # Altum PT M300
+   │  └─ m3m_ms/   # M3M Multispectral
    ├─ processed/
    │  ├─ rgb/
    │  │  ├─ agisoft/
