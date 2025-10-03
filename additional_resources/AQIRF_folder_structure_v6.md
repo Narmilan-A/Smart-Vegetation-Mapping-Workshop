@@ -21,7 +21,7 @@ sites/<site>/
    ├─ raw/
    │  ├─ p1/       # DJI P1 M300
    │  ├─ m3m/      # M3M 
-   │  └─ altum/    # Altum PT M300
+   │  └─ altumpt/    # Altum PT M300
    ├─ processed/
    │  ├─ rgb/
    │  │  ├─ agisoft/
