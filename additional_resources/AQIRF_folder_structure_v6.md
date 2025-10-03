@@ -20,9 +20,8 @@ sites/<site>/
 └─ <YYYY-MM-DD>/
    ├─ raw/
    │  ├─ p1/       # DJI P1 M300
-   │  ├─ m3m_rgb/  # M3M RGB
+   │  ├─ m3m/  # M3M 
    │  └─ altum/    # Altum PT M300
-   │  └─ m3m_ms/   # M3M Multispectral
    ├─ processed/
    │  ├─ rgb/
    │  │  ├─ agisoft/
