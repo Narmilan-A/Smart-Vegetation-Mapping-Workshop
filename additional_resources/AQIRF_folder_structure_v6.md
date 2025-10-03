@@ -4,7 +4,7 @@
 ```
 weeds_scc/
 ├─ docs/                     # Protocols, SOPs, site maps
-├─ metadata/                 # Flight logs, GCPs, survey data (GTPs), master summary (Spread sheets)
+├─ metadata/                 # master summary (Spread sheets)
 ├─ scripts/                  # Agisoft, ML/DL
 ├─ sites/                    # Site-specific data (raw + processed)
 └─ annotation/               # Labelling outputs
