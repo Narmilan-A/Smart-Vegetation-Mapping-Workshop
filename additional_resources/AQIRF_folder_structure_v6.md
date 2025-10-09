@@ -82,7 +82,7 @@ sites/<site>/
 
 annotation/
 ├─ camphor_laurel/
-│  ├─ maleny/
+│  ├─ maleny/Date
 │  │  ├─ orthos/               # Baseline imagery for annotation
 │  │  │  ├─ rgb/               # RGB orthomosaics (copied from processed)
 │  │  │  ├─ ms/                # MS orthomosaics (copied from processed)
