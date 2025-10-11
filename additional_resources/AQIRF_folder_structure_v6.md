@@ -23,7 +23,7 @@ sites/<site>/
    │  ├─ m3m/      # M3M 
    │  └─ altumpt/    # Altum PT M300
    ├─ processed/
-   │  ├─ rgb/
+   │  ├─ rgb/sensor _name/
    │  │  ├─ agisoft/
    │  │  │  ├─ params_A/
    │  │  │  │  ├─ project_file/   # Photogrammetry project file (.psx, etc.)
