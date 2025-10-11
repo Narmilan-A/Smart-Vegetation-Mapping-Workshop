@@ -26,7 +26,7 @@ sites/<site>/
    │  ├─ rgb/sensor _name/
    │  │  ├─ agisoft/
    │  │  │  ├─ params_A/
-   │  │  │  │  ├─ project_file/   # Photogrammetry project file (.psx, etc.)
+   │  │  │  │  ├─ project_folder/   # Photogrammetry project file (.psx, etc.) and folder/s
    │  │  │  │  ├─ qc/             # QC reports
    │  │  │  │  ├─ products/       # Final mosaics, other (DEM, Mesh, VIs)
    │  │  │  │  └─ logs/           # Processing logs, PARAMS.json - Batch processing (XMl files)
