@@ -178,7 +178,7 @@ metadata/
 | Ortho (RGB)           | `<site>_<date>_<sensor>_rgb_ortho_<res>m.tif`  | `maleny_20250614_p1_rgb_ortho_0.05m.tif`     | Orthomosaic from RGB data, resolution included                              |
 | Ortho (MS)            | `<site>_<date>_<sensor>_ms_ortho_<res>m.tif`   | `petrie_20250705_altum_ms_ortho_0.20m.tif`      | Orthomosaic from multispectral data, resolution included                    |
 | DEM                   | `<site>_<date>_dem.tif`               | `buderim_20250407_dem.tif`                | Digital Elevation Model generated from processing                           |
-| QC report             | `qc_<stage>_<date>.pdf`               | `qc_alignment_report_20250614.pdf`        | QC report: orthomosaic, alignment stats, reprojection error, band histograms|
+| QC report             | `<site>_<date>_<sensor>_qc.pdf`               | `WilcoxRd_20251020_p1_qc.pdf`        | QC report: orthomosaic, alignment stats, reprojection error, band histograms|
 | Parameter record      | `<site>_PARAMS.json/xml`              | `buderim_paramsA.json/xml`                  | JSON or XML record of parameters used for this run                          |
 
 
