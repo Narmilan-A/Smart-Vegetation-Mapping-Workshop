@@ -53,7 +53,7 @@ sites/<site>/
    │  │     │  ├─ products/
    │  │     │  └─ logs/
    │  └─ ms/
-   │     ├─ agisoft/
+   │     ├─ agisoft/sensor _name/
    │     │  ├─ params_A/
    │     │  │  ├─ project_file/
    │     │  │  ├─ qc/
