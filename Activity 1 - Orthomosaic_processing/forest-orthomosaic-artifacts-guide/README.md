@@ -1,5 +1,4 @@
 ## **Forest Orthomosaic Artifact Correction**  
-#### **Agisoft Metashape – Forest UAV Processing | DEM Editing | Orthomosaic Editing | Artifact Fixing**  
 ---
 
 ## 🌳 **Purpose of This Guide**
