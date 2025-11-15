@@ -1,13 +1,9 @@
-# **Forest Orthomosaic Artifact Correction – MASTER README (FULL VERSION)**  
-### **Agisoft Metashape – Forest UAV Processing | DEM Editing | Orthomosaic Editing | Artifact Fixing**  
-Author: **Dr. Narmilan Amarasingam**  
-Repository folder: `orth_processing/forest-orthomosaic-artifacts-guide/`
-
+## **Forest Orthomosaic Artifact Correction**  
+#### **Agisoft Metashape – Forest UAV Processing | DEM Editing | Orthomosaic Editing | Artifact Fixing**  
 ---
 
-# 🌳 **Purpose of This Guide**
+## 🌳 **Purpose of This Guide**
 Forest environments generate the *most severe* photogrammetry distortions.  
-This MASTER README provides the **complete**, **professional**, **GitHub‑ready** documentation for:
 
 ✔ DEM Editing Theory (expert-level)  
 ✔ DEM Editing Workflow (all Agisoft steps)  
@@ -61,9 +57,8 @@ orth_processing/
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🧭 **1. DEM Editing Theory – Forest Environments**
-## 🌲 Why Forest DEM == DSM (Not Ground DEM)
+## 🧭 **1. DEM Editing Theory – Forest Environments**
+### 🌲 Why Forest DEM == DSM (Not Ground DEM)
 In forests:
 
 - Drone sees **tree canopy**, not ground  
@@ -87,8 +82,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🏗️ **2. How Agisoft Creates a DEM (Full Pipeline)**
+## 🏗️ **2. How Agisoft Creates a DEM (Full Pipeline)**
 
 1. **Align Photos**  
    - Identify matching features  
@@ -110,8 +104,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🛰️ **3. How Orthomosaic Projection Works (Critical)**
+## 🛰️ **3. How Orthomosaic Projection Works (Critical)**
 
 For each pixel of every image:
 
@@ -125,8 +118,7 @@ If the DEM is incorrect → ray intersection is incorrect → pixel placed in wr
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🔦 **4. What Exactly Is a Projection Ray? (Expert Explanation)**
+## 🔦 **4. What Exactly Is a Projection Ray? (Expert Explanation)**
 
 A projection ray is:
 
@@ -144,8 +136,7 @@ Noise in DEM = wrong ray intersection = wrong pixel position.
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# ↔️ **5. Why Vertical DEM Errors Cause Horizontal Blur**
+## ↔️ **5. Why Vertical DEM Errors Cause Horizontal Blur**
 
 DEM height error → ray intersects at wrong place horizontally.
 
@@ -171,79 +162,7 @@ Fixing DEM fixes projection.
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🛠️ **6. FULL DEM EDITING WORKFLOW (Agisoft)**  
-Reference:  
-https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools
-
-DEM editing tools allow you to correct noisy canopy patches to stabilise orthomosaics.
-
----
-
-## 🅐 **A. Fill DEM Tools (All 4 Methods)**
-
-### **1. Constant Filling**  
-- Fills polygon with ONE elevation value  
-- Great for: water, concrete, carparks  
-- ❌ DO NOT USE FOR FOREST CANOPY  
-  - Will flatten trees  
-  - Introduces massive artifacts  
-
----
-
-### **2. Best-Fit Plane**  
-- Fits a plane based on polygon vertices  
-- Good for sloped roofs  
-- ❌ Not suitable for irregular canopy  
-
----
-
-### **3. IDW (Inverse Distance Weighting)**  
-- Weighted interpolation from nearby DEM pixels  
-- Power > 2 → more detail  
-- Power < 2 → smoother  
-- ✔ Good for small canopy gaps  
-
----
-
-### **4. Natural Neighbour (RECOMMENDED)**  
-- Voronoi-based interpolation  
-- Smooth + realistic  
-- Best choice for complex forest canopy  
-- ⭐ Ideal for forest DEM correction  
-
----
-
-## 🅑 **B. Create Breakline**  
-
-Used to force DEM to follow:
-- Road edges  
-- Ditches  
-- Forest boundary transitions  
-
-Good for preventing DEM collapse into roads.
-
----
-
-## 🅒 **C. Applying or Resetting DEM Changes**
-
-### Apply:
-```
-DEM Toolbar → Update DEM
-Tools → DEM → Update DEM
-```
-
-### Reset:
-```
-Edit DEM → Delete Patch  (only BEFORE update)
-```
-
-After update DEM cannot be undone unless you rebuild DEM.
-
----
-
-# ----------------------------------------------------------------------------------------------------
-# 🌲 **7. Forest-Specific DEM Best Practices**
+## 🌲 **5. Forest-Specific DEM Best Practices**
 
 ✔ Use many **small polygons**  
 ✔ Always use **Natural Neighbour first**  
@@ -255,46 +174,29 @@ After update DEM cannot be undone unless you rebuild DEM.
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 🟩 **8. Small vs Large Polygon Strategy**
+### 🟩 **6. Small vs Large Polygon Strategy**
 
-### **Small polygons (recommended)**  
+#### **Small polygons (recommended)**  
 - Preserve canopy variation  
 - Avoid flattening real 3D structure  
 - Prevents new distortions  
 
-### **Large polygon over forest (NEVER)**  
+#### **Large polygon over forest (NEVER)**  
 - Flattens canopy → wrong DEM everywhere  
 - Breaks projection rays globally  
 - Causes more blur and melting  
 
 ---
 
-# ----------------------------------------------------------------------------------------------------
-# 📚 **9. Full Agisoft DEM Documentation (Markdown Converted)**
+## 🔥 **10. Cross-Sensor Forest Artifact Issues & Fixes**
 
-### *(This section includes the complete official DEM editing documentation, converted for GitHub)*
-
-- DEM editing tools introduced in Metashape 2.0  
-- Fill DEM: Constant, Best-fit Plane, IDW, Natural Neighbour  
-- Breaklines  
-- Delete Patch  
-- Update DEM  
-
-*(Full text included in `dem_editing_forest.md`)*
-
----
-
-# ----------------------------------------------------------------------------------------------------
-# 🔥 **10. Cross-Sensor Forest Artifact Issues & Fixes**
-
-### ✔ Mavic 3M Calibration Issue  
+#### ✔ Mavic 3M Calibration Issue  
 File: `issue1_m3m_radiometric_calibration.md`
 
-### ✔ RGB BRDF Strip / Blur Band  
+#### ✔ RGB BRDF Strip / Blur Band  
 File: `issue2_rgb_brdf_strip_banding.md`
 
-### ✔ Melting Canopy (all sensors: M3M, P1, Altum PT)  
+#### ✔ Melting Canopy (all sensors: M3M, P1, Altum PT)  
 File: `issue3_vegetation_melting_artifacts.md`
 
 Each file includes:
@@ -303,33 +205,3 @@ Each file includes:
 - Exact Metashape workflow to fix it  
 
 ---
-
-# ----------------------------------------------------------------------------------------------------
-# 📂 **11. Links to All Markdown Files in This Folder**
-
-```
-dem_editing_forest.md
-orthomosaic_seamline_editing.md
-issue1_m3m_radiometric_calibration.md
-issue2_rgb_brdf_strip_banding.md
-issue3_vegetation_melting_artifacts.md
-```
-
----
-
-# ----------------------------------------------------------------------------------------------------
-# ✔️ **12. End Notes**
-
-This master README is intended for:
-- UAV forest mapping teams  
-- Smart Vegetation Mapping Workshop  
-- Students + technicians training in photogrammetry  
-- Anyone fixing forest orthomosaics in Agisoft  
-
-You may add screenshots and diagrams to clarify workflows.
-
-This document is **GitHub-ready**, professionally structured, and suitable for teams.
-
----
-
-# **END OF MASTER README**
