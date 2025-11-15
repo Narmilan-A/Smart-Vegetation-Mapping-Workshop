@@ -2,7 +2,7 @@
 ### *Image Quality • Field Workflow • Agisoft Settings • Processing Strategy • Troubleshooting*  
 ---
 
-# 🌳 **Purpose of This Guide**  
+### 🌳 **Purpose of This Guide**  
 This document provides a **professional, beginner-friendly checklist and workflow** to avoid common forest UAV processing problems such as:
 
 - Swirled / melted canopy  
