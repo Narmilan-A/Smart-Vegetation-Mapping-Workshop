@@ -1,4 +1,4 @@
-# Issue 3 – “Melting” / Swirled Canopy Artifacts (M3M, P1, Altum PT)
+## Issue 3 – “Melting” / Swirled Canopy Artifacts
 
 This document explains the **“melting” or swirled vegetation artifacts** that appear in orthomosaics built from DJI Mavic 3M, DJI P1, and Micasense Altum PT data, especially in forest environments.
 
