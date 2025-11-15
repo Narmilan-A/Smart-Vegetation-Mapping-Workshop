@@ -36,7 +36,7 @@ Best practice is to **start with DEM**, then refine with orthomosaic editing.
 
 ---
 
-### 4. Step‑by‑Step Workflow
+### 4. DEM Editing
 
 Before editing DEM (**Check Alignment First**):
 
@@ -144,7 +144,7 @@ This step is required — DEM fixes do NOT show up automatically.
 
 ---
 
-## 🎨 5. Orthomosaic Editing (Texture Fix)
+### 🎨 5. Orthomosaic Editing (Texture Fix)
 
 After DEM correction, some problems may still remain.  
 These are caused by:
@@ -154,10 +154,6 @@ These are caused by:
 - Bad exposure in one image
 
 This is where **orthomosaic patching** is used.
-
----
-
-### ✅ **5.1 Step-by-Step Ortho Editing Workflow**
 
 ---
 
