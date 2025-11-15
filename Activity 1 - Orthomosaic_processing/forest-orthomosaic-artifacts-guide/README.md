@@ -1,6 +1,6 @@
 ## **Forest Orthomosaic Artifact Correction**  
 
-## 🌳 **Purpose of This Guide**
+### 🌳 **Purpose of This Guide**
 Forest environments generate the *most severe* photogrammetry distortions.  
 
 ✔ DEM Editing Theory (expert-level)  
