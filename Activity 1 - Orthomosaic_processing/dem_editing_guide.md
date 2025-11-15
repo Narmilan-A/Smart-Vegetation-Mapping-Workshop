@@ -1,5 +1,4 @@
-# **Complete DEM Editing & Orthomosaic Workflow Guide (Beginner → Expert)**  
-Author: Dr. Narmilan Amarasingam  
+# **DEM Editing Workflow Guide**  
 Reference link (Agisoft official DEM editing tools):  
 https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools
 
