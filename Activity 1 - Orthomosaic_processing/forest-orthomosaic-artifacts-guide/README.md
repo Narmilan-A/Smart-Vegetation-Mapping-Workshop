@@ -1,5 +1,4 @@
 ## **Forest Orthomosaic Artifact Correction**  
----
 
 ## 🌳 **Purpose of This Guide**
 Forest environments generate the *most severe* photogrammetry distortions.  
