@@ -13,7 +13,7 @@ https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing
 6. Why DEM Errors Cause Blur in Forest Orthomosaics  
 7. What Is a Projection “Ray”?  
 8. Why Wrong DEM Elevation Causes Horizontal Displacement  
-9. DEM Editing Methodology — *Full A/B/C/1/2/3 Steps Directly from Agisoft + Expert Expansion*  
+9. DEM Editing Methodology
    - A. Fill DEM Tools  
      - 1. Constant Filling  
      - 2. Best‑Fit Plane  
