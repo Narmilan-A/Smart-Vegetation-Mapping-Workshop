@@ -25,7 +25,7 @@ In other words:
 
 ---
 
-## 3. Recommended Strategies (Two Valid Options)
+### 3. Recommended Strategies (Two Valid Options)
 
 There are two general strategies to handle this problem when working with multiple flights and panel captures.
 
@@ -33,12 +33,12 @@ There are two general strategies to handle this problem when working with multip
 
 ---
 
-## ✅ Option 1 – Calibrate Each Chunk, Merge Chunks, Then Continue Processing
+### ✅ Option 1 – Calibrate Each Chunk, Merge Chunks, Then Continue Processing
 
 **Idea:**  
 Separate your data into multiple chunks by flight/illumination block, perform **reflectance calibration per chunk**, then **merge chunks** and run the *rest* of the photogrammetry workflow only once.
 
-### 3.1. Workflow
+#### 3.1. Workflow
 
 1. **Split into chunks by flight / illumination block**
    - Create one chunk per flight or per group of images sharing:
@@ -62,7 +62,7 @@ Separate your data into multiple chunks by flight/illumination block, perform **
    - Build DEM
    - Build **a single reflectance orthomosaic**
 
-### 3.2. Pros & Cons
+#### 3.2. Pros & Cons
 
 **Pros**
 - Geometry (alignment, DEM, orthomosaic) is solved in one consistent block.  
@@ -75,13 +75,13 @@ Separate your data into multiple chunks by flight/illumination block, perform **
 
 ---
 
-## ✅ Option 2 – Calibrate & Process Each Chunk to Orthomosaic, Then Merge Orthomosaics in GIS
+### ✅ Option 2 – Calibrate & Process Each Chunk to Orthomosaic, Then Merge Orthomosaics in GIS
 
 **Idea:**  
 Each flight/illumination block is treated almost like a separate project:  
 You **calibrate and process each chunk all the way to orthomosaic**, then export the orthomosaics and merge them in a GIS (QGIS, ArcGIS, etc.).
 
-### 4.1. Workflow
+#### 4.1. Workflow
 
 1. **Split into chunks by flight / illumination block**
    - Same as in Option 1:
@@ -111,7 +111,7 @@ You **calibrate and process each chunk all the way to orthomosaic**, then export
        - Seamless blending  
        - Proper edge handling  
 
-### 4.2. Pros & Cons
+#### 4.2. Pros & Cons
 
 **Pros**
 - Very robust when flights are very different (lighting, dates, etc.).  
@@ -124,32 +124,4 @@ You **calibrate and process each chunk all the way to orthomosaic**, then export
 - You manage multiple intermediate orthomosaic files.
 
 ---
-
-## 5. Important Notes for Both Options
-
-- **Panel usage**
-  - Each radiometric block (flight/session) must use panel images from that same block only.
-  - Avoid mixing panel captures taken under different sky conditions.
-
-- **Overlap requirement (especially for Option 2)**
-  - Plan flight lines and mission design so that:
-    - Orthomosaics have adequate overlap (e.g., 20–30% spatial overlap)  
-    - This allows GIS tools to merge them smoothly.
-
-- **This is a radiometric problem**
-  - DEM editing, seamline editing, and projection tuning **cannot fix** half dark / half bright issues caused by poor calibration.
-  - Fix **calibration strategy first**, *then* worry about DEM and orthomosaic refinement.
-
----
-
-## 6. Summary
-
-To avoid half dark / half bright mosaics in multispectral forest projects:
-
-- Always treat each flight or illumination block as a separate radiometric unit.  
-- **Option 1 (Preferred):**  
-  - Calibrate each chunk → merge chunks → process once to a final orthomosaic.  
-- **Option 2 (Alternative):**  
-  - Calibrate and process each chunk to its own orthomosaic → export → merge orthomosaics in GIS (with sufficient overlap).
-
 Both approaches ensure consistent reflectance scaling and remove the characteristic dark/bright split caused by mixing multiple calibration conditions into a single calibration step.
