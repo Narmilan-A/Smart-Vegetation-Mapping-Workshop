@@ -1,20 +1,7 @@
 ## **Forest Orthomosaic Artifact Correction**  
 
 ### 🌳 **Purpose of This Guide**
-Forest environments generate the *most severe* photogrammetry distortions.  
-
-✔ DEM Editing Theory (expert-level)  
-✔ DEM Editing Workflow (all Agisoft steps)  
-✔ Full Agisoft DEM Documentation (converted to Markdown)  
-✔ Projection Ray & Geometry Theory  
-✔ Horizontal Displacement Explanation  
-✔ Forest-Specific DEM Best Practices  
-✔ RGB BRDF Striping Fix  
-✔ Multispectral Calibration Fix (Mavic 3M)  
-✔ Vegetation “Melting” Fix  
-✔ Links to all module `.md` files  
-
-This file is designed to sit inside:
+Forest environments generate the *most severe* photogrammetry distortions.
 
 ```
 orth_processing/
@@ -29,34 +16,8 @@ orth_processing/
 
 ---
 
-# 📘 **MASTER TABLE OF CONTENTS**
-
-### **1. DEM Editing Theory (Complete)**
-### **2. How Agisoft Creates DEM**
-### **3. How Orthomosaic Projection Works**
-### **4. The Projection Ray Explained**
-### **5. Why Vertical DEM Errors Cause Horizontal Blur**
-### **6. Full DEM Editing Workflow (Agisoft Steps)**
-   - A. Fill DEM Tools  
-     1. Constant  
-     2. Best-fit plane  
-     3. IDW  
-     4. Natural Neighbour  
-   - B. Create Breakline  
-   - C. Update / Reset DEM  
-### **7. Forest-Specific DEM Best Practices**
-### **8. Small vs Large Polygon Strategy**
-### **9. Full Agisoft DEM Documentation (Embedded)**
-### **10. Cross-Sensor Forest Issues & Fixes**
-   - Issue 1 – M3M Radiometric Calibration  
-   - Issue 2 – RGB BRDF Striping / Banding  
-   - Issue 3 – Melting / Swirled Vegetation  
-### **11. Links to All .md Files in This Folder**
-
----
-
-## 🧭 **1. DEM Editing Theory – Forest Environments**
-### 🌲 Why Forest DEM == DSM (Not Ground DEM)
+### 🧭 **1. DEM Editing Theory – Forest Environments**
+#### 🌲 Why Forest DEM == DSM (Not Ground DEM)
 In forests:
 
 - Drone sees **tree canopy**, not ground  
@@ -80,7 +41,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-## 🏗️ **2. How Agisoft Creates a DEM (Full Pipeline)**
+### 🏗️ **2. How Agisoft Creates a DEM (Full Pipeline)**
 
 1. **Align Photos**  
    - Identify matching features  
@@ -102,7 +63,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-## 🛰️ **3. How Orthomosaic Projection Works (Critical)**
+### 🛰️ **3. How Orthomosaic Projection Works (Critical)**
 
 For each pixel of every image:
 
@@ -116,7 +77,7 @@ If the DEM is incorrect → ray intersection is incorrect → pixel placed in wr
 
 ---
 
-## 🔦 **4. What Exactly Is a Projection Ray? (Expert Explanation)**
+### 🔦 **4. What Exactly Is a Projection Ray? (Expert Explanation)**
 
 A projection ray is:
 
@@ -134,14 +95,14 @@ Noise in DEM = wrong ray intersection = wrong pixel position.
 
 ---
 
-## ↔️ **5. Why Vertical DEM Errors Cause Horizontal Blur**
+### ↔️ **5. Why Vertical DEM Errors Cause Horizontal Blur**
 
 DEM height error → ray intersects at wrong place horizontally.
 
-### If DEM is too high  
+#### If DEM is too high  
 Ray hits surface **sooner** → pixel shifts **backwards**
 
-### If DEM is too low  
+#### If DEM is too low  
 Ray hits surface **later** → pixel shifts **forwards**
 
 Thus:
@@ -160,7 +121,7 @@ Fixing DEM fixes projection.
 
 ---
 
-## 🌲 **5. Forest-Specific DEM Best Practices**
+### 🌲 **5. Forest-Specific DEM Best Practices**
 
 ✔ Use many **small polygons**  
 ✔ Always use **Natural Neighbour first**  
@@ -186,7 +147,7 @@ Fixing DEM fixes projection.
 
 ---
 
-## 🔥 **10. Cross-Sensor Forest Artifact Issues & Fixes**
+### 🔥 **10. Cross-Sensor Forest Artifact Issues & Fixes**
 
 #### ✔ Mavic 3M Calibration Issue  
 File: `issue1_m3m_radiometric_calibration.md`
