@@ -38,22 +38,20 @@ Best practice is to **start with DEM**, then refine with orthomosaic editing.
 
 ### 4. Step‑by‑Step Workflow
 
-#### 4.1 Check Alignment First
-
-Before editing DEM:
+Before editing DEM (**Check Alignment First**):
 
 1. Review camera alignment (look for: misaligned groups, large reprojection errors).  
 2. If necessary, optimise camera alignment or remove badly aligned images.  
 3. Ensure no gross alignment error is the main cause.
 
-## **Step 4.1 — Switch to DEM View**
+#### **Step 4.1 — Switch to DEM View**
 1. In Agisoft Metashape, open your project.  
 2. In the Workspace pane → double-click **DEM**.  
 3. The DEM view will show elevation as colours.
 
 ---
 
-## **Step 4.2 — Locate Melting Areas**
+#### **Step 4.2 — Locate Melting Areas**
 1. Compare **Orthomosaic** view and **DEM** view.  
 2. Wherever the orthomosaic shows:
    - melted trees  
@@ -64,7 +62,7 @@ Before editing DEM:
 
 ---
 
-## **Step 4.3 — Draw Small Polygons Around Noisy DEM Areas**
+#### **Step 4.3 — Draw Small Polygons Around Noisy DEM Areas**
 ✔ Use **Draw Polygon** tool  
 ✔ Draw **small, local polygons** around each problem area  
 ❌ Do NOT select large blocks of forest  
@@ -74,7 +72,7 @@ Small, precise polygons = best results.
 
 ---
 
-## **Step 4.4 — Open “Fill DEM” Tool**
+#### **Step 4.4 — Open “Fill DEM” Tool**
 Right-click your polygon →  
 **Edit DEM → Fill DEM**
 
@@ -82,9 +80,9 @@ You will see four filling methods.
 
 ---
 
-## **Step 4.5 — Choose the Correct Fill Method**
+#### **Step 4.5 — Choose the Correct Fill Method**
 
-### ⭐ **Recommended Default: Natural Neighbour**
+##### ⭐ **Recommended Default: Natural Neighbour**
 Use when:
 - Canopy is irregular  
 - Area is complex (flowers, mixed leaves, shadows)  
@@ -94,7 +92,7 @@ This is best for forest.
 
 ---
 
-### ✔ IDW (use for very small holes)
+##### ✔ IDW (use for very small holes)
 Good for tiny:
 - Gaps  
 - Holes  
@@ -104,7 +102,7 @@ Power 2 is usually fine.
 
 ---
 
-### ❌ Avoid for Canopy:
+##### ❌ Avoid for Canopy:
 - Constant  
 - Best-fit plane  
 
@@ -112,13 +110,13 @@ These flatten canopy → make things worse.
 
 ---
 
-## **Step 4.6 — Apply the DEM Patch**
+#### **Step 4.6 — Apply the DEM Patch**
 Click **OK**  
 Polygon border will turn **dotted** (pending update)
 
 ---
 
-## **Step 4.7 — Update DEM**
+#### **Step 4.7 — Update DEM**
 You MUST commit the changes:
 
 Toolbar → **Update DEM**  
@@ -128,7 +126,7 @@ Now the DEM is physically corrected.
 
 ---
 
-## **Step 4.8 — Rebuild the Orthomosaic**
+#### **Step 4.8 — Rebuild the Orthomosaic**
 To apply the geometric corrections:
 
 Right-click **Orthomosaic** →  
@@ -138,7 +136,7 @@ This step is required — DEM fixes do NOT show up automatically.
 
 ---
 
-## 🔍 **Expected Result After DEM Fix**
+##### 🔍 **Expected Result After DEM Fix**
 - Melted areas become stable  
 - Branches and flowers align properly  
 - No horizontal stretching  
@@ -146,7 +144,7 @@ This step is required — DEM fixes do NOT show up automatically.
 
 ---
 
-# 🎨 5. Orthomosaic Editing (Texture Fix)
+## 🎨 5. Orthomosaic Editing (Texture Fix)
 
 After DEM correction, some problems may still remain.  
 These are caused by:
@@ -159,16 +157,16 @@ This is where **orthomosaic patching** is used.
 
 ---
 
-# ✅ **5.1 Step-by-Step Ortho Editing Workflow**
+### ✅ **5.1 Step-by-Step Ortho Editing Workflow**
 
 ---
 
-## **Step 5.1 — Open Ortho View**
+#### **Step 5.1 — Open Ortho View**
 Double-click **Orthomosaic**.
 
 ---
 
-## **Step 5.2 — Locate Remaining Issues**
+#### **Step 5.2 — Locate Remaining Issues**
 Look for:
 - small blurred patches  
 - seamline cuts across flowers  
@@ -177,12 +175,12 @@ Look for:
 
 ---
 
-## **Step 5.3 — Draw Patch Polygon**
+#### **Step 5.3 — Draw Patch Polygon**
 Use **Draw Polygon** around the problem region.
 
 ---
 
-## **Step 5.4 — Assign Best Image**
+#### **Step 5.4 — Assign Best Image**
 Right-click polygon →  
 **Edit Orthomosaic → Assign Images**
 
@@ -196,7 +194,7 @@ Click **OK**.
 
 ---
 
-## **Step 5.5 — Use Fill ONLY if no good image exists**
+#### **Step 5.5 — Use Fill ONLY if no good image exists**
 Right-click polygon →  
 **Edit Orthomosaic → Fill**
 
@@ -207,26 +205,18 @@ Use this when:
 
 ---
 
-## **Step 5.6 — Apply Changes**
+#### **Step 5.6 — Apply Changes**
 Toolbar → **Update Orthomosaic**
 
 The blue mesh area will become updated.
 
 ---
 
-## 🔍 **Expected Result After Texture Fix**
+#### 🔍 **Expected Result After Texture Fix**
 - Flowers appear correctly placed  
 - No twisting or smear  
 - Seamlines replaced with better texture  
 - Clean, stable canopy appearance
 
 ---
-
-## 6. Summary
-
-- “Melting” canopy = projection onto a noisy DEM (forest DSM).  
-- Fix alignment issues first.  
-- Then smooth DEM locally using Natural neighbour / IDW.  
-- Finally refine visual texture via orthomosaic seamline editing.  
-- This workflow is sensor‑agnostic and works for M3M, P1, Altum PT and other cameras in forest environments.
 
