@@ -41,7 +41,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-### 🏗️ **2. How Agisoft Creates a DEM (Full Pipeline)**
+### 🏗️ **2. How Agisoft Creates a DEM**
 
 1. **Align Photos**  
    - Identify matching features  
