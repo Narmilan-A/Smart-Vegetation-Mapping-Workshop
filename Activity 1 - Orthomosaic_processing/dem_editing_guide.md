@@ -184,7 +184,212 @@ After selecting polygons or breaklines:
 4. Rebuild orthomosaic to see improvements
 
 *Important:* Orthomosaic MUST be rebuilt after DEM editing.
+---
+# **Agisoft DEM Editing Tools – Full Documentation (Converted to Markdown)**
 
+Source: Official Agisoft Helpdesk Article (converted for GitHub use)  
+Original link: https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools
+
+---
+
+# **DEM Editing Tools – Agisoft Metashape Professional**
+
+Starting from **Agisoft Metashape Professional 2.0.0**, DEM editing tools are available.  
+DEM editing applies **directly to the surface**, allowing you to:
+
+- Edit roof edges  
+- Remove objects (cars, structures)  
+- Fill holes or missing regions (water, forest canopy gaps)  
+- Smooth noisy surfaces  
+
+The following sections describe the **complete workflow**, all fill methods, and breakline tools.
+
+---
+
+# 📘 **Main Steps in DEM Editing**
+1. Fill DEM tools  
+   - Constant Filling  
+   - Best‑Fit Plane  
+   - IDW Interpolation  
+   - Natural Neighbour Interpolation  
+2. Create Breakline  
+3. Resetting DEM Patches  
+4. Applying Changes to DEM  
+
+---
+
+# ✏️ **Entering the DEM Edit Menu**
+To edit the DEM, you must first **draw a polygon or polyline** covering the area to modify.
+
+Example use case:  
+A polygon is drawn around cars on a road so they can be removed and replaced with a smooth DEM surface.
+
+---
+
+# 🏷️ **Showing Labels**
+To enable/disable shape labels in Ortho view:
+
+```
+Ortho > Show/Hide Items > Show Labels
+```
+
+---
+
+# 📌 **Tool Availability**
+- **Fill DEM** → works only on **polygons**
+- **Create Breakline** → works on **polygons and polylines**
+
+Right‑click a selected shape to access the editing tools menu.
+
+---
+
+# 🎛️ **Fill DEM Tools**
+
+Four interpolation/filling methods are available:
+
+1. Constant  
+2. Best‑Fit Plane  
+3. IDW  
+4. Natural Neighbour  
+
+Each method is detailed below.
+
+---
+
+# 1️⃣ **Constant Filling Method**
+
+Fills the polygon area with **one constant elevation value**.
+
+### Workflow:
+- Select polygon  
+- Open *Fill DEM*  
+- Enter elevation manually **or** click **Pick** to sample elevation from the DEM  
+- Apply
+
+### Exclude Nested Polygons
+If you want to exclude an internal region (such as a building):
+1. Draw a second polygon **inside** the first  
+2. Enable **Exclude nested polygons**
+
+### Notes:
+After any Fill or Breakline operation:
+- Shape border becomes **dotted**  
+- Border can still be edited  
+- DEM patch will update accordingly
+
+---
+
+# 2️⃣ **Best‑Fit Plane Method**
+
+Automatically computes a **plane** based on polygon vertices.
+
+Useful for:
+- Sloped roofs  
+- Surfaces that are flat but not horizontal  
+
+### Parameters:
+- **Sample edges**: Uses entire polygon boundary for plane estimation  
+- Works best when **Vertex Snap** is enabled  
+  - After enabling Vertex Snap, **hold SHIFT** while drawing polygons  
+
+---
+
+# 3️⃣ **IDW (Inverse Distance Weighting) Interpolation**
+
+Interpolation method where closer DEM points influence the output more strongly.
+
+### Power Parameter:
+- Default = **2**  
+- Higher value (>2): closer points dominate → **more detailed surface**  
+- Lower value (<2): smoother → **more homogeneous surface**
+
+Useful for:
+- Small canopy gaps  
+- Areas with partial missing data  
+- Forest DEM patches
+
+---
+
+# 4️⃣ **Natural Neighbour Interpolation (Recommended)**
+
+A very high‑quality interpolation method based on **Voronoi neighbourhoods**.
+
+Best for:
+- Irregular surfaces  
+- Forest canopy  
+- Complex geometry  
+- Smoother, more natural results
+
+This is the **recommended default choice** for most DEM corrections in forests.
+
+---
+
+# 🪢 **Create Breakline Tool**
+
+Breaklines enforce **linear elevation constraints**.
+
+Uses:
+- Roof edges  
+- Road boundaries  
+- Ditches or ridges  
+- DEM transitions requiring sharp definition
+
+How it works:
+- Algorithm approximates left/right neighbouring regions with planes  
+- Forces DEM to respect line boundaries
+
+Orthomosaics built with breaklines show **crisper edges** compared to surfaces without them.
+
+---
+
+# 🗑️ **How to Reset DEM Editing**
+
+## Delete Patch
+To undo a patch **before applying updates**:
+```
+Edit DEM > Delete Patch
+```
+
+Important:
+- Works ONLY **before** DEM Update is applied  
+- After DEM Update → cannot undo  
+
+To revert after applying updates:
+- Rebuild DEM from dense cloud  
+- Start DEM editing again
+
+---
+
+# 🔄 **How to Apply Changes to DEM**
+
+Two ways to update DEM:
+
+### 1. Toolbar Button
+Click **Update** button on DEM toolbar.
+
+### 2. Menu Path
+```
+Tools > DEM > Update DEM
+```
+
+Updating DEM finalises all pending patches and prepares DEM for orthomosaic generation.
+
+---
+
+# 📂 **Related Topics**
+- Orthomosaic & DEM generation with GCPs  
+- New features in Metashape 2.2.x  
+- Vectorization tools  
+- Transform DEM functionality  
+- Point Cloud Classification  
+- Thermal imagery processing  
+- Processing R‑JPEG  
+- Cloud processing guide
+
+---
+
+# **End of Document**  
+This Markdown version is prepared for GitHub documentation and team training.
 ---
 
 # 📘 **9. Forest‑Specific Full DEM Editing Workflow**
