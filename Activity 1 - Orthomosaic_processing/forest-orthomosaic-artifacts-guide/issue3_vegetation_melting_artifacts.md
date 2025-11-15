@@ -37,6 +37,7 @@ Best practice is to **start with DEM**, then refine with orthomosaic editing.
 ---
 
 ### 4. DEM Editing
+Reference: [Agisoft DEM Editing Tools](https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools)  
 
 Before editing DEM (**Check Alignment First**):
 
@@ -145,6 +146,7 @@ This step is required — DEM fixes do NOT show up automatically.
 ---
 
 ### 🎨 5. Orthomosaic Editing (Texture Fix)
+Reference: [Agisoft Orthomosaic Seamline Editing (Patching)](https://agisoft.freshdesk.com/support/solutions/articles/31000148853-orthomosaic-seamline-editing-patching-)  
 
 After DEM correction, some problems may still remain.  
 These are caused by:
