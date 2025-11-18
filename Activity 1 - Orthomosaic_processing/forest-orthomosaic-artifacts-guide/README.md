@@ -62,7 +62,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-### 🛰️ **3. How Orthomosaic Projection Works (Critical)**
+### 🛰️ **3. How Orthomosaic Projection Works**
 
 For each pixel of every image:
 
@@ -76,7 +76,7 @@ If the DEM is incorrect → ray intersection is incorrect → pixel placed in wr
 
 ---
 
-### 🔦 **4. What Exactly Is a Projection Ray? (Expert Explanation)**
+### 🔦 **4. What Exactly Is a Projection Ray?**
 
 A projection ray is:
 
@@ -117,17 +117,5 @@ This is why forest orthomosaics often show:
 - Local blur patches  
 
 Fixing DEM fixes projection.
-
----
-
-### 🌲 **5. Forest-Specific DEM Best Practices**
-
-✔ Use many **small polygons**  
-✔ Always use **Natural Neighbour first**  
-✔ Use **IDW** for micro-gaps  
-✔ Avoid Constant/Plane unless non-vegetation  
-✔ Rebuild orthomosaic after each DEM update  
-✔ Review canopy stability after each patch  
-✔ Only patch what is broken  
 
 ---
