@@ -10,10 +10,6 @@ This document provides a ** workflow** to avoid common forest UAV processing pro
 - Radiometric mis-matches  
 - Poor alignment or unstable reconstruction  
 
-These errors almost always start from **image quality**, **illumination**, and **processing settings.**
-
-Use this guide *before and during* processing.
-
 ---
 
 ### **1. IMAGE QUALITY – FIELD CHECKLIST (MOST IMPORTANT)**
