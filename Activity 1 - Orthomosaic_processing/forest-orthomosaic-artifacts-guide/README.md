@@ -15,8 +15,8 @@ forest-orthomosaic-artifacts-guide/
 
 ---
 
-### 🧭 **1. DEM Editing Theory – Forest Environments**
-#### 🌲 Why Forest DEM == DSM (Not Ground DEM)
+### **DEM Editing Theory – Forest Environments**
+#### Why Forest DEM == DSM (Not Ground DEM)
 In forests:
 
 - Drone sees **tree canopy**, not ground  
@@ -40,7 +40,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-### 🏗️ **2. How Agisoft Creates a DEM**
+### **How Agisoft Creates a DEM**
 
 1. **Align Photos**  
    - Identify matching features  
@@ -62,7 +62,7 @@ These errors **distort orthomosaic geometry** when pixels are projected onto thi
 
 ---
 
-### 🛰️ **3. How Orthomosaic Projection Works**
+### ** How Orthomosaic Projection Works**
 
 For each pixel of every image:
 
@@ -76,7 +76,7 @@ If the DEM is incorrect → ray intersection is incorrect → pixel placed in wr
 
 ---
 
-### 🔦 **4. What Exactly Is a Projection Ray?**
+### ** What Exactly Is a Projection Ray?**
 
 A projection ray is:
 
@@ -94,7 +94,7 @@ Noise in DEM = wrong ray intersection = wrong pixel position.
 
 ---
 
-### ↔️ **5. Why Vertical DEM Errors Cause Horizontal Blur**
+### ** Why Vertical DEM Errors Cause Horizontal Blur**
 
 DEM height error → ray intersects at wrong place horizontally.
 
