@@ -123,27 +123,6 @@ The workflow:
 4. Once you find optimal parameters, re-run full dataset using improved settings.
 
 ---
-
-### **6. AGISOFT PROCESSING CHECKLIST**
-
-#### ✔ 6.1 Alignment  
-- High Accuracy  
-- Adaptive camera calibration enabled  
-- Remove images with low quality scores  
-
-#### ✔ 6.2 DEM  
-- Inspect canopy DSM  
-- Patch locally using Natural Neighbour  
-  Reference:  
-  https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools
-
-#### ✔ 6.3 Orthomosaic  
-- Check seamlines  
-- Patch texture using Assign Images  
-  Reference:  
-  https://agisoft.freshdesk.com/support/solutions/articles/31000148853-orthomosaic-seamline-editing-patching-
-
----
 ### **6. RECOVER POOR ALIGNMENT**
 #### Why Poor Alignment Happens (Forest Projects)**
 - Wind → canopy movement → inconsistent features  
@@ -153,21 +132,6 @@ The workflow:
 - Flight lines not overlapping enough  
 - Bad weather → haze, fog, low-light  
 - Motion blur due to aggressive UAV speed  
-
-#### **8. Tools in Agisoft to Recover Poor Alignment**
-
-##### **A. Manually Placed Markers (Highly Effective)**  
-###### 🔍 *When to use:*  
-- Images refuse to align  
-- Small cluster of photos won't register  
-- Alignment has holes / empty pockets  
-- GPS/RTK is missing or inaccurate  
-
-###### **What markers do:**  
-Markers tell Agisoft:  
-> “These image pixels correspond to the same physical point on the ground.”
-
-This forces the software to fix alignment even when the automatic feature matching fails.
 
 #### **Step-by-Step – Adding Markers to Fix Alignment**
 
@@ -185,6 +149,10 @@ Good candidate features:
 
 ##### **3. Right-click → Add Marker**
 Metashape will place a marker in that image.
+
+###### **What markers do:**  
+Markers tell Agisoft:  
+> “These image pixels correspond to the same physical point on the ground.”
 
 ##### **4. Now switch to another overlapping image**
 - The marker will appear faint (estimated location)
