@@ -37,29 +37,6 @@ Forest DEMs contain:
 - Mixed canopy heights  
 
 These errors **distort orthomosaic geometry** when pixels are projected onto this noisy surface.
-
----
-
-### **How Agisoft Creates a DEM**
-
-1. **Align Photos**  
-   - Identify matching features  
-   - Solve camera positions + orientations  
-
-2. **Build Depth Maps**  
-   - Per-image depth estimation  
-
-3. **Build Dense Cloud**  
-   - Millions of 3D canopy points  
-
-4. **Interpolate DEM**  
-   - Convert dense point cloud → 2.5D raster  
-   - Height for every DEM pixel  
-
-5. **Use DEM for orthomosaic projection**
-
-**If dense cloud is noisy → DEM is noisy → orthomosaic is distorted.**
-
 ---
 
 ### ** How Orthomosaic Projection Works**
