@@ -88,9 +88,7 @@ You **calibrate and process each chunk all the way to orthomosaic**, then export
    - **Important:**  
      - Each orthomosaic must **overlap spatially** with neighbouring orthomosaics to allow:
        - Seamless blending  
-       - Proper edge handling  
-
-**Cons**
-- Requires sufficient **overlap between orthomosaics** for visually smooth merging.  
+       - Proper edge handling
+       - Requires sufficient **overlap between orthomosaics** for visually smooth merging.  
 
 ---
