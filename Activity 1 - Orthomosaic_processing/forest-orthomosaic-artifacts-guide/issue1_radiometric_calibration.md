@@ -1,6 +1,6 @@
 ## Issue 1 – Radiometric Calibration & Half Dark / Half Bright Orthomosaics
 
-### 1. Symptom
+### Symptom
 
 - Multispectral orthomosaic appears **half dark / half bright**, typically along the boundary between different flight routes or panels.  
 - Looks similar to a giant “shadow” or sharp radiometric step across the scene.  
@@ -8,14 +8,14 @@
 
 ---
 
-### 2. Root Cause (from Agisoft Support)
+### Root Cause (from Agisoft Support)
 
 - Using a **single combined radiometric calibration** for all routes causes inconsistent scaling.  
 - This manifests as a sudden brightness jump between routes in the final reflectance mosaic.
 
 ---
 
-### 3. Recommended Strategies (Two Valid Options)
+### Recommended Strategies (Two Valid Options)
 
 There are two general strategies to handle this problem when working with multiple flights and panel captures.
 
