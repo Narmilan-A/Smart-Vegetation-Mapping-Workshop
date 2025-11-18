@@ -1,8 +1,5 @@
 ## **Forest Orthomosaic Artifact Correction**  
 
-### 🌳 **Purpose of This Guide**
-Forest environments generate the *most severe* photogrammetry distortions.
-
 ### File Structure
 ```
 forest-orthomosaic-artifacts-guide/
