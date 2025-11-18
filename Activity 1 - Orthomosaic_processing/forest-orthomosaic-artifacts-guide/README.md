@@ -73,7 +73,4 @@ This is why forest orthomosaics often show:
 - Double tree crowns  
 - Sliding textures  
 - Local blur patches  
-
-Fixing DEM fixes projection.
-
 ---
