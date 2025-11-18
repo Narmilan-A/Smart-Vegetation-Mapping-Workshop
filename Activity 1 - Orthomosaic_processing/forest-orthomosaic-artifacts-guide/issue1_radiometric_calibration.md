@@ -1,9 +1,5 @@
 ## Issue 1 – Radiometric Calibration & Half Dark / Half Bright Orthomosaics
 
-This document summarises the calibration issue and provides a recommended workflow based on Agisoft support feedback and forest‑focused experience.
-
----
-
 ### 1. Symptom
 
 - Multispectral orthomosaic appears **half dark / half bright**, typically along the boundary between different flight routes or panels.  
@@ -14,12 +10,6 @@ This document summarises the calibration issue and provides a recommended workfl
 
 ### 2. Root Cause (from Agisoft Support)
 
-Agisoft’s response:
-
-> If you have different calibration panel images for each route, you need to process the data separately in 3 different chunks and perform reflectance calibration separately for each route.
-
-In other words:
-- Each flight route uses a **different panel instance** (or lighting condition).  
 - Using a **single combined radiometric calibration** for all routes causes inconsistent scaling.  
 - This manifests as a sudden brightness jump between routes in the final reflectance mosaic.
 
@@ -62,17 +52,6 @@ Separate your data into multiple chunks by flight/illumination block, perform **
    - Build DEM
    - Build **a single reflectance orthomosaic**
 
-#### 3.2. Pros & Cons
-
-**Pros**
-- Geometry (alignment, DEM, orthomosaic) is solved in one consistent block.  
-- Only **one orthomosaic** to manage and export.  
-- Radiometry is handled correctly per flight before merging.
-
-**Cons**
-- Requires careful chunk management and correct merging order.  
-- Assumes that calibration metadata is correctly preserved when merging.
-
 ---
 
 ### ✅ Option 2 – Calibrate & Process Each Chunk to Orthomosaic, Then Merge Orthomosaics in GIS
@@ -111,17 +90,7 @@ You **calibrate and process each chunk all the way to orthomosaic**, then export
        - Seamless blending  
        - Proper edge handling  
 
-#### 4.2. Pros & Cons
-
-**Pros**
-- Very robust when flights are very different (lighting, dates, etc.).  
-- Minimal complexity inside the photogrammetry software; integration is done in GIS.  
-- Easy to re-merge or test different mosaic rules without reprocessing photogrammetry.
-
 **Cons**
-- You may end up with slightly different geometric solutions per chunk (small misalignments) if not carefully controlled.  
 - Requires sufficient **overlap between orthomosaics** for visually smooth merging.  
-- You manage multiple intermediate orthomosaic files.
 
 ---
-Both approaches ensure consistent reflectance scaling and remove the characteristic dark/bright split caused by mixing multiple calibration conditions into a single calibration step.
