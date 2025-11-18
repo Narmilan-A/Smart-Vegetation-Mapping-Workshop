@@ -1,7 +1,5 @@
 ## Issue 3 – “Melting” / Swirled Canopy Artifacts
 
----
-
 ### Symptom
 
 - Tree crowns appear **melted**, swirled, or twisted in the orthomosaic.  
@@ -10,7 +8,6 @@
 
 This issue appears consistently across different sensors → it is **not sensor‑specific**.
 
----
 
 ### Root Cause – Noisy Surface / DEM
 
@@ -21,7 +18,6 @@ So:
 - If the **DEM (DSM)** is noisy due to irregular canopy, shadows, or mis‑matches, the projection rays will intersect the surface incorrectly.  
 - Trees may be projected partially onto wrong heights, causing **horizontal shifts** and 3D smear in the orthomosaic.
 
----
 
 ### Recommended Fixes
 
@@ -46,8 +42,6 @@ Before editing DEM (**Check Alignment First**):
 2. In the Workspace pane → double-click **DEM**.  
 3. The DEM view will show elevation as colours.
 
----
-
 #### **Step 2 — Locate Melting Areas**
 1. Compare **Orthomosaic** view and **DEM** view.  
 2. Wherever the orthomosaic shows:
@@ -57,8 +51,6 @@ Before editing DEM (**Check Alignment First**):
 3. Check that area in the DEM:
    - Often you will see bumps, holes, or noisy surfaces.
 
----
-
 #### **Step 3 — Draw Small Polygons Around Noisy DEM Areas**
 ✔ Use **Draw Polygon** tool  
 ✔ Draw **small, local polygons** around each problem area  
@@ -67,15 +59,12 @@ Before editing DEM (**Check Alignment First**):
 
 Small, precise polygons = best results.
 
----
 
 #### **Step 4 — Open “Fill DEM” Tool**
 Right-click your polygon →  
 **Edit DEM → Fill DEM**
 
 You will see four filling methods.
-
----
 
 #### **Step 5 — Choose the Correct Fill Method**
 
@@ -87,8 +76,6 @@ Use when:
 
 This is best for forest.
 
----
-
 ##### ✔ IDW (use for very small holes)
 Good for tiny:
 - Gaps  
@@ -97,21 +84,15 @@ Good for tiny:
 
 Power 2 is usually fine.
 
----
-
 ##### ❌ Avoid for Canopy:
 - Constant  
 - Best-fit plane  
 
 These flatten canopy → make things worse.
 
----
-
 #### **Step 6 — Apply the DEM Patch**
 Click **OK**  
 Polygon border will turn **dotted** (pending update)
-
----
 
 #### **Step 7 — Update DEM**
 You MUST commit the changes:
@@ -121,8 +102,6 @@ Toolbar → **Update DEM**
 
 Now the DEM is physically corrected.
 
----
-
 #### **Step 8 — Rebuild the Orthomosaic**
 To apply the geometric corrections:
 
@@ -130,8 +109,6 @@ Right-click **Orthomosaic** →
 **Build Orthomosaic**
 
 This step is required — DEM fixes do NOT show up automatically.
-
----
 
 ##### 🔍 **Expected Result After DEM Fix**
 - Melted areas become stable  
@@ -153,12 +130,8 @@ These are caused by:
 
 This is where **orthomosaic patching** is used.
 
----
-
 #### **Step 1 — Open Ortho View**
 Double-click **Orthomosaic**.
-
----
 
 #### **Step 2 — Locate Remaining Issues**
 Look for:
@@ -167,12 +140,8 @@ Look for:
 - colour jumps  
 - ghosted canopy edges  
 
----
-
 #### **Step 3 — Draw Patch Polygon**
 Use **Draw Polygon** around the problem region.
-
----
 
 #### **Step 4 — Assign Best Image**
 Right-click polygon →  
@@ -186,8 +155,6 @@ Choose an image that:
 
 Click **OK**.
 
----
-
 #### **Step 5 — Use Fill ONLY if no good image exists**
 Right-click polygon →  
 **Edit Orthomosaic → Fill**
@@ -197,14 +164,10 @@ Use this when:
 - All images are blurred  
 - There is a hole with no data  
 
----
-
 #### **Step 6 — Apply Changes**
 Toolbar → **Update Orthomosaic**
 
 The blue mesh area will become updated.
-
----
 
 #### 🔍 **Expected Result After Texture Fix**
 - Flowers appear correctly placed  
