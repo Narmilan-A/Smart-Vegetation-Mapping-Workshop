@@ -1,5 +1,4 @@
 ## **Best Practices & Checklist to Prevent Orthomosaic Artifacts in Forest**  
----
 
 ### **Purpose of This Guide**  
 This document provides a ** workflow** to avoid common forest UAV processing problems such as:
