@@ -109,8 +109,7 @@ This is where **orthomosaic patching** is used.
 #### **Step 1 — Open Ortho View**
 Double-click **Orthomosaic**.
 
-#### **Step 2 — Locate Remaining Issues**
-Look for:
+#### **Step 2 — Locate Remaining Issues** Look for:
 - small blurred patches  
 - seamline cuts across flowers  
 - colour jumps  
@@ -122,23 +121,10 @@ Use **Draw Polygon** around the problem region.
 #### **Step 4 — Assign Best Image**
 Right-click polygon →  
 **Edit Orthomosaic → Assign Images**
-
-Choose an image that:
-- Has least shadow  
-- Has clear flower texture  
-- Has minimal motion blur  
-- Has correct sun angle
-
 Click **OK**.
 
 #### **Step 5 — Use Fill ONLY if no good image exists**
-Right-click polygon →  
-**Edit Orthomosaic → Fill**
-
-Use this when:
-- All images contain unwanted objects  
-- All images are blurred  
-- There is a hole with no data  
+Right-click polygon →  **Edit Orthomosaic → Fill**
 
 #### **Step 6 — Apply Changes**
 Toolbar → **Update Orthomosaic**
