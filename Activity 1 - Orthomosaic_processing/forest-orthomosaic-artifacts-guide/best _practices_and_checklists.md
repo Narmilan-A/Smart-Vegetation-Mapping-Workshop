@@ -1,9 +1,8 @@
-## **Best Practices & Checklist to Prevent Orthomosaic Artifacts in Forest UAV Projects**  
-### *Image Quality • Field Workflow • Agisoft Settings • Processing Strategy • Troubleshooting*  
+## **Best Practices & Checklist to Prevent Orthomosaic Artifacts in Forest**  
 ---
 
-### 🌳 **Purpose of This Guide**  
-This document provides a **professional, beginner-friendly checklist and workflow** to avoid common forest UAV processing problems such as:
+### **Purpose of This Guide**  
+This document provides a ** workflow** to avoid common forest UAV processing problems such as:
 
 - Swirled / melted canopy  
 - Orthomosaic blur  
@@ -18,7 +17,7 @@ Use this guide *before and during* processing.
 
 ---
 
-### 📸 **1. IMAGE QUALITY – FIELD CHECKLIST (MOST IMPORTANT)**
+### **1. IMAGE QUALITY – FIELD CHECKLIST (MOST IMPORTANT)**
 
 #### ✔ 1.1 Maintain stable exposure  
 - Avoid strong alternation between bright sunlight and deep shadows.  
@@ -49,7 +48,7 @@ Use this guide *before and during* processing.
 
 ---
 
-### 🖥️ **2. IMAGE QUALITY – PRE-PROCESSING BEFORE AGISOFT**
+### **2. IMAGE QUALITY – PRE-PROCESSING BEFORE AGISOFT**
 
 #### ✔ 2.1 Run Agisoft Image Quality Estimation  
 In **Tools → Image Quality**  
@@ -63,12 +62,9 @@ For RGB images:
 - Improve **Contrast** gently  
 - Optional: Remove colour cast  
 
-⚠ Never over-edit.  
-⚠ Keep tonal relationships realistic or depth mapping will degrade.
-
 ---
 
-### 🎛️ **3. CAMERA CHANNEL / PRIMARY CHANNEL SETUP**
+### **3. CAMERA CHANNEL / PRIMARY CHANNEL SETUP**
 
 Before alignment, set:  
 **Tools → Camera Calibration → Primary Channel**  
@@ -77,14 +73,11 @@ For RGB:
 - Choose **Green** or **Luminance** (best for feature detection).  
 
 For Multispectral:  
-- Choose **highest resolution band**  
-- Usually **Green or Red** (depending on sensor)  
-
-This improves alignment stability dramatically.
+- Choose **highest resolution band** (depending on sensor)  
 
 ---
 
-### ⚙️ **4. DO NOT USE THE SAME HYPER-PARAMETERS FOR ALL FLIGHTS**
+### **4. DO NOT USE THE SAME HYPER-PARAMETERS FOR ALL FLIGHTS**
 
 Even in the same site, forest reflectance changes with:  
 - Time of day  
@@ -103,9 +96,9 @@ Agisoft recommends **adaptive settings**, not fixed presets.
 
 ---
 
-### 🧪 **5. TWO PROCESSING STRATEGIES FOR BEGINNERS**
+### **5. TWO PROCESSING STRATEGIES FOR BEGINNERS**
 
-#### ⭐ **Method A: Small Subset Test (Highly Recommended)**  
+#### **Method A: Small Subset Test (Highly Recommended)**  
 The workflow:  
 1. Import ALL raw images.  
 2. Select **20–50 images** from one section of the forest.  
@@ -125,7 +118,7 @@ The workflow:
 
 ---
 
-#### ⭐ **Method B: Full Processing → Identify Artifacts → Re-process Only Problem Area**  
+#### **Method B: Full Processing → Identify Artifacts → Re-process Only Problem Area**  
 
 1. Process the **entire raw dataset** normally.  
 2. Inspect final orthomosaic.  
@@ -136,79 +129,79 @@ The workflow:
 
 ---
 
-### 🛑 **6. COMMON FIELD MISTAKES TO AVOID**
+### **6. AGISOFT PROCESSING CHECKLIST**
 
-#### ❌ Flying near sunrise/sunset  
-- Long shadows → depth errors  
-- Low-angle sun → BRDF striping  
-
-#### ❌ Changing exposure mid-mission  
-- Creates brightness jumps  
-
-#### ❌ Not overlapping orthomosaics when planning multi-mission merges  
-- Chunks cannot be merged reliably  
-- Causes strong seams  
-
-#### ❌ Very dark images  
-- Low contrast → weak alignment  
-- High noise → depth map corruption  
-
-#### ❌ Yellow flower patches not handled  
-These areas often cause:  
-- Reflectance saturation  
-- Depth instability  
-- Blurred canopy  
-Fix: increase overlap + avoid noon harsh sunlight.
-
----
-
-### 🗂️ **7. AGISOFT PROCESSING CHECKLIST**
-
-#### ✔ 7.1 Alignment  
+#### ✔ 6.1 Alignment  
 - High Accuracy  
 - Adaptive camera calibration enabled  
 - Remove images with low quality scores  
 
-#### ✔ 7.2 Depth Maps  
-- Use **Medium** quality first (test)  
-- For final run: High or Ultra (only if GPU RAM allows)  
-- Reduce noise: **Mild filtering** for forests  
-- Use “pair preselection = Reference + Generic”  
-
-#### ✔ 7.3 Dense Cloud  
-- Inspect for holes and spikes  
-- Clean aggressively before DEM generation  
-
-#### ✔ 7.4 DEM  
+#### ✔ 6.2 DEM  
 - Inspect canopy DSM  
 - Patch locally using Natural Neighbour  
   Reference:  
   https://agisoft.freshdesk.com/support/solutions/articles/31000164388-dem-editing-tools
 
-#### ✔ 7.5 Orthomosaic  
+#### ✔ 6.3 Orthomosaic  
 - Check seamlines  
 - Patch texture using Assign Images  
   Reference:  
   https://agisoft.freshdesk.com/support/solutions/articles/31000148853-orthomosaic-seamline-editing-patching-
 
 ---
+### **6. RECOVER POOR ALIGNMENT**
+#### Why Poor Alignment Happens (Forest Projects)**
+- Wind → canopy movement → inconsistent features  
+- Very dark images → low contrast → unstable feature detection  
+- Excessive shadows → repeated patterns → false matches  
+- Flying too low or too high → lack of parallax or insufficient texture  
+- Flight lines not overlapping enough  
+- Bad weather → haze, fog, low-light  
+- Motion blur due to aggressive UAV speed  
 
-### 🧭 **8. ADVANCED STRATEGIES TO REDUCE MELTING / BLUR**
+#### **8. Tools in Agisoft to Recover Poor Alignment**
 
-#### ✔ Increase side overlap  
-More overlap = more stable canopy height = less swirling.
+##### **A. Manually Placed Markers (Highly Effective)**  
+###### 🔍 *When to use:*  
+- Images refuse to align  
+- Small cluster of photos won't register  
+- Alignment has holes / empty pockets  
+- GPS/RTK is missing or inaccurate  
 
-#### ✔ Fly cross-hatch pattern (double grid)  
-Critical for forest structure.
+###### **What markers do:**  
+Markers tell Agisoft:  
+> “These image pixels correspond to the same physical point on the ground.”
 
-#### ✔ Avoid windy conditions  
-Tree movement creates reconstruction ambiguity.
+This forces the software to fix alignment even when the automatic feature matching fails.
 
-#### ✔ Use lower altitude for dense canopy  
-Improves parallax → reduces DEM errors.
+#### **Step-by-Step – Adding Markers to Fix Alignment**
 
-#### ✔ Bright flowering patches  
-Capture under **diffuse light** to avoid oversaturation.
+##### **1. Open the "Photos" or "Workspace" panel**
+- Double-click an image to open it  
 
+##### **2. Choose a strong, stable feature**
+Good candidate features:
+- Rock edges  
+- Large logs  
+- Road markings  
+- Building edges  
+- Distinct tree trunks  
+- Unmoving man-made objects  
+
+##### **3. Right-click → Add Marker**
+Metashape will place a marker in that image.
+
+##### **4. Now switch to another overlapping image**
+- The marker will appear faint (estimated location)
+- Drag it to the exact matching pixel
+
+##### **5. Repeat across 6–10 images**
+- Each marker should be placed in **at least 6 images**
+- More = stronger geometry
+
+##### **6. Add 5–20 markers total**
+- Spread markers throughout the affected area  
+
+##### **7. Run "Optimize Cameras"**
 ---
 
