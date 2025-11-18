@@ -8,14 +8,14 @@
 
 ---
 
-### Root Cause (from Agisoft Support)
+### Root Cause
 
 - Using a **single combined radiometric calibration** for all routes causes inconsistent scaling.  
 - This manifests as a sudden brightness jump between routes in the final reflectance mosaic.
 
 ---
 
-### Recommended Strategies (Two Valid Options)
+### Recommended Strategies
 
 There are two general strategies to handle this problem when working with multiple flights and panel captures.
 
