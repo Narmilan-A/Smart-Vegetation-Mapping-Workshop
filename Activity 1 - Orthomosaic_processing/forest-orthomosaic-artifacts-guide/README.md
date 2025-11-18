@@ -36,8 +36,8 @@ Forest DEMs contain:
 - Parallax distortions  
 - Mixed canopy heights  
 
-These errors **distort orthomosaic geometry** when pixels are projected onto this noisy surface.
----
+**These errors **distort orthomosaic geometry** when pixels are projected onto this noisy surface.
+**---
 
 ### ** How Orthomosaic Projection Works**
 
