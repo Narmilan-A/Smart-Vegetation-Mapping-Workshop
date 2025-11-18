@@ -7,8 +7,7 @@ Forest environments generate the *most severe* photogrammetry distortions.
 ```
 forest-orthomosaic-artifacts-guide/
     README.md   ← THIS FILE
-    dem_editing_forest.md
-    orthomosaic_seamline_editing.md
+    best _practices_and_checklists.md
     issue1_m3m_radiometric_calibration.md
     issue2_rgb_brdf_strip_banding.md
     issue3_vegetation_melting_artifacts.md
