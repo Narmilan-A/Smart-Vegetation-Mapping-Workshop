@@ -91,7 +91,7 @@ Agisoft recommends **adaptive settings**, not fixed presets.
 
 ---
 
-### **5. TWO PROCESSING STRATEGIES FOR BEGINNERS**
+### **5. TWO PROCESSING STRATEGIES**
 
 #### **Method A: Small Subset Test (Highly Recommended)**  
 The workflow:  
