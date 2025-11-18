@@ -57,14 +57,9 @@ Before editing DEM (**Check Alignment First**):
 ❌ Do NOT select large blocks of forest  
 ❌ Never flatten entire canopy
 
-Small, precise polygons = best results.
-
-
 #### **Step 4 — Open “Fill DEM” Tool**
 Right-click your polygon →  
-**Edit DEM → Fill DEM**
-
-You will see four filling methods.
+**Edit DEM → Fill DEM** - You will see four filling methods.
 
 #### **Step 5 — Choose the Correct Fill Method**
 
@@ -72,49 +67,30 @@ You will see four filling methods.
 Use when:
 - Canopy is irregular  
 - Area is complex (flowers, mixed leaves, shadows)  
-- You want smooth + natural shape  
-
-This is best for forest.
+- You want smooth + natural shape
+- This is best for forest.
 
 ##### ✔ IDW (use for very small holes)
 Good for tiny:
 - Gaps  
 - Holes  
-- Missing points  
-
-Power 2 is usually fine.
+- Missing points
+- Power 2 is usually fine.
 
 ##### ❌ Avoid for Canopy:
 - Constant  
-- Best-fit plane  
-
-These flatten canopy → make things worse.
+- Best-fit plane
+- These flatten canopy → make things worse.
 
 #### **Step 6 — Apply the DEM Patch**
 Click **OK**  
 Polygon border will turn **dotted** (pending update)
 
 #### **Step 7 — Update DEM**
-You MUST commit the changes:
-
-Toolbar → **Update DEM**  
-(or Tools → DEM → Update DEM)
-
-Now the DEM is physically corrected.
+You MUST commit the changes: Toolbar → **Update DEM** 
 
 #### **Step 8 — Rebuild the Orthomosaic**
-To apply the geometric corrections:
-
-Right-click **Orthomosaic** →  
-**Build Orthomosaic**
-
-This step is required — DEM fixes do NOT show up automatically.
-
-##### 🔍 **Expected Result After DEM Fix**
-- Melted areas become stable  
-- Branches and flowers align properly  
-- No horizontal stretching  
-- Texture becomes sharper and consistent  
+To apply the geometric corrections: Right-click **Orthomosaic** →  **Build Orthomosaic**
 
 ---
 
@@ -166,14 +142,6 @@ Use this when:
 
 #### **Step 6 — Apply Changes**
 Toolbar → **Update Orthomosaic**
-
-The blue mesh area will become updated.
-
-#### 🔍 **Expected Result After Texture Fix**
-- Flowers appear correctly placed  
-- No twisting or smear  
-- Seamlines replaced with better texture  
-- Clean, stable canopy appearance
 
 ---
 
