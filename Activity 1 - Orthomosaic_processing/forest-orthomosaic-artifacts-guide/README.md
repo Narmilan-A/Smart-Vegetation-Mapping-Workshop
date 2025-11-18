@@ -37,7 +37,7 @@ Forest DEMs contain:
 - Mixed canopy heights  
 
 > These errors **distort orthomosaic geometry** when pixels are projected onto this noisy surface.
---
+---
 
 ### ** How Orthomosaic Projection Works**
 
