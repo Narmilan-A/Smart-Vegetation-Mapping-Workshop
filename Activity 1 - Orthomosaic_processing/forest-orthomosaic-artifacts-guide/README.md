@@ -58,11 +58,9 @@ Noise in DEM = wrong ray intersection = wrong pixel position.
 
 ### ** Why Vertical DEM Errors Cause Horizontal Blur**
 
-DEM height error → ray intersects at wrong place horizontally.
-
-#### If DEM is too high  --> Ray hits surface **sooner** → pixel shifts **backwards**
-
-#### If DEM is too low  --> Ray hits surface **later** → pixel shifts **forwards**
+- DEM height error → ray intersects at wrong place horizontally.
+- If DEM is too high:  Ray hits surface **sooner** → pixel shifts **backwards**
+- If DEM is too low:  Ray hits surface **later** → pixel shifts **forwards**
 
 Thus:
 
