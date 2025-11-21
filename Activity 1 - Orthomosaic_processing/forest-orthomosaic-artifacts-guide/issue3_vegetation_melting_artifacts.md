@@ -1,6 +1,6 @@
 ## Issue 3 – “Melting” / Swirled Canopy Artifacts
 
-[Presentation1.tif](https://github.com/user-attachments/files/23666359/Presentation1.tif)
+<img width="1185" height="316" alt="Presentation1" src="https://github.com/user-attachments/assets/4cefcd2d-6f6c-4db8-a4ca-21cab636857e" />
 
 ### Symptom
 
