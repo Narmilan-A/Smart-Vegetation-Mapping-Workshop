@@ -1,5 +1,8 @@
 ## **Best Practices & Checklist to Prevent Orthomosaic Artifacts in Forest**  
 
+<img width="1156" height="429" alt="Presentation4" src="https://github.com/user-attachments/assets/0dd359b3-26d9-45c3-b556-0dca1e10bb46" />
+
+
 ### **Purpose of This Guide**  
 This document provides a ** workflow** to avoid common forest UAV processing problems such as:
 
@@ -56,6 +59,9 @@ For RGB images:
 - Correct **Highlights & Shadows**  
 - Improve **Contrast** gently  
 - Optional: Remove colour cast  
+
+<img width="1208" height="229" alt="Presentation3" src="https://github.com/user-attachments/assets/7cd7784c-e9c5-4259-ada5-a1e54267974e" />
+
 
 ---
 
