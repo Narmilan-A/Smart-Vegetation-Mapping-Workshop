@@ -1,6 +1,7 @@
 ## **Forest Orthomosaic Artifact Correction**  
 
-[Presentation1.tif](https://github.com/user-attachments/files/23666281/Presentation1.tif)
+<img width="1185" height="316" alt="Presentation1" src="https://github.com/user-attachments/assets/3db51ac5-6cdc-4764-b797-348e27241a8d" />
+
 
 ### **DEM Editing Theory – Forest Environments**
 #### Why Forest DEM == DSM (Not Ground DEM)
