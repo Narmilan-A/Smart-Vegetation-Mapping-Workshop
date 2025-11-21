@@ -1,6 +1,6 @@
 ## **Forest Orthomosaic Artifact Correction**  
 
-<img width="1185" height="316" alt="Presentation1" src="https://github.com/user-attachments/assets/3db51ac5-6cdc-4764-b797-348e27241a8d" />
+<img width="1189" height="347" alt="Presentation2" src="https://github.com/user-attachments/assets/603de4d7-0c8d-4089-bda5-a9df7f6e38f4" />
 
 
 ### **DEM Editing Theory – Forest Environments**
