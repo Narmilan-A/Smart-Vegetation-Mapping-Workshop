@@ -1,5 +1,7 @@
 ## Issue 3 – “Melting” / Swirled Canopy Artifacts
 
+[Presentation1.tif](https://github.com/user-attachments/files/23666359/Presentation1.tif)
+
 ### Symptom
 
 - Tree crowns appear **melted**, swirled, or twisted in the orthomosaic.  
