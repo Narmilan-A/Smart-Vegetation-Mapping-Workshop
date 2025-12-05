@@ -7,7 +7,7 @@ IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"}
 BEFORE_SUFFIX = "_before"
 AFTER_SUFFIX = "_after"
 
-# Optional: fixed tab order
+# Tabs order – folders not in this list still work, they just appear afterwards
 MEMBER_ORDER = ["Narmilan", "Fernando", "Veronica", "Sebastien", "Anuraj"]
 
 
@@ -15,6 +15,10 @@ def build_sets_for_member(member_name: str, member_dir: Path):
     """
     Scan one member folder (e.g. images/Narmilan) and return a list of
     {id, before, after} dictionaries for complete before/after pairs.
+
+    Expected naming:
+      something_before.jpg
+      something_after.jpg
     """
     pairs = {}
 
@@ -67,7 +71,6 @@ def main():
         raise SystemExit(f"Images directory not found: {images_dir}")
 
     groups = []
-
     used = set()
 
     # 1) Add known members in fixed order if folder exists
