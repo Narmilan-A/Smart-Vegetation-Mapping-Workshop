@@ -9,6 +9,16 @@
           "after": "images/Fernando/3_agisoft_after.jpg"
         }
       ]
+    },
+    {
+      "name": "Veronica",
+      "sets": [
+        {
+          "id": "1_realityscan",
+          "before": "images/Veronica/1_realityscan_before.jpg",
+          "after": "images/Veronica/1_realityscan_after.jpg"
+        }
+      ]
     }
   ]
 }
