@@ -43,9 +43,15 @@
 
     .frame-header {
         display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 4px;
+    }
+
+    .frame-header-top {
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 4px;
     }
 
     .frame-title {
@@ -58,6 +64,49 @@
     .frame-meta {
         font-size: 0.85rem;
         color: #6b7280;
+    }
+
+    /* ===== NEW: group tabs (names) ===== */
+    .group-tabs {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+    }
+
+    .group-tab {
+        border-radius: 999px;
+        padding: 4px 10px;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        background: #f9fafb;
+        font-size: 0.78rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+    }
+
+    .group-tab span.group-count {
+        font-size: 0.68rem;
+        color: #6b7280;
+    }
+
+    .group-tab:hover {
+        background: #eff6ff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.15);
+    }
+
+    .group-tab-active {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: #f9fafb;
+        border-color: transparent;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .group-tab-active span.group-count {
+        color: #e5e7eb;
     }
 
     .frame-body {
@@ -141,7 +190,6 @@
         transition: transform 0.2s ease;
     }
 
-    /* Thumbnail image fits container; zooms 10% on hover */
     .thumb-btn img {
         width: 100%;
         height: 100%;
@@ -153,10 +201,9 @@
     }
 
     .thumb-btn:hover img {
-        transform: scale(1.10); /* 10% zoom */
+        transform: scale(1.10);
     }
 
-    /* Hover-only label overlay */
     .thumb-label {
         position: absolute;
         inset: 0;
@@ -181,7 +228,6 @@
         opacity: 1;
     }
 
-    /* Selected thumbnail highlight */
     .thumb-btn-active {
         outline: none;
         box-shadow:
@@ -205,7 +251,6 @@
         min-height: 0;
     }
 
-    /* Viewer loading overlay (per-viewer) */
     .viewer-loading {
         position: absolute;
         inset: 0;
@@ -231,10 +276,10 @@
     }
 
     .comparison-slider {
-        --percent: 50;      /* swipe fraction from left (0–100) */
-        --zoom: 1;          /* zoom factor */
-        --offsetX: 0px;     /* pan X in px */
-        --offsetY: 0px;     /* pan Y in px */
+        --percent: 50;
+        --zoom: 1;
+        --offsetX: 0px;
+        --offsetY: 0px;
 
         position: relative;
         width: 100%;
@@ -265,7 +310,6 @@
         overflow: hidden;
     }
 
-    /* Zoom & pan applied to both images */
     .comparison-layer img {
         width: 100%;
         height: 100%;
@@ -280,13 +324,11 @@
         z-index: 1;
     }
 
-    /* Overlay is full-size; we clip it horizontally for swipe */
     .comparison-overlay {
         z-index: 2;
         clip-path: inset(0 calc(100% - var(--percent) * 1%) 0 0);
     }
 
-    /* Handle (vertical bar) */
     .comparison-handle {
         position: absolute;
         top: 0;
@@ -316,10 +358,6 @@
         box-shadow: 0 0 0 1px #aaa, 0 8px 16px rgba(0,0,0,0.25);
     }
 
-    /* =========================================================
-       LABELS WITH FILL
-    ==========================================================*/
-
     .comparison-label {
         position: absolute;
         top: 8px;
@@ -337,12 +375,12 @@
 
     .comparison-label-after {
         left: 8px;
-        background: #dbeafe;           /* light blue */
+        background: #dbeafe;
     }
 
     .comparison-label-before {
         right: 8px;
-        background: #fee2e2;           /* light pink */
+        background: #fee2e2;
     }
 
     .label-text {
@@ -357,13 +395,11 @@
         font-weight: 700;
     }
 
-
     .label-sub {
         font-size: 0.68rem;
         color: #4b5563;
     }
 
-    /* Fill bar (proportion indicator) */
     .label-fill {
         position: absolute;
         top: 0;
@@ -408,37 +444,38 @@
 <div id="app">
     <div class="frame">
         <div class="frame-header">
-            <div>
-                <div class="frame-title">Before / After Viewer</div>
-                <div class="frame-meta">
-                    Drag to swipe • Ctrl + drag to pan • Mouse wheel to zoom
+            <div class="frame-header-top">
+                <div>
+                    <div class="frame-title">Before / After Viewer</div>
+                    <div class="frame-meta">
+                        Drag to swipe • Ctrl + drag to pan • Mouse wheel to zoom
+                    </div>
                 </div>
             </div>
+
+            <!-- NEW: group tabs container -->
+            <div class="group-tabs" id="groupTabs"></div>
         </div>
 
         <div class="frame-body">
             <div class="thumbs-column" id="thumbList"></div>
 
             <div class="comparison-shell">
-                <!-- Per-viewer loading overlay -->
                 <div class="viewer-loading" id="viewerLoading">
                     <div class="viewer-spinner"></div>
                 </div>
 
                 <div class="comparison-slider" id="comparisonSlider">
                     <div class="comparison-viewport" id="comparisonViewport">
-                        <!-- Base (bottom) layer -->
                         <div class="comparison-layer comparison-base">
                             <img src="before.jpg" id="imgBase" draggable="false" alt="Base layer">
                         </div>
 
-                        <!-- Overlay (swiped) layer -->
                         <div class="comparison-layer comparison-overlay" id="overlayLayer">
                             <img src="after.jpg" id="imgOverlay" draggable="false" alt="Overlay layer">
                         </div>
                     </div>
 
-                    <!-- Labels -->
                     <div class="comparison-label comparison-label-after">
                         <div class="label-fill label-fill-after" id="afterFill"></div>
                         <span class="label-text">
@@ -455,7 +492,6 @@
                         </span>
                     </div>
 
-                    <!-- Handle -->
                     <div class="comparison-handle">
                         <div class="comparison-handle-line"></div>
                         <div class="comparison-handle-knob"></div>
@@ -511,9 +547,11 @@ window.addEventListener("load", () => {
 });
 
 /* =========================================================
-   IMAGE SETS + THUMBNAILS
+   IMAGE SETS + GROUPS + THUMBNAILS
 ========================================================= */
 
+let allGroups = [];   // [{name, sets:[...]}]
+let currentGroupIndex = 0;
 let imageSets = [];
 
 const sliderEl      = document.getElementById("comparisonSlider");
@@ -523,14 +561,13 @@ const thumbList     = document.getElementById("thumbList");
 const viewerLoading = document.getElementById("viewerLoading");
 const afterFillEl   = document.getElementById("afterFill");
 const beforeFillEl  = document.getElementById("beforeFill");
+const groupTabsEl   = document.getElementById("groupTabs");
 
 let swipePercent = 50; // 0–100
 
 function setSwipePercent(percent) {
     swipePercent = Math.max(0, Math.min(100, percent));
     sliderEl.style.setProperty("--percent", swipePercent);
-
-    // update label fills
     afterFillEl.style.width  = swipePercent + "%";
     beforeFillEl.style.width = (100 - swipePercent) + "%";
 }
@@ -580,7 +617,6 @@ function applyViewTransform() {
     sliderEl.style.setProperty("--offsetY", offsetY + "px");
 }
 
-/* Mouse wheel zoom */
 sliderEl.addEventListener("wheel", (e) => {
     e.preventDefault();
     const delta = -e.deltaY * 0.0015;
@@ -603,7 +639,6 @@ sliderEl.addEventListener("pointerdown", (e) => {
     sliderEl.addEventListener("contextmenu", evt => evt.preventDefault());
 
     if (e.ctrlKey) {
-        // Ctrl + drag => pan
         isPanning = true;
         panStartX = e.clientX;
         panStartY = e.clientY;
@@ -613,7 +648,7 @@ sliderEl.addEventListener("pointerdown", (e) => {
         return;
     }
 
-    if (e.button !== 0) return; // swipe is left button only
+    if (e.button !== 0) return;
 
     isSwiping = true;
     sliderEl.setPointerCapture(e.pointerId);
@@ -666,7 +701,7 @@ function buildThumbnails() {
     });
 }
 
-function markActive(index) {
+function markActiveThumb(index) {
     [...thumbList.children].forEach((b, i) => {
         b.classList.toggle("thumb-btn-active", i === index);
     });
@@ -682,12 +717,10 @@ function resetView() {
 
 function waitForImages(imgA, imgB, callback) {
     let loaded = 0;
-
     function check() {
         loaded++;
         if (loaded === 2) callback();
     }
-
     [imgA, imgB].forEach((img) => {
         if (img.complete && img.naturalWidth > 0) {
             check();
@@ -704,22 +737,59 @@ function loadSet(index) {
     const set = imageSets[index];
     if (!set) return;
 
-    // Hide swipe UI, show per-viewer loader
     sliderEl.classList.remove("ready");
     viewerLoading.style.display = "flex";
 
-    // Set new sources
     baseImg.src    = set.before;
     overlayImg.src = set.after;
 
     resetView();
-    markActive(index);
+    markActiveThumb(index);
 
-    // Wait until both images loaded
     waitForImages(baseImg, overlayImg, () => {
         viewerLoading.style.display = "none";
         sliderEl.classList.add("ready");
     });
+}
+
+/* =========================================================
+   GROUP TABS
+========================================================= */
+
+function buildGroupTabs() {
+    groupTabsEl.innerHTML = "";
+
+    allGroups.forEach((group, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "group-tab";
+        btn.innerHTML = `
+            <span class="group-name">${group.name}</span>
+            <span class="group-count">(${group.sets.length})</span>
+        `;
+        btn.addEventListener("click", () => setActiveGroup(idx));
+        groupTabsEl.appendChild(btn);
+    });
+
+    setActiveGroup(0);  // default to first group
+}
+
+function markActiveGroupTab(index) {
+    [...groupTabsEl.children].forEach((btn, i) => {
+        btn.classList.toggle("group-tab-active", i === index);
+    });
+}
+
+function setActiveGroup(index) {
+    currentGroupIndex = index;
+    const group = allGroups[index];
+    imageSets = group ? (group.sets || []) : [];
+    markActiveGroupTab(index);
+    buildThumbnails();
+    if (imageSets.length) {
+        loadSet(0);
+    } else {
+        sliderEl.classList.remove("ready");
+    }
 }
 
 /* =========================================================
@@ -735,20 +805,21 @@ async function loadImageSets() {
         }
 
         const data = await response.json();
-        if (!data || !Array.isArray(data.sets)) {
-            console.error("sets.json has unexpected structure");
+
+        if (!data || !Array.isArray(data.groups)) {
+            console.error("sets.json has unexpected structure (expected groups[])");
             return;
         }
 
-        imageSets = data.sets;
-        if (!imageSets.length) {
-            console.warn("No image sets found in sets.json");
+        allGroups = data.groups;
+
+        if (!allGroups.length) {
+            console.warn("No groups found in sets.json");
             return;
         }
 
-        buildThumbnails();
-        // Load first set; loadSet handles spinner + ready class
-        loadSet(0);
+        buildGroupTabs();
+
     } catch (err) {
         console.error("Error loading sets.json", err);
     }
