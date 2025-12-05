@@ -2,12 +2,12 @@
 from pathlib import Path
 import json
 
-# Configuration
+# Valid extensions and name suffixes
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"}
 BEFORE_SUFFIX = "_before"
 AFTER_SUFFIX = "_after"
 
-# Optional: fixed order for group tabs
+# Optional: fixed tab order
 MEMBER_ORDER = ["Narmilan", "Fernando", "Veronica", "Sebastien", "Anuraj"]
 
 
@@ -35,7 +35,7 @@ def build_sets_for_member(member_name: str, member_dir: Path):
             base_id = stem[: -len(AFTER_SUFFIX)]
             pairs.setdefault(base_id, {})["after"] = f"images/{member_name}/{path.name}"
         else:
-            # Doesn't match XXXX_before / XXXX_after pattern, ignore
+            # Doesn't match XXXX_before / XXXX_after pattern
             continue
 
     # Keep only complete before+after pairs
@@ -52,12 +52,13 @@ def build_sets_for_member(member_name: str, member_dir: Path):
                 }
             )
 
-    # Sort for stable ordering
+    # Stable ordering
     sets.sort(key=lambda s: s["id"])
     return sets
 
 
 def main():
+    # This file lives in Interactive_Slider/, so repo_root is that folder
     repo_root = Path(__file__).resolve().parent
     images_dir = repo_root / "images"
     output_file = images_dir / "sets.json"
@@ -67,8 +68,9 @@ def main():
 
     groups = []
 
-    # 1) Add known members in fixed order (if folder exists)
     used = set()
+
+    # 1) Add known members in fixed order if folder exists
     for member_name in MEMBER_ORDER:
         member_dir = images_dir / member_name
         if member_dir.is_dir():
@@ -77,7 +79,7 @@ def main():
                 groups.append({"name": member_name, "sets": member_sets})
                 used.add(member_name)
 
-    # 2) Add any other folders (if you ever add extra people)
+    # 2) Add any other folders (for extra people)
     for member_dir in sorted(images_dir.iterdir()):
         if not member_dir.is_dir():
             continue
