@@ -1,0 +1,14 @@
+{
+  "groups": [
+    {
+      "name": "Fernando",
+      "sets": [
+        {
+          "id": "3_agisoft",
+          "before": "images/Fernando/3_agisoft_before.jpg",
+          "after": "images/Fernando/3_agisoft_after.jpg"
+        }
+      ]
+    }
+  ]
+}
