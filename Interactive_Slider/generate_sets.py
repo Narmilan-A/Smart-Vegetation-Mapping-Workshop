@@ -7,10 +7,14 @@ IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"}
 BEFORE_SUFFIX = "_before"
 AFTER_SUFFIX = "_after"
 
+# Optional: fixed order for group tabs
+MEMBER_ORDER = ["Narmilan", "Fernando", "Veronica", "Sebastien", "Anuraj"]
+
+
 def build_sets_for_member(member_name: str, member_dir: Path):
     """
     Scan one member folder (e.g. images/Narmilan) and return a list of
-    {id, before, after} dicts for complete pairs.
+    {id, before, after} dictionaries for complete before/after pairs.
     """
     pairs = {}
 
@@ -48,7 +52,7 @@ def build_sets_for_member(member_name: str, member_dir: Path):
                 }
             )
 
-    # Sort by id for stable ordering
+    # Sort for stable ordering
     sets.sort(key=lambda s: s["id"])
     return sets
 
@@ -63,21 +67,26 @@ def main():
 
     groups = []
 
-    # Each subdirectory inside images/ is treated as one group (member)
+    # 1) Add known members in fixed order (if folder exists)
+    used = set()
+    for member_name in MEMBER_ORDER:
+        member_dir = images_dir / member_name
+        if member_dir.is_dir():
+            member_sets = build_sets_for_member(member_name, member_dir)
+            if member_sets:
+                groups.append({"name": member_name, "sets": member_sets})
+                used.add(member_name)
+
+    # 2) Add any other folders (if you ever add extra people)
     for member_dir in sorted(images_dir.iterdir()):
         if not member_dir.is_dir():
             continue
-
-        member_name = member_dir.name  # e.g. "Narmilan"
+        member_name = member_dir.name
+        if member_name in used:
+            continue
         member_sets = build_sets_for_member(member_name, member_dir)
-
         if member_sets:
-            groups.append(
-                {
-                    "name": member_name,
-                    "sets": member_sets,
-                }
-            )
+            groups.append({"name": member_name, "sets": member_sets})
 
     output = {"groups": groups}
 
@@ -85,7 +94,8 @@ def main():
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Wrote {sum(len(g['sets']) for g in groups)} sets across {len(groups)} groups to {output_file}")
+    total_sets = sum(len(g["sets"]) for g in groups)
+    print(f"Wrote {total_sets} sets across {len(groups)} groups to {output_file}")
 
 
 if __name__ == "__main__":
