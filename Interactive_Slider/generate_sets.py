@@ -2,24 +2,14 @@
 from pathlib import Path
 import json
 
-# Valid extensions and name suffixes
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"}
 BEFORE_SUFFIX = "_before"
 AFTER_SUFFIX = "_after"
 
-# Tabs order – folders not in this list still work, they just appear afterwards
 MEMBER_ORDER = ["Narmilan", "Fernando", "Veronica", "Sebastien", "Anuraj"]
 
 
 def build_sets_for_member(member_name: str, member_dir: Path):
-    """
-    Scan one member folder (e.g. images/Narmilan) and return a list of
-    {id, before, after} dictionaries for complete before/after pairs.
-
-    Expected naming:
-      something_before.jpg
-      something_after.jpg
-    """
     pairs = {}
 
     for path in member_dir.iterdir():
@@ -30,7 +20,7 @@ def build_sets_for_member(member_name: str, member_dir: Path):
         if ext not in IMAGE_EXTENSIONS:
             continue
 
-        stem = path.stem  # filename without extension
+        stem = path.stem
 
         if stem.endswith(BEFORE_SUFFIX):
             base_id = stem[: -len(BEFORE_SUFFIX)]
@@ -39,10 +29,8 @@ def build_sets_for_member(member_name: str, member_dir: Path):
             base_id = stem[: -len(AFTER_SUFFIX)]
             pairs.setdefault(base_id, {})["after"] = f"images/{member_name}/{path.name}"
         else:
-            # Doesn't match XXXX_before / XXXX_after pattern
             continue
 
-    # Keep only complete before+after pairs
     sets = []
     for base_id, data in pairs.items():
         before = data.get("before")
@@ -56,13 +44,11 @@ def build_sets_for_member(member_name: str, member_dir: Path):
                 }
             )
 
-    # Stable ordering
     sets.sort(key=lambda s: s["id"])
     return sets
 
 
 def main():
-    # This file lives in Interactive_Slider/, so repo_root is that folder
     repo_root = Path(__file__).resolve().parent
     images_dir = repo_root / "images"
     output_file = images_dir / "sets.json"
@@ -73,7 +59,7 @@ def main():
     groups = []
     used = set()
 
-    # 1) Add known members in fixed order if folder exists
+    # fixed order first
     for member_name in MEMBER_ORDER:
         member_dir = images_dir / member_name
         if member_dir.is_dir():
@@ -82,7 +68,7 @@ def main():
                 groups.append({"name": member_name, "sets": member_sets})
                 used.add(member_name)
 
-    # 2) Add any other folders (for extra people)
+    # any extra folders
     for member_dir in sorted(images_dir.iterdir()):
         if not member_dir.is_dir():
             continue
