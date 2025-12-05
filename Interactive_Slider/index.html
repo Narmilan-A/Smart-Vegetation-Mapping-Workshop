@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Before / After Viewer – Swipe Tool</title>
+
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        /* Light blue / pink page-liner gradient */
+        background: linear-gradient(135deg, #dbeafe, #fce7f3);
+        color: #111;
+        overflow: hidden;
+    }
+
+    #app {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+        padding: 16px;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .frame {
+        width: min(96vw, 1600px);
+        height: min(94vh, 960px);
+        margin: auto;
+        padding: 18px 18px 20px;
+        background: #ffffffee;
+        border-radius: 18px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        backdrop-filter: blur(10px);
+    }
+
+    .frame-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 4px;
+    }
+
+    .frame-title {
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .frame-meta {
+        font-size: 0.85rem;
+        color: #6b7280;
+    }
+
+    .frame-body {
+        flex: 1;
+        display: flex;
+        gap: 16px;
+        min-height: 0;
+    }
+
+    /* =========================================================
+       GLOBAL LOADING SCREEN
+    ==========================================================*/
+
+    #loaderScreen {
+        position: fixed;
+        inset: 0;
+        background: #f3f4f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: system-ui, sans-serif;
+    }
+
+    .spinner {
+        width: 48px;
+        height: 48px;
+        border: 6px solid #d1d5db;
+        border-top-color: #3b82f6;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+        margin-bottom: 18px;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .loadingText {
+        font-size: 1rem;
+        color: #374151;
+        text-align: center;
+        min-height: 30px;
+        white-space: nowrap;
+        border-right: 2px solid #9ca3af;
+        animation: caretBlink 0.8s infinite;
+    }
+
+    @keyframes caretBlink {
+        0%, 100% { border-right-color: transparent; }
+        50% { border-right-color: #9ca3af; }
+    }
+
+    /* =========================================================
+       THUMBNAILS
+    ==========================================================*/
+
+    .thumbs-column {
+        width: 90px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: auto;          /* vertically center column */
+        margin-bottom: auto;
+        overflow-y: visible;
+        padding-right: 2px;
+    }
+
+    .thumb-btn {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        width: 100%;
+        height: 60px;
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        transition: transform 0.2s ease;
+    }
+
+    /* Thumbnail image fits container; zooms 10% on hover */
+    .thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.25s ease-out;
+        display: block;
+        border-radius: 12px;
+    }
+
+    .thumb-btn:hover img {
+        transform: scale(1.10); /* 10% zoom */
+    }
+
+    /* Hover-only label overlay */
+    .thumb-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        text-align: center;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+        border-radius: 12px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .thumb-btn:hover .thumb-label {
+        opacity: 1;
+    }
+
+    /* Selected thumbnail highlight */
+    .thumb-btn-active {
+        outline: none;
+        box-shadow:
+            0 0 0 3px rgba(59,130,246,0.35),
+            0 4px 14px rgba(0,0,0,0.20);
+        border-radius: 12px;
+        transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       SWIPE + ZOOM + PAN
+    ==========================================================*/
+
+    .comparison-shell {
+        flex: 1;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    /* Viewer loading overlay (per-viewer) */
+    .viewer-loading {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.35);
+        backdrop-filter: blur(3px);
+    }
+
+    .viewer-spinner {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 3px solid rgba(255,255,255,0.4);
+        border-top-color: #3b82f6;
+        animation: viewer-spin 0.8s linear infinite;
+    }
+
+    @keyframes viewer-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .comparison-slider {
+        --percent: 50;      /* swipe fraction from left (0–100) */
+        --zoom: 1;          /* zoom factor */
+        --offsetX: 0px;     /* pan X in px */
+        --offsetY: 0px;     /* pan Y in px */
+
+        position: relative;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        touch-action: pan-y;
+        overflow: hidden;
+        background: #000;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease-out;
+    }
+
+    .comparison-slider.ready {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .comparison-viewport {
+        position: absolute;
+        inset: 0;
+    }
+
+    .comparison-layer {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+    }
+
+    /* Zoom & pan applied to both images */
+    .comparison-layer img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+        transform: translate(var(--offsetX), var(--offsetY)) scale(var(--zoom));
+        transform-origin: center center;
+    }
+
+    .comparison-base {
+        z-index: 1;
+    }
+
+    /* Overlay is full-size; we clip it horizontally for swipe */
+    .comparison-overlay {
+        z-index: 2;
+        clip-path: inset(0 calc(100% - var(--percent) * 1%) 0 0);
+    }
+
+    /* Handle (vertical bar) */
+    .comparison-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--percent) * 1%);
+        transform: translateX(-50%);
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .comparison-handle-line {
+        width: 2px;
+        background: #fff;
+        height: 100%;
+        box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+
+    .comparison-handle-knob {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        box-shadow: 0 0 0 1px #aaa, 0 8px 16px rgba(0,0,0,0.25);
+    }
+
+    /* =========================================================
+       LABELS WITH FILL
+    ==========================================================*/
+
+    .comparison-label {
+        position: absolute;
+        top: 8px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        z-index: 4;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    .comparison-label-after {
+        left: 8px;
+        background: #dbeafe;           /* light blue */
+    }
+
+    .comparison-label-before {
+        right: 8px;
+        background: #fee2e2;           /* light pink */
+    }
+
+    .label-text {
+        position: relative;
+        z-index: 3;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+    }
+
+    .label-main {
+        font-weight: 700;
+    }
+
+
+    .label-sub {
+        font-size: 0.68rem;
+        color: #4b5563;
+    }
+
+    /* Fill bar (proportion indicator) */
+    .label-fill {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0%;
+        z-index: 1;
+        pointer-events: none;
+        transition: width 0.14s ease-out;
+        opacity: 0.6;
+    }
+
+    .label-fill-after {
+        left: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(96, 165, 250, 0.6),
+            rgba(37, 99, 235, 0.6)
+        );
+    }
+
+    .label-fill-before {
+        right: 0;
+        background: linear-gradient(
+            270deg,
+            rgba(251, 113, 133, 0.6),
+            rgba(225, 29, 72, 0.6)
+        );
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- GLOBAL LOADER -->
+<div id="loaderScreen">
+    <div class="spinner"></div>
+    <div class="loadingText" id="loadingText"></div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app">
+    <div class="frame">
+        <div class="frame-header">
+            <div>
+                <div class="frame-title">Before / After Viewer</div>
+                <div class="frame-meta">
+                    Drag to swipe • Ctrl + drag to pan • Mouse wheel to zoom
+                </div>
+            </div>
+        </div>
+
+        <div class="frame-body">
+            <div class="thumbs-column" id="thumbList"></div>
+
+            <div class="comparison-shell">
+                <!-- Per-viewer loading overlay -->
+                <div class="viewer-loading" id="viewerLoading">
+                    <div class="viewer-spinner"></div>
+                </div>
+
+                <div class="comparison-slider" id="comparisonSlider">
+                    <div class="comparison-viewport" id="comparisonViewport">
+                        <!-- Base (bottom) layer -->
+                        <div class="comparison-layer comparison-base">
+                            <img src="before.jpg" id="imgBase" draggable="false" alt="Base layer">
+                        </div>
+
+                        <!-- Overlay (swiped) layer -->
+                        <div class="comparison-layer comparison-overlay" id="overlayLayer">
+                            <img src="after.jpg" id="imgOverlay" draggable="false" alt="Overlay layer">
+                        </div>
+                    </div>
+
+                    <!-- Labels -->
+                    <div class="comparison-label comparison-label-after">
+                        <div class="label-fill label-fill-after" id="afterFill"></div>
+                        <span class="label-text">
+                            <span class="label-main">After</span>
+                            <span class="label-sub">(Top Image)</span>
+                        </span>
+                    </div>
+
+                    <div class="comparison-label comparison-label-before">
+                        <div class="label-fill label-fill-before" id="beforeFill"></div>
+                        <span class="label-text">
+                            <span class="label-main">Before</span>
+                            <span class="label-sub">(Bottom Image)</span>
+                        </span>
+                    </div>
+
+                    <!-- Handle -->
+                    <div class="comparison-handle">
+                        <div class="comparison-handle-line"></div>
+                        <div class="comparison-handle-knob"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   GLOBAL LOADER MESSAGES
+========================================================= */
+
+const funnyMessages = [
+    "Calibrating pixels… please stand still 👀",
+    "Teaching the images to behave…",
+    "Sharpening contrast with a tiny sword 🗡️",
+    "Loading… teleportation still in beta",
+    "Polishing the visuals until they shine ✨",
+    "Convincing the images not to fight…",
+    "Aligning photons in your honor 🚀",
+];
+
+const loadingText = document.getElementById("loadingText");
+
+function typeMessage(text, callback) {
+    let i = 0;
+    loadingText.textContent = "";
+    const intv = setInterval(() => {
+        loadingText.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+            clearInterval(intv);
+            setTimeout(callback, 700);
+        }
+    }, 80);
+}
+
+function cycleMessages() {
+    const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+    typeMessage(randomMsg, cycleMessages);
+}
+cycleMessages();
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.body.style.overflow = "hidden";
+        document.getElementById("loaderScreen").style.display = "none";
+        document.getElementById("app").style.opacity = 1;
+    }, 1500);
+});
+
+/* =========================================================
+   IMAGE SETS + THUMBNAILS
+========================================================= */
+
+let imageSets = [];
+
+const sliderEl      = document.getElementById("comparisonSlider");
+const baseImg       = document.getElementById("imgBase");
+const overlayImg    = document.getElementById("imgOverlay");
+const thumbList     = document.getElementById("thumbList");
+const viewerLoading = document.getElementById("viewerLoading");
+const afterFillEl   = document.getElementById("afterFill");
+const beforeFillEl  = document.getElementById("beforeFill");
+
+let swipePercent = 50; // 0–100
+
+function setSwipePercent(percent) {
+    swipePercent = Math.max(0, Math.min(100, percent));
+    sliderEl.style.setProperty("--percent", swipePercent);
+
+    // update label fills
+    afterFillEl.style.width  = swipePercent + "%";
+    beforeFillEl.style.width = (100 - swipePercent) + "%";
+}
+
+function clientXToPercent(clientX) {
+    const rect = sliderEl.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const frac = x / rect.width;
+    return frac * 100;
+}
+
+/* =========================================================
+   ZOOM + PAN STATE
+========================================================= */
+
+let zoom    = 1;
+const minZoom = 1;
+const maxZoom = 5;
+let offsetX = 0;
+let offsetY = 0;
+
+function clampPan() {
+    const rect = sliderEl.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    const zoomedW = w * zoom;
+    const zoomedH = h * zoom;
+
+    const extraX = (zoomedW - w) / 2;
+    const extraY = (zoomedH - h) / 2;
+
+    if (zoom <= 1) {
+        offsetX = 0;
+        offsetY = 0;
+        return;
+    }
+
+    offsetX = Math.max(-extraX, Math.min(extraX, offsetX));
+    offsetY = Math.max(-extraY, Math.min(extraY, offsetY));
+}
+
+function applyViewTransform() {
+    clampPan();
+    sliderEl.style.setProperty("--zoom", zoom);
+    sliderEl.style.setProperty("--offsetX", offsetX + "px");
+    sliderEl.style.setProperty("--offsetY", offsetY + "px");
+}
+
+/* Mouse wheel zoom */
+sliderEl.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const delta = -e.deltaY * 0.0015;
+    zoom = Math.min(maxZoom, Math.max(minZoom, zoom + delta));
+    applyViewTransform();
+}, { passive: false });
+
+/* =========================================================
+   SWIPE + PAN POINTER LOGIC
+========================================================= */
+
+let isSwiping = false;
+let isPanning = false;
+let panStartX = 0;
+let panStartY = 0;
+let panBaseX  = 0;
+let panBaseY  = 0;
+
+sliderEl.addEventListener("pointerdown", (e) => {
+    sliderEl.addEventListener("contextmenu", evt => evt.preventDefault());
+
+    if (e.ctrlKey) {
+        // Ctrl + drag => pan
+        isPanning = true;
+        panStartX = e.clientX;
+        panStartY = e.clientY;
+        panBaseX  = offsetX;
+        panBaseY  = offsetY;
+        sliderEl.setPointerCapture(e.pointerId);
+        return;
+    }
+
+    if (e.button !== 0) return; // swipe is left button only
+
+    isSwiping = true;
+    sliderEl.setPointerCapture(e.pointerId);
+
+    const pct = clientXToPercent(e.clientX);
+    setSwipePercent(pct);
+});
+
+sliderEl.addEventListener("pointermove", (e) => {
+    if (isSwiping) {
+        const pct = clientXToPercent(e.clientX);
+        setSwipePercent(pct);
+    } else if (isPanning) {
+        offsetX = panBaseX + (e.clientX - panStartX);
+        offsetY = panBaseY + (e.clientY - panStartY);
+        applyViewTransform();
+    }
+});
+
+function endPointer(e) {
+    isSwiping = false;
+    isPanning = false;
+    try {
+        sliderEl.releasePointerCapture(e.pointerId);
+    } catch {}
+}
+
+sliderEl.addEventListener("pointerup", endPointer);
+sliderEl.addEventListener("pointercancel", endPointer);
+sliderEl.addEventListener("pointerleave", () => {
+    isSwiping = false;
+    isPanning = false;
+});
+
+/* =========================================================
+   THUMBNAILS / SET LOADING
+========================================================= */
+
+function buildThumbnails() {
+    thumbList.innerHTML = "";
+    imageSets.forEach((set, i) => {
+        const btn = document.createElement("button");
+        btn.className = "thumb-btn";
+        btn.innerHTML = `
+            <img src="${set.after}" alt="Thumbnail ${set.id || (i + 1)}">
+            <span class="thumb-label">${set.id || ("Set " + (i + 1))}</span>
+        `;
+        btn.addEventListener("click", () => loadSet(i));
+        thumbList.appendChild(btn);
+    });
+}
+
+function markActive(index) {
+    [...thumbList.children].forEach((b, i) => {
+        b.classList.toggle("thumb-btn-active", i === index);
+    });
+}
+
+function resetView() {
+    zoom = 1;
+    offsetX = 0;
+    offsetY = 0;
+    applyViewTransform();
+    setSwipePercent(50);
+}
+
+function waitForImages(imgA, imgB, callback) {
+    let loaded = 0;
+
+    function check() {
+        loaded++;
+        if (loaded === 2) callback();
+    }
+
+    [imgA, imgB].forEach((img) => {
+        if (img.complete && img.naturalWidth > 0) {
+            check();
+        } else {
+            img.addEventListener("load", function handle() {
+                img.removeEventListener("load", handle);
+                check();
+            });
+        }
+    });
+}
+
+function loadSet(index) {
+    const set = imageSets[index];
+    if (!set) return;
+
+    // Hide swipe UI, show per-viewer loader
+    sliderEl.classList.remove("ready");
+    viewerLoading.style.display = "flex";
+
+    // Set new sources
+    baseImg.src    = set.before;
+    overlayImg.src = set.after;
+
+    resetView();
+    markActive(index);
+
+    // Wait until both images loaded
+    waitForImages(baseImg, overlayImg, () => {
+        viewerLoading.style.display = "none";
+        sliderEl.classList.add("ready");
+    });
+}
+
+/* =========================================================
+   Fetch sets.json and initialise viewer
+========================================================= */
+
+async function loadImageSets() {
+    try {
+        const response = await fetch("images/sets.json?cacheBust=" + Date.now());
+        if (!response.ok) {
+            console.error("Failed to load sets.json", response.status);
+            return;
+        }
+
+        const data = await response.json();
+        if (!data || !Array.isArray(data.sets)) {
+            console.error("sets.json has unexpected structure");
+            return;
+        }
+
+        imageSets = data.sets;
+        if (!imageSets.length) {
+            console.warn("No image sets found in sets.json");
+            return;
+        }
+
+        buildThumbnails();
+        // Load first set; loadSet handles spinner + ready class
+        loadSet(0);
+    } catch (err) {
+        console.error("Error loading sets.json", err);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadImageSets);
+</script>
+
+</body>
+</html>
