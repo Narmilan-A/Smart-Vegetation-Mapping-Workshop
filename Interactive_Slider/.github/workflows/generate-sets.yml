@@ -26,8 +26,8 @@ jobs:
           python-version: "3.x"
 
       - name: Generate sets.json inside Interactive_Slider
+        working-directory: Interactive_Slider
         run: |
-          cd Interactive_Slider
           python generate_sets.py
 
       - name: Commit updated sets.json
