@@ -7,18 +7,14 @@ IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"}
 BEFORE_SUFFIX = "_before"
 AFTER_SUFFIX = "_after"
 
-def main():
-    repo_root = Path(__file__).resolve().parent
-    images_dir = repo_root / "images"
-    output_file = images_dir / "sets.json"
+def build_sets_for_member(member_name: str, member_dir: Path):
+    """
+    Scan one member folder (e.g. images/Narmilan) and return a list of
+    {id, before, after} dicts for complete pairs.
+    """
+    pairs = {}
 
-    if not images_dir.is_dir():
-        raise SystemExit(f"Images directory not found: {images_dir}")
-
-    # id -> {"before": str|None, "after": str|None}
-    sets = {}
-
-    for path in images_dir.iterdir():
+    for path in member_dir.iterdir():
         if not path.is_file():
             continue
 
@@ -27,23 +23,24 @@ def main():
             continue
 
         stem = path.stem  # filename without extension
+
         if stem.endswith(BEFORE_SUFFIX):
             base_id = stem[: -len(BEFORE_SUFFIX)]
-            sets.setdefault(base_id, {})["before"] = f"images/{path.name}"
+            pairs.setdefault(base_id, {})["before"] = f"images/{member_name}/{path.name}"
         elif stem.endswith(AFTER_SUFFIX):
             base_id = stem[: -len(AFTER_SUFFIX)]
-            sets.setdefault(base_id, {})["after"] = f"images/{path.name}"
+            pairs.setdefault(base_id, {})["after"] = f"images/{member_name}/{path.name}"
         else:
-            # Doesn't match the XXXX_before / XXXX_after pattern, ignore
+            # Doesn't match XXXX_before / XXXX_after pattern, ignore
             continue
 
-    # Only keep complete pairs
-    output_sets = []
-    for base_id, data in sets.items():
+    # Keep only complete before+after pairs
+    sets = []
+    for base_id, data in pairs.items():
         before = data.get("before")
         after = data.get("after")
         if before and after:
-            output_sets.append(
+            sets.append(
                 {
                     "id": base_id,
                     "before": before,
@@ -51,16 +48,45 @@ def main():
                 }
             )
 
-    # Sort for stable ordering by id
-    output_sets.sort(key=lambda s: s["id"])
+    # Sort by id for stable ordering
+    sets.sort(key=lambda s: s["id"])
+    return sets
 
-    output = {"sets": output_sets}
+
+def main():
+    repo_root = Path(__file__).resolve().parent
+    images_dir = repo_root / "images"
+    output_file = images_dir / "sets.json"
+
+    if not images_dir.is_dir():
+        raise SystemExit(f"Images directory not found: {images_dir}")
+
+    groups = []
+
+    # Each subdirectory inside images/ is treated as one group (member)
+    for member_dir in sorted(images_dir.iterdir()):
+        if not member_dir.is_dir():
+            continue
+
+        member_name = member_dir.name  # e.g. "Narmilan"
+        member_sets = build_sets_for_member(member_name, member_dir)
+
+        if member_sets:
+            groups.append(
+                {
+                    "name": member_name,
+                    "sets": member_sets,
+                }
+            )
+
+    output = {"groups": groups}
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Wrote {len(output_sets)} sets to {output_file}")
+    print(f"Wrote {sum(len(g['sets']) for g in groups)} sets across {len(groups)} groups to {output_file}")
+
 
 if __name__ == "__main__":
     main()
