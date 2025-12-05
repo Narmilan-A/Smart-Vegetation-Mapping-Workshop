@@ -10,7 +10,6 @@
     body {
         margin: 0;
         font-family: system-ui, sans-serif;
-        /* Light blue / pink page-liner gradient */
         background: linear-gradient(135deg, #dbeafe, #fce7f3);
         color: #111;
         overflow: hidden;
@@ -66,7 +65,7 @@
         color: #6b7280;
     }
 
-    /* ===== NEW: group tabs (names) ===== */
+    /* Group tabs */
     .group-tabs {
         display: inline-flex;
         flex-wrap: wrap;
@@ -116,10 +115,7 @@
         min-height: 0;
     }
 
-    /* =========================================================
-       GLOBAL LOADING SCREEN
-    ==========================================================*/
-
+    /* Global loading screen */
     #loaderScreen {
         position: fixed;
         inset: 0;
@@ -161,16 +157,13 @@
         50% { border-right-color: #9ca3af; }
     }
 
-    /* =========================================================
-       THUMBNAILS
-    ==========================================================*/
-
+    /* Thumbnails */
     .thumbs-column {
         width: 90px;
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-top: auto;          /* vertically center column */
+        margin-top: auto;
         margin-bottom: auto;
         overflow-y: visible;
         padding-right: 2px;
@@ -237,10 +230,7 @@
         transform: translateY(-2px);
     }
 
-    /* =========================================================
-       SWIPE + ZOOM + PAN
-    ==========================================================*/
-
+    /* Viewer */
     .comparison-shell {
         flex: 1;
         border-radius: 14px;
@@ -358,6 +348,7 @@
         box-shadow: 0 0 0 1px #aaa, 0 8px 16px rgba(0,0,0,0.25);
     }
 
+    /* Labels */
     .comparison-label {
         position: absolute;
         top: 8px;
@@ -453,7 +444,6 @@
                 </div>
             </div>
 
-            <!-- NEW: group tabs container -->
             <div class="group-tabs" id="groupTabs"></div>
         </div>
 
@@ -503,10 +493,7 @@
 </div>
 
 <script>
-/* =========================================================
-   GLOBAL LOADER MESSAGES
-========================================================= */
-
+/* Global loader text */
 const funnyMessages = [
     "Calibrating pixels… please stand still 👀",
     "Teaching the images to behave…",
@@ -546,10 +533,7 @@ window.addEventListener("load", () => {
     }, 1500);
 });
 
-/* =========================================================
-   IMAGE SETS + GROUPS + THUMBNAILS
-========================================================= */
-
+/* Image sets + groups */
 let allGroups = [];   // [{name, sets:[...]}]
 let currentGroupIndex = 0;
 let imageSets = [];
@@ -563,7 +547,7 @@ const afterFillEl   = document.getElementById("afterFill");
 const beforeFillEl  = document.getElementById("beforeFill");
 const groupTabsEl   = document.getElementById("groupTabs");
 
-let swipePercent = 50; // 0–100
+let swipePercent = 50;
 
 function setSwipePercent(percent) {
     swipePercent = Math.max(0, Math.min(100, percent));
@@ -579,10 +563,7 @@ function clientXToPercent(clientX) {
     return frac * 100;
 }
 
-/* =========================================================
-   ZOOM + PAN STATE
-========================================================= */
-
+/* Zoom + pan */
 let zoom    = 1;
 const minZoom = 1;
 const maxZoom = 5;
@@ -624,10 +605,7 @@ sliderEl.addEventListener("wheel", (e) => {
     applyViewTransform();
 }, { passive: false });
 
-/* =========================================================
-   SWIPE + PAN POINTER LOGIC
-========================================================= */
-
+/* Swipe + pan pointer logic */
 let isSwiping = false;
 let isPanning = false;
 let panStartX = 0;
@@ -683,10 +661,7 @@ sliderEl.addEventListener("pointerleave", () => {
     isPanning = false;
 });
 
-/* =========================================================
-   THUMBNAILS / SET LOADING
-========================================================= */
-
+/* Thumbnails / set loading */
 function buildThumbnails() {
     thumbList.innerHTML = "";
     imageSets.forEach((set, i) => {
@@ -752,10 +727,7 @@ function loadSet(index) {
     });
 }
 
-/* =========================================================
-   GROUP TABS
-========================================================= */
-
+/* Group tabs */
 function buildGroupTabs() {
     groupTabsEl.innerHTML = "";
 
@@ -770,7 +742,7 @@ function buildGroupTabs() {
         groupTabsEl.appendChild(btn);
     });
 
-    setActiveGroup(0);  // default to first group
+    setActiveGroup(0);  // default first group
 }
 
 function markActiveGroupTab(index) {
@@ -792,10 +764,7 @@ function setActiveGroup(index) {
     }
 }
 
-/* =========================================================
-   Fetch sets.json and initialise viewer
-========================================================= */
-
+/* Load sets.json and init */
 async function loadImageSets() {
     try {
         const response = await fetch("images/sets.json?cacheBust=" + Date.now());
@@ -806,12 +775,12 @@ async function loadImageSets() {
 
         const data = await response.json();
 
-        if (!data || !Array.isArray(data.groups)) {
+        if (Array.isArray(data.groups)) {
+            allGroups = data.groups;
+        } else {
             console.error("sets.json has unexpected structure (expected groups[])");
             return;
         }
-
-        allGroups = data.groups;
 
         if (!allGroups.length) {
             console.warn("No groups found in sets.json");
