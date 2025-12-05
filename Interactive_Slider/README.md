@@ -13,7 +13,7 @@ This is a simple browser-based before/after image comparison tool. You place you
 It loads your image pairs, generates a `sets.json` file, and displays them in a clean slider UI through `index.html`. Everything updates automatically when you add or change images.
 
 ## Example: 
-You can see a working example here: https://narmilan-a.github.io/Smart-Vegetation-Mapping-Workshop/
+You can see a working example here: https://narmilan-a.github.io/Smart-Vegetation-Mapping-Workshop/Interactive_Slider/
 
 ## **Steps**
 1. **Clone the repository**
