@@ -1,32 +1,36 @@
-name: Generate image sets for Interactive Slider
+name: Generate image sets
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - "Interactive_Slider/**"
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write  # needed if you want auto-commits
 
     steps:
-      - name: Checkout repo
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
+      - name: Install dependencies (if any)
+        run: |
+          python -m pip install --upgrade pip
+          # pip install -r requirements.txt  # if you ever need it
+
       - name: Generate sets.json
-        working-directory: Interactive_Slider
-        run: python generate_sets.py
+        run: |
+          python generate_sets.py
 
       - name: Commit updated sets.json
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-update Interactive_Slider/images/sets.json"
-          file_pattern: Interactive_Slider/images/sets.json
+          commit_message: "chore: update generated images/sets.json"
+          file_pattern: images/sets.json
