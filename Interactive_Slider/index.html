@@ -770,20 +770,31 @@ async function loadImageSets() {
         const response = await fetch("images/sets.json?cacheBust=" + Date.now());
         if (!response.ok) {
             console.error("Failed to load sets.json", response.status);
+            // stop spinner + show message
+            viewerLoading.style.display = "none";
+            sliderEl.classList.remove("ready");
+            groupTabsEl.innerHTML = "<span>Could not load images/sets.json (HTTP " + response.status + ").</span>";
             return;
         }
 
         const data = await response.json();
 
-        if (Array.isArray(data.groups)) {
+        // 1) Preferred: grouped format { "groups": [...] }
+        if (Array.isArray(data.groups) && data.groups.length) {
             allGroups = data.groups;
-        } else {
-            console.error("sets.json has unexpected structure (expected groups[])");
-            return;
         }
-
-        if (!allGroups.length) {
-            console.warn("No groups found in sets.json");
+        // 2) Fallback: old flat format { "sets": [...] }
+        else if (Array.isArray(data.sets) && data.sets.length) {
+            console.warn("sets.json is using old flat format; wrapping into a single group.");
+            allGroups = [{ name: "All images", sets: data.sets }];
+        }
+        // 3) Nothing usable
+        else {
+            console.error("sets.json has no groups/sets:", data);
+            viewerLoading.style.display = "none";
+            sliderEl.classList.remove("ready");
+            groupTabsEl.innerHTML = "<span>No image sets found in images/sets.json.</span>";
+            thumbList.innerHTML = "";
             return;
         }
 
@@ -791,8 +802,12 @@ async function loadImageSets() {
 
     } catch (err) {
         console.error("Error loading sets.json", err);
+        viewerLoading.style.display = "none";
+        sliderEl.classList.remove("ready");
+        groupTabsEl.innerHTML = "<span>Error loading image sets. See console for details.</span>";
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", loadImageSets);
 </script>
