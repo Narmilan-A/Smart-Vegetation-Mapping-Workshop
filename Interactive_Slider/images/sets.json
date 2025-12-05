@@ -1,32 +1,32 @@
 {
   "groups": [
     {
-      "name": "Fernando",
-      "sets": [
-        {
-          "id": "3_agisoft",
-          "before": "images/Fernando/3_agisoft_before.jpg",
-          "after": "images/Fernando/3_agisoft_after.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Veronica",
+      "name": "Narmilan",
       "sets": [
         {
           "id": "1_realityscan",
-          "before": "images/Veronica/1_realityscan_before.jpg",
-          "after": "images/Veronica/1_realityscan_after.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Anuraj",
-      "sets": [
+          "before": "images/Narmilan/1_realityscan_before.jpg",
+          "after": "images/Narmilan/1_realityscan_after.jpg"
+        },
+        {
+          "id": "2_realityscan",
+          "before": "images/Narmilan/2_realityscan_before.png",
+          "after": "images/Narmilan/2_realityscan_after.png"
+        },
+        {
+          "id": "3_agisoft",
+          "before": "images/Narmilan/3_agisoft_before.jpg",
+          "after": "images/Narmilan/3_agisoft_after.jpg"
+        },
+        {
+          "id": "4_dem_editing",
+          "before": "images/Narmilan/4_dem_editing_before.png",
+          "after": "images/Narmilan/4_dem_editing_after.png"
+        },
         {
           "id": "5_dem_editing",
-          "before": "images/Anuraj/5_dem_editing_before.png",
-          "after": "images/Anuraj/5_dem_editing_after.png"
+          "before": "images/Narmilan/5_dem_editing_before.png",
+          "after": "images/Narmilan/5_dem_editing_after.png"
         }
       ]
     }
